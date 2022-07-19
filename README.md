@@ -6,7 +6,7 @@ Ibadat SDk
 
 ## Setup
 
-The simplest way to use SweetAlertDialog is to add the library as aar dependency to your build.
+The simplest way to use IbadatSDK is to add the library as aar dependency to your build.
 
 [Main/Parent Project Url](https://github.com/)
 
