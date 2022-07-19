@@ -86,7 +86,8 @@
                                 android:text="Not Found"
                                 android:textColor="@color/black"
                                 android:textSize="18sp"
-                                android:textStyle="bold" />
+                                android:textStyle="bold"
+                                android:layout_marginLeft="45dp" />
 
                             <com.ibadat.sdk.views.MyCustomTextView
                                 android:id="@+id/count"
@@ -94,7 +95,8 @@
                                 android:layout_height="wrap_content"
                                 android:layout_marginStart="45dp"
                                 android:layout_marginBottom="@dimen/margin_8"
-                                android:textColor="@color/black" />
+                                android:textColor="@color/black"
+                                android:layout_marginLeft="45dp" />
 
                             <SeekBar
                                 android:id="@+id/mediacontroller_progress"
