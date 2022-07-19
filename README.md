@@ -2,21 +2,40 @@ Ibadat SDk
 ===================
 
 ## ScreenShot
-<img src="https://github.com/gakkmediabd/IbadatSDK/blob/master/Screenshot_20220719-161130_IbadatSDK.jpg" width="346" height="615" />
-## Setup
-
-The simplest way to use IbadatSDK is to add the library as aar dependency to your build.
-
-[Main/Parent Project Url](https://github.com/)
+<img src="https://github.com/gakkmediabd/IbadatSDK/blob/master/Screenshot_20220719-161130_IbadatSDK.jpg" width="300" height="500" />
 
 **Maven**
 <dependency>
-<groupId>com.ibadat.sdk</groupId>
-<artifactId>library</artifactId>
 <version>1.0</version>
-<type>aar</type>
 </dependency>
 
+**Used Dependency
+
+    implementation project(path: ':azan')
+    implementation 'com.google.android.gms:play-services-measurement:21.0.0'
+    implementation 'androidx.appcompat:appcompat:1.4.1'
+    implementation 'androidx.constraintlayout:constraintlayout:2.1.3'
+    implementation 'com.google.android.gms:play-services-maps:18.0.2'
+    implementation 'androidx.legacy:legacy-support-v4:1.0.0'
+    implementation 'androidx.cardview:cardview:1.0.0'
+    implementation 'androidx.core:core-ktx:1.2.0'
+    implementation 'com.google.android.material:material:1.4.0'
+    implementation 'jp.wasabeef:recyclerview-animators:4.0.2'
+    implementation "androidx.lifecycle:lifecycle-runtime-ktx:2.2.0-alpha01"
+    implementation "androidx.lifecycle:lifecycle-livedata-ktx:2.4.1"
+    implementation "com.squareup.retrofit2:retrofit:2.9.0"
+    implementation "com.squareup.retrofit2:converter-gson:2.9.0"
+    implementation "com.squareup.retrofit2:converter-scalars:2.9.0"
+    implementation "com.google.code.gson:gson:2.8.6"
+    implementation "androidx.navigation:navigation-fragment-ktx:2.4.2"
+    implementation "androidx.navigation:navigation-ui-ktx:2.4.2"
+    implementation 'com.github.msarhan:ummalqura-calendar:1.1.9'
+    implementation 'com.google.android.gms:play-services-location:15.0.1'
+    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.3.9")
+    implementation 'com.github.bumptech.glide:glide:4.11.0'
+    annotationProcessor 'com.github.bumptech.glide:compiler:4.11.0'
+    
+## Setup
 **Gradle**
 
     repositories {
@@ -29,7 +48,7 @@ The simplest way to use IbadatSDK is to add the library as aar dependency to you
 
 ## Usage
 
-more usages about progress, please see the sample.
+More usages about ibadatSDK, please see the sample.
 
 Open Dua
 
@@ -51,7 +70,7 @@ Open Hadith
 
     IbadatSdkCore.openFeature(this, IbadatSdkCore.SALATLEARNING)
 
-[more about: Gakk Media BD Ltd](https://gakkmedia.com/)
+[More about developer complany: Gakk Media BD Ltd](https://gakkmedia.com/)
 
 ## License
 
