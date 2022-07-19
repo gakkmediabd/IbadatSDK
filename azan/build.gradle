@@ -11,11 +11,11 @@ ext {
     PUBLISH_VERSION = '3.0'
 }
 android {
-    compileSdkVersion 29
+    compileSdk 29
 
     defaultConfig {
         minSdkVersion 16
-        targetSdkVersion 29
+        targetSdk 29
         versionCode 1
         versionName "3.0"
 
