@@ -70,7 +70,7 @@ Open Hadith
 
     IbadatSdkCore.openFeature(this, IbadatSdkCore.SALATLEARNING)
 
-[More about developer complany: Gakk Media BD Ltd](https://gakkmedia.com/)
+[More about developer complany: Gakk Media BD Ltd <img src="https://gakkmedia.com/wp-content/uploads/2019/03/Gakk-Media_Logo-final-black.png" width="200" height="40" />](https://gakkmedia.com/)
 
 ## License
 
