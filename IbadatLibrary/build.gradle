@@ -73,22 +73,22 @@ dependencies {
     annotationProcessor 'com.github.bumptech.glide:compiler:4.11.0'
 }
 //For Maven Publish
-//afterEvaluate {
-//    publishing {
-//        publications {
-//            release(MavenPublication) {
-//                from components.release
-//                groupId = "com.ibadat.sdk"
-//                artifactId = "ibadat_sdk"
-//                version = "1.0"
+afterEvaluate {
+    publishing {
+        publications {
+            release(MavenPublication) {
+                from components.release
+                groupId = "com.ibadat.sdk"
+                artifactId = "ibadat_sdk"
+                version = "1.0"
+            }
+        }
+//        repositories {
+//            maven {
+//                name = "myrepo"
+//                url = uri("${project.buildDir}/repo")
 //            }
 //        }
-////        repositories {
-////            maven {
-////                name = "myrepo"
-////                url = uri("${project.buildDir}/repo")
-////            }
-////        }
-//    }
-//}
+    }
+}
 
