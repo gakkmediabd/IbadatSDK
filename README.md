@@ -1,9 +1,8 @@
 Ibadat SDk
 ===================
 
-
 ## ScreenShot
-
+<img src="https://github.com/gakkmediabd/IbadatSDK/blob/master/Screenshot_20220719-161130_IbadatSDK.jpg" width="346" height="615" />
 ## Setup
 
 The simplest way to use IbadatSDK is to add the library as aar dependency to your build.
