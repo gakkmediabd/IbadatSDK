@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <data>
+        <variable
+            name="viewModel"
+            type="com.ibadat.sdk.player.PlayerViewModel" />
+    </data>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/apps_gray2"
+        android:orientation="vertical">
+
+        <ProgressBar
+            android:id="@+id/bottomProgressDialog"
+            style="?android:attr/buttonStyleSmall"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_centerInParent="true"
+            android:background="@android:color/transparent"
+            android:indeterminateDrawable="@drawable/progress"
+            android:progressTint="@color/dialogColor"
+            android:visibility="gone" />
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@color/white"
+                android:elevation="12dp"
+                android:innerRadius="0dp"
+                android:padding="5dp"
+                app:cardCornerRadius="10dp"
+                app:cardElevation="4dp"
+                app:cardUseCompatPadding="true">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical">
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:padding="10dp">
+
+                        <RelativeLayout
+                            android:id="@+id/rlhadith_icon_number_background"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content">
+
+                            <ImageView
+                                android:layout_width="40dp"
+                                android:layout_height="40dp"
+                                android:layout_centerInParent="true"
+                                android:id="@+id/image"/>
+
+                            <com.ibadat.sdk.views.MyCustomTextView
+                                android:id="@+id/surahCount"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_centerInParent="true"
+                                android:text="0"
+                                android:textColor="@color/colorAccent" />
+                        </RelativeLayout>
+                        <LinearLayout
+                            android:id="@+id/linearLayoutTitle"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_centerVertical="true"
+                            android:orientation="vertical"
+                            android:paddingLeft="10dp"
+                            android:paddingRight="5dp">
+
+                            <com.ibadat.sdk.views.MyCustomTextView
+                                android:id="@+id/surah_title"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="45dp"
+                                android:maxLines="1"
+                                android:text="Not Found"
+                                android:textColor="@color/black"
+                                android:textSize="18sp"
+                                android:textStyle="bold" />
+
+                            <com.ibadat.sdk.views.MyCustomTextView
+                                android:id="@+id/count"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="45dp"
+                                android:layout_marginBottom="@dimen/margin_8"
+                                android:textColor="@color/black" />
+
+                            <SeekBar
+                                android:id="@+id/mediacontroller_progress"
+                                playerAction="@{viewModel.seekTo}"
+                                playerCurrentPosition="@{viewModel.playerCurrentPosition}"
+                                playerDuration="@{viewModel.playerDuration}"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="@dimen/margin_16"
+                                android:layout_marginEnd="@dimen/margin_16"
+                                android:progressTint="@color/apps_color"
+                                android:thumbTint="@color/apps_color" />
+
+                            <include
+                                android:id="@+id/mini_player"
+                                layout="@layout/bottom_audio_player"
+                                app:viewModel="@{viewModel}" />
+                        </LinearLayout>
+                    </RelativeLayout>
+
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/PobitroQuranDetailsList"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:padding="5dp" />
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+        </RelativeLayout>
+    </RelativeLayout>
+</layout>

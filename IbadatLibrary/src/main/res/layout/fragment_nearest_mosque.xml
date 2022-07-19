@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        tools:context=".fragments.MosquelocatorTabFragment">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+            <androidx.cardview.widget.CardView
+                android:id="@+id/distanceRange"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/white"
+                android:elevation="12dp"
+                android:innerRadius="0dp"
+                android:padding="5dp"
+                app:cardCornerRadius="10dp"
+                app:cardElevation="4dp"
+                app:cardUseCompatPadding="true">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:background="#edcece"
+                    android:orientation="horizontal">
+                    <com.ibadat.sdk.views.MyCustomTextView
+
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:id="@+id/oneKmText"
+                        android:gravity="center"
+                        android:background="@color/back_loc"
+                        android:textColor="@color/apps_color"
+                        android:textAppearance="@style/Base.TextAppearance.AppCompat.Body1"
+                        android:layout_marginRight="1dp"
+                        android:text="@string/OneKmDistance"/>
+                    <com.ibadat.sdk.views.MyCustomTextView
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:id="@+id/twoKmText"
+                        android:gravity="center"
+                        android:background="@color/back_loc"
+                        android:textColor="@color/apps_color"
+                        android:textAppearance="@style/Base.TextAppearance.AppCompat.Body1"
+                        android:layout_marginRight="1dp"
+                        android:text="@string/TwoKmDistance"/>
+                    <com.ibadat.sdk.views.MyCustomTextView
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:background="@color/back_loc"
+                        android:textColor="@color/apps_color"
+                        android:textAppearance="@style/Base.TextAppearance.AppCompat.Body1"
+                        android:id="@+id/threeKmText"
+                        android:gravity="center"
+                        android:text="@string/ThreeKmDistance"/>
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+            <androidx.recyclerview.widget.RecyclerView
+                android:layout_marginTop="5dp"
+                android:id="@+id/rvMosque"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+            </androidx.recyclerview.widget.RecyclerView>
+        </LinearLayout>
+
+    </RelativeLayout>
+</layout>

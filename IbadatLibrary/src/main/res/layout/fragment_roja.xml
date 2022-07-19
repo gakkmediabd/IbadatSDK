@@ -1,0 +1,456 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".fragments.RojaFragment">
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:background="@color/color_azure"
+                android:backgroundTint="@color/color_azure"
+                android:orientation="vertical"
+                app:cardCornerRadius="10dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_margin="10dp"
+                    android:background="@color/colorTransperant"
+                    android:gravity="center"
+                    android:orientation="vertical">
+
+                    <com.ibadat.sdk.views.MyCustomTextView
+                        android:id="@+id/ctv_current_date"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/white"
+                        android:textSize="18sp"
+                        android:textStyle="bold" />
+
+                    <Spinner
+                        android:id="@+id/sp_division"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="10dp"
+                        android:background="@drawable/round_corner_white"
+                        android:entries="@array/division_name"
+                        android:padding="3dp"
+                        android:textAlignment="center" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="@dimen/_10sdp"
+                        android:orientation="horizontal"
+                        android:weightSum="2">
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:gravity="center"
+                            android:orientation="vertical">
+
+                            <com.ibadat.sdk.views.MyCustomTextView
+                                android:id="@+id/ctv_sahri_message"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_margin="5dp"
+                                android:gravity="center"
+                                android:text="@string/txt_bangla_sahri_message"
+                                android:textAppearance="@style/TextAppearance.AppCompat.Caption"
+                                android:textColor="@color/white" />
+
+                            <com.ibadat.sdk.views.MyCustomTextView
+                                android:id="@+id/ctv_sahri_time"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_margin="5dp"
+                                android:padding="10dp"
+                                android:textAlignment="center"
+                                android:textAppearance="@style/TextAppearance.AppCompat.Subhead"
+                                android:textColor="@color/white"
+                                android:textStyle="bold" />
+
+                            <ImageView
+                                android:id="@+id/iv_sahri_alarm"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_margin="5dp"
+                                android:src="@drawable/ic_notification_white" />
+                        </LinearLayout>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:layout_weight="0.0"
+                            android:background="@color/white" />
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:gravity="center"
+                            android:orientation="vertical">
+
+                            <com.ibadat.sdk.views.MyCustomTextView
+                                android:id="@+id/ctv_iftar_message"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_margin="5dp"
+                                android:gravity="center"
+                                android:text="@string/txt_bangla_iftar_message"
+                                android:textAppearance="@style/TextAppearance.AppCompat.Caption"
+                                android:textColor="@color/white" />
+
+                            <com.ibadat.sdk.views.MyCustomTextView
+                                android:id="@+id/ctv_iftar_time"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_margin="5dp"
+                                android:padding="10dp"
+                                android:textAlignment="center"
+                                android:textAppearance="@style/TextAppearance.AppCompat.Subhead"
+                                android:textColor="@color/white"
+                                android:textStyle="bold" />
+
+                            <ImageView
+                                android:id="@+id/iv_iftar_alarm_off"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_margin="5dp"
+                                android:src="@drawable/ic_notification_white" />
+                        </LinearLayout>
+                    </LinearLayout>
+                </LinearLayout>
+
+            </com.google.android.material.card.MaterialCardView>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="3dp"
+                android:layout_marginEnd="10dp"
+                android:orientation="vertical">
+
+                <com.ibadat.sdk.views.MyCustomTextView
+                    android:id="@+id/ctv_ifter_share_time_table"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/round_top2_corner"
+                    android:drawableRight="@drawable/icon_down"
+                    android:gravity="center"
+                    android:paddingLeft="50dp"
+                    android:paddingTop="10dp"
+                    android:paddingRight="50dp"
+                    android:paddingBottom="10dp"
+                    android:text="@string/non_romadan_title"
+                    android:textColor="@color/color_azure"
+                    android:textSize="@dimen/textsize" />
+
+                <LinearLayout
+                    android:id="@+id/ll_roja_times_layout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:visibility="gone">
+
+                    <LinearLayout
+                        android:id="@+id/ll_ifter_share_table"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@color/color_off_white"
+                        android:orientation="horizontal"
+                        android:padding="5dp">
+
+                        <com.ibadat.sdk.views.MyCustomTextView
+                            android:id="@+id/ctv_date_header"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="0.3"
+                            android:gravity="center"
+                            android:text="@string/date"
+                            android:textSize="14sp" />
+
+                        <com.ibadat.sdk.views.MyCustomTextView
+                            android:id="@+id/ctv_sahri_time_header"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="0.5"
+                            android:gravity="center"
+                            android:text="@string/sehri_time"
+                            android:textSize="14sp" />
+
+                        <com.ibadat.sdk.views.MyCustomTextView
+                            android:id="@+id/ctv_iftar_time_date_header"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="0.5"
+                            android:gravity="center"
+                            android:text="@string/ifter_time"
+                            android:textSize="14sp" />
+                    </LinearLayout>
+
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/rv_roja_date_times"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="10dp"
+                android:orientation="vertical">
+
+                <com.ibadat.sdk.views.MyCustomTextView
+                    android:id="@+id/ctv_rojar_dua"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/round_top2_corner"
+                    android:drawableRight="@drawable/icon_down"
+                    android:gravity="center"
+                    android:paddingLeft="50dp"
+                    android:paddingTop="10dp"
+                    android:paddingRight="50dp"
+                    android:paddingBottom="10dp"
+                    android:text="@string/duasommoho"
+                    android:textColor="@color/color_azure"
+                    android:textSize="@dimen/textsize" />
+
+                <LinearLayout
+                    android:id="@+id/ll_rojar_dua"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:visibility="gone">
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp">
+
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerInParent="true"
+                            android:id="@+id/imageRojaTitle"/>
+
+                        <com.ibadat.sdk.views.MyCustomTextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_centerInParent="true"
+                            android:gravity="center"
+                            android:text="@string/rojar_niot_title"
+                            android:textColor="@color/black"
+                            android:textSize="14sp" />
+                    </RelativeLayout>
+
+                    <com.ibadat.sdk.views.MyCustomTextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:padding="5dp"
+                        android:text="@string/rojar_niot_arbi"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/textsize" />
+
+                    <com.ibadat.sdk.views.MyCustomTextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:padding="5dp"
+                        android:text="@string/rojar_niot"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/textsize" />
+
+                    <com.ibadat.sdk.views.MyCustomTextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:padding="5dp"
+                        android:text="@string/rojar_niot_meaning"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/textsize" />
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp">
+
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerInParent="true"
+                            android:id="@+id/imageRojaTitle2"
+                           />
+
+                        <com.ibadat.sdk.views.MyCustomTextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_centerInParent="true"
+                            android:gravity="center"
+                            android:text="@string/ifter_niot_title"
+                            android:textColor="@color/black"
+                            android:textSize="14sp" />
+                    </RelativeLayout>
+
+                    <com.ibadat.sdk.views.MyCustomTextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:padding="5dp"
+                        android:text="@string/ifter_niot_arbi"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/textsize" />
+
+                    <com.ibadat.sdk.views.MyCustomTextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:padding="5dp"
+                        android:text="@string/ifter_niot"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/textsize" />
+
+                    <com.ibadat.sdk.views.MyCustomTextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:padding="5dp"
+                        android:text="@string/ifter_niot_meaning"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/textsize" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="10dp"
+                android:orientation="vertical">
+
+                <com.ibadat.sdk.views.MyCustomTextView
+                    android:id="@+id/ctv_roja_rule"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/round_top2_corner"
+                    android:drawableRight="@drawable/icon_down"
+                    android:gravity="center"
+                    android:paddingLeft="50dp"
+                    android:paddingTop="10dp"
+                    android:paddingRight="50dp"
+                    android:paddingBottom="10dp"
+                    android:text="@string/roja_rule_title"
+                    android:textColor="@color/color_azure"
+                    android:textSize="@dimen/textsize" />
+
+                <LinearLayout
+                    android:id="@+id/ll_roja_rule"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="5dp"
+                    android:visibility="gone">
+
+                    <com.ibadat.sdk.views.MyCustomTextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:padding="5dp"
+                        android:text="@string/roja_rule_title1"
+                        android:textColor="@color/apps_color"
+                        android:textSize="18sp"
+                        android:textStyle="bold" />
+
+                    <com.ibadat.sdk.views.MyCustomTextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:padding="5dp"
+                        android:text="@string/roja_rule"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/textsize" />
+
+                    <com.ibadat.sdk.views.MyCustomTextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:padding="5dp"
+                        android:text="@string/roja_rule_title2"
+                        android:textColor="@color/apps_color"
+                        android:textSize="18sp"
+                        android:textStyle="bold" />
+
+                    <com.ibadat.sdk.views.MyCustomTextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:padding="5dp"
+                        android:text="@string/roja_rule2"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/textsize" />
+
+                    <com.ibadat.sdk.views.MyCustomTextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:padding="5dp"
+                        android:text="@string/roja_rule_title3"
+                        android:textColor="@color/apps_color"
+                        android:textSize="18sp"
+                        android:textStyle="bold" />
+
+                    <com.ibadat.sdk.views.MyCustomTextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:padding="5dp"
+                        android:text="@string/roja_rule3"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/textsize" />
+
+                    <com.ibadat.sdk.views.MyCustomTextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:padding="5dp"
+                        android:textColor="@color/apps_color"
+                        android:textSize="18sp"
+                        android:textStyle="bold" />
+
+                    <com.ibadat.sdk.views.MyCustomTextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:padding="5dp"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/textsize" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <com.ibadat.sdk.views.MyCustomTextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:padding="5dp"
+                android:text="@string/note"
+                android:textColor="@color/black"
+                android:textSize="@dimen/textsize" />
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
+</androidx.constraintlayout.widget.ConstraintLayout>

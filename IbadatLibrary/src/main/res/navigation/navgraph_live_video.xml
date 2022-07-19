@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/navgraph"
+    app:startDestination="@id/liveVideo">
+    <fragment
+        android:id="@+id/liveVideo"
+        android:name="com.ibadat.sdk.fragments.LiveVideoFragment"
+        android:label="fragment_live_video"
+        tools:layout="@layout/fragment_live_video" />
+</navigation>

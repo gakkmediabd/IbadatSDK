@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/navgraph"
+    app:startDestination="@id/salatLearningFragment">
+    <fragment
+        android:id="@+id/salatLearningFragment"
+        android:name="com.ibadat.sdk.fragments.SalatLearningFragment"
+        android:label="Salat Learning"
+        tools:layout="@layout/fragment_salat_learning">
+        <action
+            android:id="@+id/action_salatLearningFragment_to_salatLearningFragment2_to_salatLearningDetailsFragment"
+            app:destination="@id/salatLearningFragment2" />
+    </fragment>
+    <fragment
+        android:id="@+id/salatLearningFragment2"
+        android:name="com.ibadat.sdk.fragments.SalatLearningFragment2"
+        android:label="Salat Learning2"
+        tools:layout="@layout/fragment_salat_learning">
+        <action
+            android:id="@+id/action_salatLearningFragment2_to_salatLearningDetailsFragment"
+            app:destination="@id/salatLearningDetailsFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/salatLearningDetailsFragment"
+        android:name="com.ibadat.sdk.fragments.SalatLearningDetailsFragment"
+        android:label="fragment_salat_learning_details"
+        tools:layout="@layout/salat_leaarning_details_fragment" />
+</navigation>

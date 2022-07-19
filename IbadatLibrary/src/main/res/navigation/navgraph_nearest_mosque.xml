@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/navgraph"
+    app:startDestination="@id/mosqueLocatorFragment">
+
+    <fragment
+        android:id="@+id/mosqueLocatorFragment"
+        android:name="com.ibadat.sdk.fragments.MosquelocatorTabFragment"
+        android:label="fragment_mosqueLocator"
+        tools:layout="@layout/fragment_mosquelocator_tab" />
+</navigation>

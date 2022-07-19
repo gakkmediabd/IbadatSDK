@@ -1,0 +1,176 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true"
+
+    >
+
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+      app:cardBackgroundColor="@color/white"
+        android:elevation="12dp"
+        android:innerRadius="0dp"
+        android:padding="5dp"
+        app:cardCornerRadius="10dp"
+        app:cardElevation="4dp"
+        app:cardUseCompatPadding="true">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+<!--            <RelativeLayout-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:padding="10dp">-->
+
+
+<!--                <LinearLayout-->
+<!--                    android:layout_width="match_parent"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:layout_centerVertical="true"-->
+<!--                    android:orientation="vertical"-->
+<!--                    android:paddingLeft="10dp"-->
+<!--                    android:paddingRight="5dp">-->
+
+                    <com.ibadat.sdk.views.MyCustomTextView
+                        android:id="@+id/namaz_shikhsha_title"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:gravity="center"
+                        android:textColor="@color/black"
+                        android:padding="10dp"
+                        android:textSize="20sp"
+                        android:textStyle="bold" />
+
+
+<!--                </LinearLayout>-->
+
+
+<!--            </RelativeLayout>-->
+
+<!--            <View-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="2dp"-->
+<!--                android:layout_below="@+id/rlhadith_icon_number_background"-->
+<!--                android:layout_marginBottom="10dp"-->
+<!--                android:layout_marginTop="10dp"-->
+<!--                android:background="@color/black" />-->
+
+
+
+            <com.ibadat.sdk.views.MyCustomTextView
+                android:id="@+id/txtDescription"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="10dp"
+                android:text=""
+                android:textColor="@color/black"
+                android:textSize="@dimen/textsize" />
+
+<!--            <com.ibadat.sdk.util.MyCustomTextView-->
+<!--                android:id="@+id/txtSource"-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:paddingBottom="15dp"-->
+<!--                android:paddingLeft="10dp"-->
+<!--                android:paddingRight="10dp"-->
+<!--                android:paddingTop="20dp"-->
+<!--                android:textColor="@color/black"-->
+<!--                android:textSize="@dimen/textsize"-->
+<!--                android:visibility="gone" />-->
+
+
+            <!-- <LinearLayout
+                 android:layout_width="match_parent"
+                 android:layout_height="wrap_content"
+                 android:layout_gravity="right"
+                 android:gravity="right"
+                 android:orientation="horizontal"
+                 android:layout_margin="15dp">
+
+                 <ImageView
+                     android:id="@+id/hadith_favorite"
+                     android:layout_width="wrap_content"
+                     android:layout_height="wrap_content"
+                     android:src="@drawable/hadith_icon_favorite_round" />
+
+                 <ImageView
+                     android:id="@+id/hadith_share"
+                     android:layout_width="wrap_content"
+                     android:layout_height="wrap_content"
+                     android:layout_toLeftOf="@+id/hadith_favorite"
+                     android:src="@drawable/hadith_icon_share"
+                     android:layout_marginLeft="5dp"
+                     />
+
+             </LinearLayout>-->
+
+<!--            <View-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="1dp"-->
+<!--                android:layout_marginTop="5dp"-->
+<!--                android:background="#222"-->
+<!--                />-->
+
+
+<!--            <LinearLayout-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:orientation="horizontal"-->
+<!--                android:layout_marginLeft="20dp"-->
+<!--                android:layout_marginRight="20dp"-->
+<!--                android:visibility="gone"-->
+<!--                android:padding="10dp">-->
+<!--                <ImageView-->
+<!--                    android:id="@+id/namazShare"-->
+<!--                    android:layout_width="0dp"-->
+<!--                    android:layout_weight="1"-->
+<!--                    android:gravity="right"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:src="@drawable/ic_share"-->
+<!--                    />-->
+
+<!--                <com.ibadat.sdk.util.MyCustomTextView-->
+<!--                    android:layout_width="0dp"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:layout_weight="2"-->
+<!--                    android:textColor="#222"-->
+<!--                    android:id="@+id/textNamazShare"-->
+<!--                    android:layout_marginRight="5dp"-->
+<!--                    android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"-->
+<!--                    android:background="@color/white"-->
+<!--                    android:text="@string/share_btn_text"/>-->
+
+<!--                <ImageView-->
+<!--                    android:id="@+id/namazFavorite"-->
+<!--                    android:layout_width="0dp"-->
+<!--                    android:layout_weight=".8"-->
+<!--                    android:layout_marginLeft="5dp"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:layout_marginRight="5dp"-->
+<!--                    android:src="@drawable/ic_fav_off" />-->
+
+<!--                <com.ibadat.sdk.util.MyCustomTextView-->
+<!--                    android:paddingTop="4dp"-->
+<!--                    android:id="@+id/textNamazFavourite"-->
+<!--                    android:textColor="#222"-->
+<!--                    android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"-->
+<!--                    android:layout_width="0dp"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:layout_weight="2"-->
+<!--                    android:gravity="left"-->
+<!--                    android:background="@color/white"-->
+<!--                    android:text="@string/fav_button_text"/>-->
+<!--            </LinearLayout>-->
+
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+
+</androidx.core.widget.NestedScrollView>

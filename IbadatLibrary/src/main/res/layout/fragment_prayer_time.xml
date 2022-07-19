@@ -1,0 +1,208 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.swiperefreshlayout.widget.SwipeRefreshLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/srl_azan_time"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".fragments.PrayerTimeFragment">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+
+        android:orientation="vertical"
+        android:weightSum="3">
+
+        <ImageView
+            android:id="@+id/imgBackgroundimage"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
+        <ProgressBar
+            android:id="@+id/pb_loader"
+            style="?android:attr/buttonStyleSmall"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_centerInParent="true"
+            android:background="@android:color/transparent"
+            android:indeterminateDrawable="@drawable/progress"
+            android:progressTint="@color/dialogColor"
+            android:visibility="gone" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:weightSum="3">
+
+            <RelativeLayout
+                android:id="@+id/uper_part"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_gravity="center"
+                android:layout_weight="2"
+                android:gravity="center">
+
+                <Button
+                    android:id="@+id/btn_location"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="10dp"
+                    android:background="@drawable/rounded_corner_jakat"
+
+                    android:padding="5dp"
+                    android:text="@string/countryName"
+                    android:textColor="@color/apps_color" />
+
+                <com.ibadat.sdk.views.MyCustomTextView
+                    android:id="@+id/ctv_current_time"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/btn_location"
+                    android:layout_centerHorizontal="true"
+                    android:gravity="center"
+                    android:padding="10dp"
+                    android:text="@string/next_namaz_time"
+                    android:textColor="@color/gray"
+                    android:textSize="@dimen/textsize" />
+
+                <RelativeLayout
+                    android:layout_width="250dp"
+                    android:layout_height="250dp"
+                    android:layout_below="@+id/ctv_current_time"
+                    android:layout_centerHorizontal="true"
+                    android:gravity="center">
+
+                    <ProgressBar
+                        android:id="@+id/pb_circle"
+                        style="@style/CircularProgressBar"
+                        android:layout_width="190dp"
+                        android:layout_height="190dp"
+                        android:layout_centerInParent="true"
+                        android:indeterminateDrawable="@drawable/namaz_time_sun_position"
+                        android:max="100"
+                        android:progress="0" />
+
+                    <com.ibadat.sdk.views.MyCustomTextView
+                        android:id="@+id/ctv_next_namaz_title"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_above="@+id/ctv_next_namaz_time"
+                        android:gravity="center"
+                        android:text="@string/asor_ar_okto"
+                        android:textColor="@color/gray"
+                        android:textSize="@dimen/textsize" />
+
+                    <com.ibadat.sdk.views.MyCustomTextView
+                        android:id="@+id/ctv_next_namaz_time"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_centerInParent="true"
+                        android:gravity="center"
+                        android:text="@string/time"
+                        android:textColor="@color/gray"
+                        android:textSize="25sp" />
+
+                    <com.ibadat.sdk.views.MyCustomTextView
+                        android:id="@+id/ctv_current_namaz_status"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/ctv_next_namaz_time"
+                        android:gravity="center"
+                        android:text="@string/baki_ase"
+                        android:textColor="@color/gray"
+                        android:textSize="@dimen/textsize" />
+                </RelativeLayout>
+            </RelativeLayout>
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_marginTop="10dp"
+                android:layout_weight="1"
+                android:background="#58ececec"
+                android:orientation="vertical"
+                android:paddingBottom="10dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:background="@color/color_light_gray"
+                    android:gravity="center"
+                    android:orientation="horizontal"
+                    android:padding="@dimen/_5sdp"
+                    android:weightSum="5">
+
+                    <com.ibadat.sdk.views.MyCustomTextView
+                        android:id="@+id/ctv_previous_namaz"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:drawableStart="@drawable/ic_chevron_left"
+                        android:textSize="@dimen/textsize" />
+
+                    <com.ibadat.sdk.views.MyCustomTextView
+                        android:id="@+id/ctv_selected_date"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="3"
+                        android:gravity="center"
+                        android:text="@string/today_date"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/textsize" />
+
+                    <com.ibadat.sdk.views.MyCustomTextView
+                        android:id="@+id/ctv_next_namaz"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:drawableEnd="@drawable/ic_chevron_right"
+                        android:textSize="@dimen/textsize" />
+
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:orientation="horizontal">
+
+                    <com.ibadat.sdk.views.MyCustomTextView
+                        android:id="@+id/ctv_sunrise_message"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:padding="5dp"
+                        android:tag="@string/sunrise"
+                        android:text="@string/surjo_doi_time"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/namaz_somoisuchi_textsize" />
+
+                    <ImageView
+                        android:id="@+id/iv_sunrise_notification"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:adjustViewBounds="true"
+                        android:padding="5dp"
+                        android:src="@drawable/ic_baseline_notifications_active_24"
+                        app:tint="@color/gray" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/ll_azan_time_layout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:gravity="center"
+                    android:orientation="horizontal"
+                    android:padding="5dp"
+                    android:weightSum="5" />
+            </LinearLayout>
+        </LinearLayout>
+    </RelativeLayout>
+</androidx.swiperefreshlayout.widget.SwipeRefreshLayout>

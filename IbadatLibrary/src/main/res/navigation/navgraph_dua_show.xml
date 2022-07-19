@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/navgraph"
+    app:startDestination="@id/commonDuaAndHadithFragment">
+
+    <fragment
+        android:id="@+id/commonDuaAndHadithFragment"
+        android:name="com.ibadat.sdk.fragments.CommonDuaAndHadithFragment"
+        android:label="fragment_dua"
+        tools:layout="@layout/fragment_dua">
+        <action
+            android:id="@+id/action_commonDuaAndHadithFragment_to_duaDetailsFragment"
+            app:destination="@id/duaDetailsFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/duaDetailsFragment"
+        android:name="com.ibadat.sdk.fragments.DuaDetailsFragment"
+        android:label="Dua Details"
+        tools:layout="@layout/fragment_dua_details" />
+</navigation>

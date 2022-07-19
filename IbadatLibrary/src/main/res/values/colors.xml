@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#3F51B5</color>
+    <color name="colorPrimaryDark">#303F9F</color>
+    <color name="colorAccent">#129AE8</color>
+
+    <color name="apps_color">#129AE8</color>
+    <color name="color_azure">#129AE8</color>
+    <color name="light_azure">#B4E0F9</color>
+
+    <color name="status_color_code">#278aa4</color>
+    <color name="color_light_gray">#9aececec</color>
+
+    <color name="gray">#838383</color>
+    <color name="white">#ffffff</color>
+    <color name="colorWhiteDisabled">#EDEDED</color>
+    <color name="txt_white">#FFFFFF</color>
+    <color name="black">#494949</color>
+    <color name="back_loc">#E3EEF0</color>
+    <color name="color_off_white">#F9F8EC</color>
+    <color name="transparentCol">#E3EEF0</color>
+    <color name="colorTransperant">#00FFFFFF</color>
+
+    <color name="apps_gray">#ececec</color>
+    <color name="apps_gray2">#f5f5f5</color>
+    <color name="daiTextColor">#FAA27E</color>
+    <color name="dialogColor">#06cae4</color>
+    <color name="subBack">#F5F5F5</color>
+    <color name="tab_unselect">#80ffffff</color>
+    <color name="mapDirection">#3fa9ea</color>
+
+    <color name="red">#f90303</color>
+    <color name="blue">#1650e4</color>
+    <color name="green">#10e430</color>
+    <color name="orange">#ef990e</color>
+    <color name="accent">#b117dc</color>
+    <color name="yellow">#f5ee0e</color>
+
+    <color name="polyColorOne">#00B4FD</color>
+    <color name="polyColorTwo">#CDCDCD</color>
+
+    <color name="txt_color_title">#1E3D2E</color>
+    <color name="ash">#8A000000</color>
+    <color name="txt_color_black">#DE000000</color>
+    <color name="txt_color">#009966</color>
+    <color name="yellow_light">#EADE7F</color>
+</resources>

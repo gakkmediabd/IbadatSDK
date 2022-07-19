@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/navgraph"
+    app:startDestination="@id/zakatFragment">
+    <fragment
+        android:id="@+id/zakatFragment"
+        android:name="com.ibadat.sdk.fragments.ZakatFragment"
+        android:label="Zakat"
+        tools:layout="@layout/fragment_zakat">
+        <action
+            android:id="@+id/action_zakatFragment_to_zakatCalculatorFragment"
+            app:destination="@id/zakatCalculatorFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/zakatCalculatorFragment"
+        android:name="com.ibadat.sdk.fragments.CalculateJakatFragment"
+        android:label="Zakat"
+        tools:layout="@layout/fragment_calculate_jakat" />
+</navigation>

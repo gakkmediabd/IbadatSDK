@@ -1,0 +1,31 @@
+package com.ibadat.sdk.data.model.Jakat
+
+data class DataJakat(
+    val about: Any,
+    val billBoardImageUrl: Any,
+    val category: String,
+    val categoryName: String,
+    val contentBaseUrl: String,
+    val createdBy: String,
+    val createdOn: String,
+    val exImageFiveUrl: Any,
+    val exImageFourUrl: Any,
+    val exImageOneUrl: Any,
+    val exImageThreeUrl: Any,
+    val exImageTwoUrl: Any,
+    val id: String,
+    val imageUrl: Any,
+    val isActive: Boolean,
+    val language: String,
+    val order: Int,
+    val pronunciation: Any,
+    val refUrl: Any,
+    val subcategory: String,
+    val subcategoryName: Any,
+    val text: String,
+    val textInArabic: Any,
+    val title: String,
+    val updatedBy: String,
+    val updatedOn: String,
+    val userFavoriteThis: Boolean
+)

@@ -1,0 +1,266 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".fragments.TasbihFragment">
+
+    <RelativeLayout
+        android:id="@+id/header"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:background="@drawable/two_rounded_corner_blue"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal"
+            android:padding="10dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/margin_8"
+                android:layout_marginTop="@dimen/margin_8"
+                android:layout_weight="3"
+                android:text="@string/txt_total_count"
+                android:textColor="@color/white" />
+
+            <TextView
+                android:id="@+id/tv_total_count"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin_8"
+                android:layout_weight="1"
+                android:text="1000"
+                android:textColor="@color/white"
+                android:textSize="24sp" />
+
+        </LinearLayout>
+    </RelativeLayout>
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:fillViewport="true"
+        android:fitsSystemWindows="true"
+        app:layout_constraintBottom_toTopOf="@id/rl_control_bar"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/header">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="#E5E5E5">
+
+
+            <ProgressBar
+                android:id="@+id/pb_circle"
+                style="@style/CircularProgressBar"
+                android:layout_width="210dp"
+                android:layout_height="210dp"
+                android:layout_marginTop="20dp"
+                android:elevation="8dp"
+                android:progress="0"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/aciv_cirle_tasbih"
+                android:layout_width="150dp"
+                android:layout_height="150dp"
+                android:layout_margin="5dp"
+                android:scaleType="centerCrop"
+                android:src="@drawable/tasbih_blue_circle"
+                android:visibility="visible"
+                app:layout_constraintBottom_toBottomOf="@id/pb_circle"
+                app:layout_constraintEnd_toEndOf="@id/pb_circle"
+                app:layout_constraintStart_toStartOf="@id/pb_circle"
+                app:layout_constraintTop_toTopOf="@id/pb_circle" />
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/aciv_pattern"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:scaleType="centerCrop"
+                android:visibility="gone"
+                app:layout_constraintBottom_toBottomOf="@id/aciv_cirle_tasbih"
+                app:layout_constraintEnd_toEndOf="@id/aciv_cirle_tasbih"
+                app:layout_constraintStart_toStartOf="@id/aciv_cirle_tasbih"
+                app:layout_constraintTop_toTopOf="@id/aciv_cirle_tasbih" />
+
+            <com.ibadat.sdk.views.TextViewNormal
+                android:id="@+id/tv_count"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="7887"
+                android:textAppearance="@style/TextAppearance.AppCompat.Display1"
+                android:textColor="@color/white"
+                app:layout_constraintBottom_toBottomOf="@id/aciv_pattern"
+                app:layout_constraintEnd_toEndOf="@id/aciv_pattern"
+                app:layout_constraintStart_toStartOf="@id/aciv_pattern"
+                app:layout_constraintTop_toTopOf="@id/aciv_pattern" />
+
+            <com.ibadat.sdk.views.TextViewNormal
+                android:id="@+id/tv_times"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="@style/TextAppearance.AppCompat.Subhead"
+                android:textColor="@color/white"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tv_count" />
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/cl_round"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/margin_16"
+                android:layout_marginTop="@dimen/standard_margin"
+                android:layout_marginEnd="@dimen/margin_16"
+                android:elevation="8dp"
+                android:paddingTop="@dimen/small_spacing"
+                android:paddingBottom="20dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/pb_circle">
+
+
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/card_count"
+                    android:layout_width="match_parent"
+                    android:layout_height="51dp"
+                    app:cardCornerRadius="5dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="@id/cl_round">
+
+
+                    <RadioGroup
+                        android:id="@+id/groupradio"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginStart="@dimen/margin_8"
+                        android:layout_marginEnd="@dimen/margin_8"
+                        android:orientation="horizontal">
+
+                        <RadioButton
+                            android:id="@+id/rb_three_three"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="2"
+                            android:checked="true"
+                            android:text="৩৩ বার" />
+
+                        <RadioButton
+                            android:id="@+id/rb_three_four"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="2"
+                            android:text="৩৪ বার" />
+
+                        <RadioButton
+                            android:id="@+id/rb_nine_nine"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="2"
+                            android:text="৯৯ বার" />
+                    </RadioGroup>
+                </androidx.cardview.widget.CardView>
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/rv_tasbih_item"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:clipToPadding="false"
+                    android:orientation="horizontal"
+                    android:overScrollMode="never"
+                    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="1.0"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/card_count"
+                    tools:listitem="@layout/tasbi_count_item_updated" />
+
+                <com.ibadat.sdk.views.TextViewNormal
+                    android:id="@+id/tv_your_count"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:paddingTop="@dimen/standard_margin"
+                    android:text="@string/txt_your_count"
+
+                    android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+                    android:textColor="@color/txt_color_title"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/rv_tasbih_item" />
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/rv_history"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:clipToPadding="false"
+                    android:nestedScrollingEnabled="false"
+                    android:orientation="vertical"
+                    android:paddingTop="@dimen/small_spacing"
+                    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/tv_your_count"
+                    tools:listitem="@layout/tasbih_history_item" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.core.widget.NestedScrollView>
+
+    <RelativeLayout
+        android:id="@+id/rl_control_bar"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/standard_margin"
+        android:padding="@dimen/standard_margin"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/aciv_reset_all"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:src="@drawable/ic_btn_reset"
+                app:layout_constraintBottom_toBottomOf="@id/aciv_start_count"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@id/aciv_start_count" />
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/aciv_start_count"
+                android:layout_width="64dp"
+                android:layout_height="64dp"
+                android:layout_centerInParent="true"
+                android:adjustViewBounds="true"
+                android:scaleType="centerCrop"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/aciv_on_off_sound"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:src="@drawable/ic_btn_sound"
+                app:layout_constraintBottom_toBottomOf="@id/aciv_start_count"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="@id/aciv_start_count" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </RelativeLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

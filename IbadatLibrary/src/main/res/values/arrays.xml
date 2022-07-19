@@ -1,0 +1,732 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:tools="http://schemas.android.com/tools">
+
+    <array name="islamic_month">
+        <item>মহররম</item>
+        <item>সফর</item>
+        <item>রবিউল আউয়াল</item>
+        <item>রবিউস সানি</item>
+        <item>জমাদিউল আউয়াল</item>
+        <item>জমাদিউস সানি</item>
+        <item>রজব</item>
+        <item>শা‘বান</item>
+        <item>রমজান</item>
+        <item>শাওয়াল</item>
+        <item>জ্বিলকদ</item>
+        <item>জ্বিলহজ্জ</item>
+    </array>
+
+    <array name="human_name">
+        <item>ছেলে</item>
+        <item>মেয়ে</item>
+    </array>
+
+
+    <array name="month_name_short">
+        <item>জানু</item>
+        <item>ফেব্</item>
+        <item>মার্চ</item>
+        <item>এপ্</item>
+        <item>মে</item>
+        <item>জুন</item>
+        <item>জুল</item>
+        <item>আগ</item>
+        <item>সেপ্</item>
+        <item>অক্</item>
+        <item>নভে</item>
+        <item>ডিসে</item>
+    </array>
+    <array name="week_name_bangla">
+        <item>রবিবার</item>
+        <item>সোমবার</item>
+        <item>মঙ্গলবার</item>
+        <item>বুধবার</item>
+        <item>বৃহস্পতিবার</item>
+        <item>শুক্রবার</item>
+        <item>শনিবার</item>
+    </array>
+    <array name="week_name">
+        <item>Sunday</item>
+        <item>Monday</item>
+        <item>Tuesday</item>
+        <item>Wednesday</item>
+        <item>Thursday</item>
+        <item>Friday</item>
+        <item>Saturday</item>
+    </array>
+    <string-array name="division_name">
+        <item>ঢাকা বিভাগ</item>
+        <item>খুলনা বিভাগ</item>
+        <item>চট্টগ্রাম বিভাগ</item>
+        <item>রাজশাহী বিভাগ</item>
+        <item>বরিশাল বিভাগ</item>
+        <item>সিলেট বিভাগ</item>
+        <item>ময়মনসিংহ বিভাগ</item>
+    </string-array>
+
+
+    <!-- <array name="catagorys">
+     <item>পবিত্র\nকুরআন
+     </item>
+     <item>রোজার\nসময়সূচি
+     </item>
+     <item>আল্লাহ্ এর\n৯৯ টি নাম
+     </item>
+     <item>যাকাত\nক্যালকুলেটর
+     </item>
+     <item>তাসবীহ</item>
+     <item>দোয়া</item>
+     <item>হাদিস</item>
+
+     <item>কম্পাস</item>
+     <item>ইসলামিক\n
+         ক্যালেন্ডার
+     </item>
+     <item>ইসলামিক নাম</item>
+     <item>নিকটস্থ মসজিদ</item>
+     <item>নিকটবর্তী\n
+         রেস্তোরাঁ
+     </item>
+     <item>নামাজ শিক্ষা</item>
+     <item>হজ্জ্ব</item>
+     <item>আযান</item>
+     <item>লাইভ ভিডিও</item>
+     <item>প্রতিদিনের\nঅনুপ্রেরণা</item>
+     <item>ইসলামিক\nগান</item>
+     <item>এনিমেশন</item>
+     <item>ভিডিও</item>
+     <item>ওয়ালপেপার</item>
+
+
+ </array>-->
+
+    <array name="catagorys" tools:ignore="InconsistentArrays">
+        <item>পবিত্র\nকুরআন
+        </item>
+        <item>আযান</item>
+        <item>নিকটস্থ মসজিদ</item>
+        <item>কম্পাস</item>
+
+        <item>ইসলামিক\n
+            ক্যালেন্ডার
+        </item>
+        <item>লাইভ\nভিডিও</item>
+        <item>নিকটবর্তী\n
+            রেস্তোরাঁ
+        </item>
+
+        <item>নামাজ শিক্ষা</item>
+        <item>আল্লাহ্ এর\n৯৯ টি নাম
+        </item>
+        <item>যাকাত\nক্যালকুলেটর
+        </item>
+        <item>ইসলামিক নাম</item>
+        <item>রোজার\nসময়সূচি
+        </item>
+
+        <item>হাদিস</item>
+        <item>হজ্জ্ব</item>
+        <item>দোয়া</item>
+        <item>তাসবীহ</item>
+        <item>প্রতিদিনের\nঅনুপ্রেরণা</item>
+        <item>ইসলামিক\nগান</item>
+        <item>এনিমেশন</item>
+        <item>ভিডিও</item>
+        <item>ওয়ালপেপার</item>
+        <item>ট্র্যাকার</item>
+
+    </array>
+    <array name="month_name">
+        <item>জানুয়ারি</item>
+        <item>ফেব্রুয়ারি</item>
+        <item>মার্চ</item>
+        <item>এপ্রিল</item>
+        <item>মে</item>
+        <item>জুন</item>
+        <item>জুলাই</item>
+        <item>আগস্ট</item>
+        <item>সেপ্টেম্বর</item>
+        <item>অক্টোবর</item>
+        <item>নভেম্বর</item>
+        <item>ডিসেম্বর</item>
+    </array>
+
+    <string-array name="custom_months">
+        <item>মহররম</item>
+        <item>সফর</item>
+        <item>রবিউল আউয়াল</item>
+        <item>রবিউস সানি</item>
+        <item>জমাদিউল আউয়াল</item>
+        <item>জমাদিউস সানি</item>
+        <item>রজব</item>
+        <item>শাবান</item>
+        <item>রমজান</item>
+        <item>শাওয়াল</item>
+        <item>জিলকদ</item>
+        <item>জিলহজ্জ</item>
+    </string-array>
+
+
+    <array name="surah_name">
+        <item>সূরা আল ফাতিহা</item>
+        <item>সূরা আল বাক্বারাহ</item>
+        <item>সূরা আলে ইমরান</item>
+        <item>সূরা আন নিসা</item>
+        <item>সূরা আল মায়িদাহ</item>
+        <item>সূরা আল আন-আম</item>
+        <item>সূরা আল আ’রাফ</item>
+        <item>সূরা আল-আনফাল</item>
+        <item>সূরা আত তাওবাহ</item>
+        <item>সূরা ইউনুস</item>
+        <item>সূরা হুদ</item>
+        <item>সূরা ইউসূফ</item>
+        <item>সূরা রা’দ</item>
+        <item>সূরা ইব্রাহীম</item>
+        <item>সূরা আল-হিজর</item>
+        <item>সূরা আন-নাহল</item>
+        <item>সূরা বনী ইসরাঈল</item>
+        <item>সূরা আল কাহফ</item>
+        <item>সূরা মারইয়াম</item>
+        <item>সূরা ত্ত্বায়া-হা</item>
+        <item>সূরা আল আম্বিয়া</item>
+        <item>সূরা আল হাজ্জ্ব</item>
+        <item>সূরা আল মু’মিনূন</item>
+        <item>সূরা আন-নূর</item>
+        <item>সূরা আল-ফুরকান</item>
+        <item>সূরা আশ-শো’আরা</item>
+        <item>সূরা আন নমল</item>
+        <item>সূরা আল কাসাস</item>
+        <item>সূরা আল আনকাবুত</item>
+        <item>সূরা আর-রূম</item>
+        <item>সূরা লোকমান</item>
+        <item>সূরা আস সেজদাহ</item>
+        <item>সূরা আল আহযাব</item>
+        <item>সূরা সাবা</item>
+        <item>সূরা ফাতির</item>
+        <item>সূরা ইয়াসীন</item>
+        <item>সূরা আস-সাফফাত</item>
+        <item>সূরা ছোয়াদ</item>
+        <item>সূরা আয-যুমার</item>
+        <item>সূরা আল-মু’মিন</item>
+        <item>সূরা হা-মীম সেজদাহ</item>
+        <item>সূরা আশ-শুরা</item>
+        <item>সূরা আয যুখরুফ</item>
+        <item>সূরা আদ দোখান</item>
+        <item>সূরা আল জাসিয়া</item>
+        <item>সূরা আল আহক্বাফ</item>
+        <item>সূরা মুহাম্মদ</item>
+        <item>সূরা আল ফাতহ</item>
+        <item>সূরা আল হুজরাত</item>
+        <item>সূরা ক্বাফ</item>
+        <item>সূরা আয-যারিয়াত</item>
+        <item>সূরা আত্ব তূর</item>
+        <item>সূরা আন-নাজম</item>
+        <item>সূরা আল ক্বামার</item>
+        <item>সূরা আর রহমান</item>
+        <item>সূরা আল ওয়াক্বিয়া</item>
+        <item>সূরা আল হাদীদ</item>
+        <item>সূরা আল মুজাদালাহ</item>
+        <item>সূরা আল হাশর</item>
+        <item>সূরা আল মুমতাহিনা</item>
+        <item>সূরা আছ-ছফ</item>
+        <item>সূরা আল জুমুআহ</item>
+        <item>সূরা আল মুনাফিকুন</item>
+        <item>সূরা আত-তাগাবুন</item>
+        <item>সূরা আত্ব-ত্বালাক্ব</item>
+        <item>সূরা আত-তাহরীম</item>
+        <item>সূরা আল মুলক</item>
+        <item>সূরা আল কলম</item>
+        <item>সূরা আল হাক্বক্বাহ</item>
+        <item>সূরা আল মা’আরিজ</item>
+        <item>সূরা নূহ</item>
+        <item>সূরা আল জিন</item>
+        <item>সূরা মুযযামমিল</item>
+        <item>সূরা আল মুদ্দাসসির</item>
+        <item>সূরা আল ক্বেয়ামাহ</item>
+        <item>সূরা আল ইনসান</item>
+        <item>সূরা আল মুরসালাত</item>
+        <item>সূরা আন-নাবা</item>
+        <item>সূরা আন-নযিআ’ত</item>
+        <item>সূরা আবাসা</item>
+        <item>সূরা আত-তাকভীর</item>
+        <item>সূরা আল ইনফিতার</item>
+        <item>সূরা আত-মুতাফীফ</item>
+        <item>সূরা আল ইনশিক্বাক্ব</item>
+        <item>সূরা আল বুরূজ</item>
+        <item>সূরা আত্ব-তারিক্ব</item>
+        <item>সূরা আল আ’লা</item>
+        <item>সূরা আল গাশিয়াহ</item>
+        <item>সূরা আল ফজর</item>
+        <item>সূরা আল বালাদ</item>
+        <item>সূরা আশ-শামস</item>
+        <item>সূরা আল লায়ল</item>
+        <item>সূরা আদ্ব-দ্বোহা</item>
+        <item>সূরা আল ইনশিরাহ</item>
+        <item>সূরা আত ত্বীন</item>
+        <item>সূরা আল আলাক</item>
+        <item>সূরা আল কদর</item>
+        <item>সূরা আল বাইয়্যিনাহ</item>
+        <item>সূরা আল যিলযাল</item>
+        <item>সূরা আল আদিয়াত</item>
+        <item>সূরা আল কারেয়া</item>
+        <item>সূরা আল তাকাসূর</item>
+        <item>সূরা আল আছর</item>
+        <item>সূরা আল হুমাযাহ</item>
+        <item>সূরা আল ফীল</item>
+        <item>সূরা কোরাইশ</item>
+        <item>সূরা আল মাউন</item>
+        <item>সূরা আল কাওসার</item>
+        <item>সূরা আল কাফিরুন</item>
+        <item>সূরা আন-নছর</item>
+        <item>সূরা আল লাহাব</item>
+        <item>সূরা আল এখলাছ</item>
+        <item>সূরা আল ফালাক্ব</item>
+        <item>সূরা আন-নাস</item>
+
+    </array>
+
+    <array name="tasbih">
+        <item>মোট ৯৯</item>
+        <item>মোট ৩৩</item>
+    </array>
+
+    <array name="hajjMapArrayFrom">
+        <item>Mecca</item>
+        <item>Medina</item>
+        <item>Mina</item>
+        <item>Muzdalifah</item>
+        <item>Kaaba</item>
+        <item>Mount Arafat</item>
+        <item>Al-Masjid an-Nabawi</item>
+        <item>Cave of Hira</item>
+        <item>Jamaraat Bridge</item>
+    </array>
+
+    <array name="hajjMapArrayTo">
+        <item>Mecca</item>
+        <item>Medina</item>
+        <item>Mina</item>
+        <item>Muzdalifah</item>
+        <item>Kaaba</item>
+        <item>Mount Arafat</item>
+        <item>Al-Masjid an-Nabawi</item>
+        <item>Cave of Hira</item>
+        <item>Jamaraat Bridge</item>
+    </array>
+
+    <array name="hajjDetailsText">
+        <item>যখন হজ্ব শুরু হয় তখন প্রথম গুরুত্বপূর্ণ বিষয় হচ্ছে হজ্জযাত্রীদের তাওয়াফ এবং সা ঈ।
+            প্রথমে হজ্জযাত্রীরা কাবাকে কেন্দ্র করে সাতবার ঘুরে (তাওয়াফ) । তারপর হজ্জযাত্রীরা সাফা ও
+            মারওয়াহ (সা ঈ) পাহাড়ের মাঝখানে সাতবার হাটবে অথবা দৌড়বে, যেমনটি হযরত ইব্রাহীম(আঃ)এর
+            স্ত্রী পানির সন্ধানে দুটো পাহাড়ের মাঝখানে ভ্রান্ত হয়ে দৌড়চ্ছিলেন।
+        </item>
+        <item>৮ই জিলহজ্জ, হজ্জযাত্রীরা মিনায় অবস্থান করেন, যেখানে হাজার হাজার তাঁবু স্থাপন করা
+            হয়েছে। হজ্জযাত্রীরা এখানে রাত্রিযাপন করবে।
+        </item>
+        <item>দ্বিতীয় দিনে, হজ্জযাত্রীরা আরাফাত ময়দানের সমভূমিতে অবস্থান করেন। এই হল সেই স্থান,
+            যেখানে নবী মুহাম্মদ (সাঃ) তার বিদায় হজ্জের ভাষণ দিয়েছিলেন। আরাফাতে সূর্যাস্ত পর্যন্ত
+            অবস্থান করা হজ্জের গুরুত্বপূর্ণ ফরজ।
+        </item>
+        <item>মুযদালিফায় থাকাকালীন পাহাড়ে অথবা তার পাদদেশে যে কোন ঘাসদুবলা থেকে খুঁজে খুঁজে পাথর
+            মারার জন্য ৭২টি (চানা বুটের ন্যায় কঙ্কর) ছোট ছোট পাথর সংগ্রহ করে ইহরামের কাপড়ে বেঁধে
+            নিন।
+        </item>
+        <item>হজ্জযাত্রীরা মিনাতে জামারাত ব্রিজে ফেরত আসবেন শয়তানকে পাথর নিক্ষেপণের জন্য। এইদিন,
+            ১০ইজিলহজ্জ, সারা বিশ্বের মুসলমানদের জন্য ঈদ-উল-আযহা হয়। দিনটি পশুদের বলিদান এবং পরিবার
+            এবং দরিদ্রের সাথে মাংস ভাগ করে চিহ্নিত করা হয়।
+        </item>
+        <item>মিনাতে জামারাত ব্রিজ ত্যাগের পরে হজ্জযাত্রীরা মক্কাতে আরও একটি তাওয়াফ পালন করেন।
+            কিন্তু ক্লান্ত হয়ে পড়ার জন্য কোন বিশ্রাম নেই এবং রাতেই আবার মিনাতে ফেরত যান।
+        </item>
+        <item>হজ্জযাত্রীরা ৩য় দিনের রাত্রি এবং পরের ২ দিন মিনাতে তাবুতে অবস্থান করবেন। হজ্জযাত্রীরা
+            মিনাতে জামারাত ব্রিজে ফেরত আসবেন শয়তানকে পাথর নিক্ষেপণের জন্য, পূর্ব থেকে পশ্চিম দিকে।
+            ৫ম দিনের শেষে, তারা তাদের হজ্জ সম্পন্ন করবেন।
+        </item>
+    </array>
+
+    <array name="hajjDetailsTitle">
+        <item>যাত্রা শুরুর স্থান-মক্কা</item>
+        <item>১ম দিন মদিন-মিনা</item>
+        <item>২য় দিন-আরাফাত ময়দান</item>
+        <item>২য় দিন-মুজদালিফা</item>
+        <item>৩য়দিন-জামারাত ব্রিজ</item>
+        <item>৩য়দিন-মক্কা</item>
+        <item>৪র্থ এবং ৫ম দিন – মিনায় অবস্থান</item>
+    </array>
+
+
+    <!--MALAYSIAN CITIES ARRAY-->
+
+    <array name="stateNames">
+        <item>Select State</item>
+        <item>Johor</item>
+        <item>Kedah</item>
+        <item>Kelantan</item>
+        <item>Melaka</item>
+        <item>Negeri Sembilan</item>
+        <item>Pahang</item>
+        <item>Perak</item>
+        <item>Perlis</item>
+        <item>Pulau Pinang</item>
+        <item>Sabah</item>
+        <item>Sarawak</item>
+        <item>Selangor</item>
+        <item>Terengganu</item>
+        <item>Wilayah Persekutuan</item>
+    </array>
+
+
+    <array name="johorCities">
+        <item>Batu Pahat</item>
+        <item>Gemas</item>
+        <item>Johor Bahru</item>
+        <item>Kluang</item>
+        <item>Kota Tinggi</item>
+        <item>Mersing</item>
+        <item>Muar</item>
+        <item>Pemanggil</item>
+        <item>Pontian</item>
+        <item>Pulau Aur</item>
+        <item>Segamat</item>
+    </array>
+
+    <array name="kedahCities">
+        <item>Baling</item>
+        <item>Bandar Baharu</item>
+        <item>Kota Setar</item>
+        <item>Kuala Muda</item>
+        <item>Kubang Pasu</item>
+        <item>Kulim</item>
+        <item>Langkawi</item>
+        <item>Padang Terap</item>
+        <item>Pendang</item>
+        <item>Pokok Sena</item>
+        <item>Puncak Gunung Jerai</item>
+        <item>Sik</item>
+        <item>Yan</item>
+    </array>
+
+    <array name="kelantanCities">
+        <item>Bachok</item>
+        <item>Bertam</item>
+        <item>Jeli</item>
+        <item>Kota Bharu</item>
+        <item>Kuala Krai</item>
+        <item>Machang</item>
+        <item>Mukim Chiku</item>
+        <item>Mukim Galas</item>
+        <item>Pasir Mas</item>
+        <item>Pasir Puteh</item>
+        <item>Tanah Merah</item>
+        <item>Tumpat</item>
+    </array>
+
+
+    <array name="melakaCities">
+        <item>Alor Gajah</item>
+        <item>Bandar Melaka</item>
+        <item>Jasin</item>
+        <item>Masjid Tanah</item>
+        <item>Merlimau</item>
+        <item>Nyalas</item>
+    </array>
+
+
+    <array name="negeriSembilanCities">
+        <item>Jelebu</item>
+        <item>Jempol</item>
+        <item>Kuala Pilah</item>
+        <item>Port Dickson</item>
+        <item>Rembau</item>
+        <item>Seremban</item>
+        <item>Tampin</item>
+    </array>
+
+    <array name="pehangCities">
+        <item>Bentong</item>
+        <item>Bera</item>
+        <item>Bukit Fraser</item>
+        <item>Cameron Highland</item>
+        <item>Chenor</item>
+        <item>Genting Highlands</item>
+        <item>Jerantut</item>
+        <item>Kuala Lipis</item>
+        <item>Kuantan</item>
+        <item>Maran</item>
+        <item>Muadzam Shah</item>
+        <item>Pekan</item>
+        <item>Pulau Tioman</item>
+        <item>Raub</item>
+        <item>Rompin</item>
+        <item>Temerloh</item>
+    </array>
+
+    <array name="perakCities">
+        <item>Bagan Datoh</item>
+        <item>Bagan Serai</item>
+        <item>Batu Gajah</item>
+        <item>Belum</item>
+        <item>Beruas</item>
+        <item>Bukit Larut</item>
+        <item>Grik</item>
+        <item>Ipoh</item>
+        <item>Kampar</item>
+        <item>Kampung Gajah</item>
+        <item>Kuala Kangsar</item>
+        <item>Lenggong</item>
+        <item>Lumut</item>
+        <item>Parit</item>
+        <item>Parit Buntar</item>
+        <item>Pengkalan Hulu</item>
+        <item>Pulau Pangkor</item>
+        <item>Selama</item>
+        <item>Setiawan</item>
+        <item>Slim River</item>
+        <item>Sri Iskandar</item>
+        <item>Sungai Siput</item>
+        <item>Taiping</item>
+        <item>Tanjung Malim</item>
+        <item>Tapah</item>
+        <item>Teluk Intan</item>
+        <item>Temengor</item>
+    </array>
+
+
+    <array name="perlisCities">
+        <item>Arau</item>
+        <item>Kangar</item>
+        <item>Padang</item>
+    </array>
+
+    <array name="pulauPinang">
+        <item>Pulau Pinang</item>
+    </array>
+
+
+    <array name="sabahCities">
+        <item>Balong</item>
+        <item>Bandar Bukit Garam</item>
+        <item>Beaufort</item>
+        <item>Beluran</item>
+        <item>Gunung Kinabalu</item>
+        <item>Kalabakan</item>
+        <item>Keningau</item>
+        <item>Kota Belud</item>
+        <item>Kota Kinabalu</item>
+        <item>Kota Marudu</item>
+        <item>Kuala Penyu</item>
+        <item>Kuamut</item>
+        <item>Kudat</item>
+        <item>Kunak</item>
+        <item>Lahat Datu</item>
+        <item>Long Pa Sia</item>
+        <item>Membakut</item>
+        <item>Merotai</item>
+        <item>Nabawan</item>
+        <item>Papar</item>
+        <item>Penampang</item>
+        <item>Pensiangan</item>
+        <item>Pinangah</item>
+
+        <item>Pitas</item>
+
+        <item>Pulau Banggi</item>
+
+        <item>Ranau</item>
+
+        <item>Sahabat</item>
+
+        <item>Sandakan</item>
+
+        <item>Semawang</item>
+
+        <item>Semporna</item>
+
+        <item>Silabukan</item>
+
+        <item>Sipitang</item>
+
+        <item>Tambisan</item>
+
+        <item>Tambunan</item>
+
+        <item>Tawau</item>
+
+        <item>Telupit</item>
+
+        <item>Temanggong</item>
+
+        <item>Tenom</item>
+
+        <item>Terusan</item>
+
+        <item>Tuaran</item>
+
+        <item>Tungku</item>
+
+        <item>Weston</item>
+    </array>
+
+
+    <array name="sarawakCities">
+        <item>Bau</item>
+
+        <item>Bekenu</item>
+
+        <item>Belaga</item>
+
+        <item>Belawai</item>
+
+        <item>Belingan</item>
+
+        <item>Betong</item>
+
+        <item>Bintulu</item>
+
+        <item>Bitangor</item>
+
+        <item>Dalat</item>
+
+        <item>Daro</item>
+
+        <item>Debak</item>
+
+        <item>Engkelili</item>
+
+        <item>Igan</item>
+
+        <item>Julau</item>
+
+        <item>Kabong</item>
+
+        <item>Kanowit</item>
+
+        <item>Kapit</item>
+
+        <item>Kuching</item>
+
+        <item>Lawas</item>
+
+        <item>Limbang</item>
+
+        <item>Lingga</item>
+
+        <item>Lundu</item>
+
+        <item>Marudi</item>
+
+        <item>Matu</item>
+
+        <item>Meludam</item>
+
+        <item>Miri</item>
+
+        <item>Niah</item>
+
+        <item>Oya</item>
+
+        <item>Pusa</item>
+
+        <item>Rajang</item>
+
+        <item>Roban</item>
+
+        <item>Samarahan</item>
+
+        <item>Saratok</item>
+
+        <item>Sarikei</item>
+
+        <item>Sebauh</item>
+
+        <item>Sebuyau</item>
+
+        <item>Sematan</item>
+
+        <item>Serian</item>
+
+        <item>Sibu</item>
+
+        <item>Sibuti</item>
+
+        <item>Simunjan</item>
+
+        <item>Song</item>
+
+        <item>Spaoh</item>
+
+        <item>Sri Aman</item>
+
+        <item>Sundar</item>
+
+        <item>Tatau</item>
+
+        <item>Terusan</item>
+    </array>
+
+    <array name="selangorCities">
+        <item>Gombak</item>
+        <item>Hulu Langat</item>
+        <item>Hulu Selangor</item>
+        <item>Klang</item>
+        <item>Kuala Langat</item>
+        <item>Kuala Selangor</item>
+        <item>Petaling</item>
+        <item>Rawang</item>
+        <item>Sabak Bernam</item>
+        <item>Sepang</item>
+        <item>Shah Alam</item>
+    </array>
+
+
+    <array name="terengganuCities">
+        <item>Besut</item>
+        <item>Hulu Terrenganu</item>
+        <item>Kemaman Dungun</item>
+        <item>Kuala Terengganu</item>
+        <item>Marang</item>
+        <item>Setiu</item>
+    </array>
+
+    <array name="wilayahPersekutuanCities">
+        <item>Kuala Lumpur</item>
+        <item>Labuan</item>
+        <item>Putrajaya</item>
+    </array>
+
+    <array name="free_features">
+        <item>Al-Quran</item>
+        <item>Namaz Timing</item>
+        <item>Compass</item>
+        <item>Nearby Mosque</item>
+    </array>
+
+    <array name="free_features_details">
+        <item>Listen and Recite Al-Quran on Ibadat</item>
+        <item>Receive notifications the five waqt daily prayers</item>
+        <item>Get the direction of Qibla through the compass</item>
+        <item>Find the nearby mosque location</item>
+    </array>
+
+    <array name="array_bangla_tasbih_duas" translatable="false">
+        <item>@string/txt_bangla_dua_one</item>
+        <item>@string/txt_bangla_dua_two</item>
+        <item>@string/txt_bangla_dua_three</item>
+        <item>@string/txt_bangla_dua_four</item>
+        <item>@string/txt_bangla_dua_five</item>
+        <item>@string/txt_bangla_dua_six</item>
+        <item>@string/txt_bangla_dua_seven</item>
+        <item>@string/txt_bangla_dua_eight</item>
+    </array>
+
+    <array name="array_arabic_tasbih_duas" translatable="false">
+        <item>@string/txt_arabic_dua_one</item>
+        <item>@string/txt_arabic_dua_two</item>
+        <item>@string/txt_arabic_dua_three</item>
+        <item>@string/txt_arabic_dua_four</item>
+        <item>@string/txt_arabic_dua_five</item>
+        <item>@string/txt_arabic_dua_six</item>
+        <item>@string/txt_arabic_dua_seven</item>
+        <item>@string/txt_arabic_dua_eight</item>
+    </array>
+</resources>

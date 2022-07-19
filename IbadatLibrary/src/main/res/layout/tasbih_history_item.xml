@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:paddingTop="20dp"
+    android:paddingBottom="20dp"
+    android:layout_marginBottom="@dimen/margin_8"
+    android:background="@drawable/bg_border_rounded_gray">
+
+    <com.ibadat.sdk.views.TextViewNormal
+        android:id="@+id/tv_history_item_number"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="০১"
+        android:textAppearance="@style/TextAppearance.AppCompat.Subhead"
+        android:textColor="@color/txt_color_black"
+        android:textFontWeight="400"
+        android:visibility="gone"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <com.ibadat.sdk.views.TextViewNormal
+        android:id="@+id/tv_history_item_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:text="আলহামদুলিল্লাহ"
+        android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+        android:textColor="@color/txt_color_black"
+        android:textFontWeight="400"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <com.ibadat.sdk.views.TextViewNormal
+        android:id="@+id/tv_history_item_count"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:text="৩৩ বার "
+        android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+        android:textColor="@color/ash"
+        android:textFontWeight="400"
+        android:layout_marginEnd="@dimen/margin_16"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"/>
+</androidx.constraintlayout.widget.ConstraintLayout>

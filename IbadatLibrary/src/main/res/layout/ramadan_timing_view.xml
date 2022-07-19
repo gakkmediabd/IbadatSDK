@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/NonRomadanLayout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/apps_gray2"
+    android:orientation="vertical"
+    android:visibility="gone">
+
+    <LinearLayout
+        android:id="@+id/linearLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/ramadan_illustration"
+        android:layout_gravity="bottom|right"
+        android:layout_marginTop="5dp"
+        android:orientation="horizontal"
+        android:visibility="gone"
+        android:weightSum="3">
+
+        <Button
+            android:id="@+id/ivRomadan_rohomot"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:adjustViewBounds="true"
+            android:scaleType="fitXY"
+            android:text="Rohomot"
+            android:textColor="@color/white"
+            android:background="@drawable/rounded_corner_blue" />
+
+        <Button
+            android:id="@+id/ivRomadan_magfirat"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:adjustViewBounds="true"
+            android:textColor="@color/colorAccent"
+            android:text="Magfirat"
+            android:scaleType="fitXY"
+            android:src="@drawable/rounded_corner_jakat" />
+
+        <ImageView
+            android:id="@+id/ivRomadan_nazat"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:adjustViewBounds="true"
+            android:textColor="@color/colorAccent"
+            android:text="Magfirat"
+            android:scaleType="fitXY"
+            android:src="@drawable/rounded_corner_jakat" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/tabs"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:gravity="top|bottom|left|right|center_vertical|fill_vertical|center_horizontal|fill_horizontal|center|fill|start|end"
+        android:orientation="horizontal"
+        android:padding="5dp"
+        android:paddingStart="@dimen/margin_8">
+
+
+        <com.ibadat.sdk.views.MyCustomTextView
+            android:id="@+id/rja_textView2"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_weight="0.3"
+            android:gravity="center"
+            android:text="@string/date"
+            android:textColor="@color/colorAccent"
+            android:textSize="14sp" />
+
+        <com.ibadat.sdk.views.MyCustomTextView
+            android:id="@+id/rja_textView"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_weight="0.5"
+            android:gravity="center"
+            android:text="@string/day"
+            android:textColor="@color/colorAccent"
+            android:textSize="14sp" />
+
+        <com.ibadat.sdk.views.MyCustomTextView
+            android:id="@+id/rja_textView3"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_weight="0.5"
+            android:gravity="center"
+            android:text="@string/seheri_last_time"
+            android:textColor="@color/colorAccent"
+            android:textSize="14sp" />
+
+        <com.ibadat.sdk.views.MyCustomTextView
+            android:id="@+id/rja_textView4"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_weight="0.5"
+            android:gravity="center"
+            android:text="@string/ifter_last_time"
+            android:textColor="@color/colorAccent"
+            android:textSize="14sp" />
+    </LinearLayout>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/NonRomadanList"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+</LinearLayout>
+
+

@@ -1,0 +1,48 @@
+<resources>
+    <dimen name="textsize">16sp</dimen>
+    <dimen name="textsize_details_name">14sp</dimen>
+    <dimen name="namaz_somoisuchi_textsize">13sp</dimen>
+    <dimen name="margin_43">43dp</dimen>
+
+    <dimen name="azanClockBodyMargin">7dp</dimen>
+    <dimen name="azanClockCntrPointMargin">20dp</dimen>
+    <dimen name="azanClockHourMargin">17dp</dimen>
+    <dimen name="azanClockMinuteMargin">18.5dp</dimen>
+    <dimen name="item_offset">5dp</dimen>
+    <dimen name="item_offset1">2dp</dimen>
+    <dimen name="text_height_width">30dp</dimen>
+    <dimen name="min_cell_height">50dp</dimen>
+    <dimen name="min_cell_width">50dp</dimen>
+    <dimen name="margin_16">16dp</dimen>
+    <!--    <dimen name="margin_20">20dp</dimen>-->
+    <!--    <dimen name="size_24">24dp</dimen>-->
+    <dimen name="margin_8">8dp</dimen>
+
+    <dimen name="standard_margin">16dp</dimen>
+    <dimen name="small_spacing">8dp</dimen>
+    <dimen name="margin_20">20dp</dimen>
+    <dimen name="size_24">24dp</dimen>
+    <!-- Default screen margins, per the Android Design guidelines. -->
+    <dimen name="activity_horizontal_margin">16dp</dimen>
+    <dimen name="activity_vertical_margin">16dp</dimen>
+    <dimen name="appbar_padding">16dp</dimen>
+    <dimen name="fab_margin">16dp</dimen>
+    <dimen name="appbar_padding_top">8dp</dimen>
+    <dimen name="isCalWeekTitleTxtSiz">13sp</dimen>
+    <!--CUSTOM SIZE-->
+
+    <!--
+body1 - 14
+caption - 12
+subhead - 16
+medium - 18
+title - 20
+large - 22
+headline - 24
+display1 - 34
+display2 - 45
+display3 - 56
+display4 - 112
+-->
+
+</resources>

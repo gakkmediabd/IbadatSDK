@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        android:elevation="12dp"
+        android:innerRadius="0dp"
+        android:padding="5dp"
+        app:cardCornerRadius="10dp"
+        app:cardElevation="4dp"
+        app:cardUseCompatPadding="true">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingStart="10dp"
+            android:paddingTop="10dp"
+            android:paddingBottom="10dp"
+            >
+
+            <RelativeLayout
+                android:id="@+id/rlhadith_icon_number_background"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                >
+
+                <ImageView
+                    android:id="@+id/hadithImageView"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+
+                    android:layout_centerInParent="true" />
+
+                <com.ibadat.sdk.views.MyCustomTextView
+                    android:id="@+id/hadithCount"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:text="1"
+                    android:textColor="@color/colorAccent" />
+
+            </RelativeLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_toLeftOf="@+id/hadith_right_arrow"
+                android:layout_toRightOf="@+id/rlhadith_icon_number_background"
+                android:orientation="vertical"
+                android:paddingLeft="10dp"
+                android:paddingRight="5dp">
+
+                <com.ibadat.sdk.views.MyCustomTextView
+                    android:id="@+id/hadith_title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:maxLines="1"
+                    android:text="hadith"
+                    android:textColor="@color/black"
+                    android:textSize="17sp"
+                    android:textStyle="bold" />
+
+                <com.ibadat.sdk.views.MyCustomTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/hadith_title"
+                    android:layout_toRightOf="@+id/rlhadith_icon_number_background"
+                    android:background="#99ffff"
+                    android:paddingLeft="10dp"
+                    android:paddingRight="10dp"
+                    android:text="sohihadish"
+                    android:visibility="gone" />
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <!--    <co.ibadat.gakk.custom_method.MyCustomTextView
+
+                        android:id="@+id/hadisNoText"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/hadisNo"
+                        android:textColor="@color/black"
+
+                        />
+
+                    <co.ibadat.gakk.custom_method.MyCustomTextView
+                        android:id="@+id/hadithCountTwo"
+
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingLeft="5dp"
+                        android:text="1"
+                        android:layout_marginRight="20dp"
+                        android:textColor="@color/black"
+                        android:textStyle="bold" />-->
+
+                    <com.ibadat.sdk.views.MyCustomTextView
+                        android:id="@+id/txt1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="sohi_hadish_utsho"
+                        android:textColor="@color/black" />
+
+                    <com.ibadat.sdk.views.MyCustomTextView
+                        android:id="@+id/txt2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingLeft="5dp"
+                        android:text="sohi_hadish_utsho_bukhari"
+                        android:textColor="@color/black"
+                        android:textSize="12sp"
+                        android:textStyle="bold" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <ImageView
+                android:id="@+id/hadith_right_arrow"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:layout_marginStart="5dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginEnd="5dp"
+                android:layout_marginBottom="5dp"
+                android:src="@drawable/ic_chevron_right" />
+
+
+        </RelativeLayout>
+    </androidx.cardview.widget.CardView>
+
+
+</RelativeLayout>

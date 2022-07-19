@@ -1,0 +1,255 @@
+<resources>
+    <string name="app_name">IbadatSDK</string>
+
+    <string name="ayat">আয়াত সংখ্যা</string>
+    <string name="ti">টি</string>
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="pageTransition">simple_fragment_transition</string>
+    <string name="nowplaying">এখন চলছে</string>
+    <string name="total_count">মোট ৯৯</string>
+    <string name="total_ayat">মোট আয়াত</string>
+    <string name="count">০</string>
+    <string name="count_bar">বার</string>
+    <string name="share_btn_text">শেয়ার</string>
+    <string name="fav_button_text">ফেভারিট</string>
+    <string name="hadith_source">হাদিস উৎস : </string>
+    <string name="sat">শনি</string>
+    <string name="sun">রবি</string>
+    <string name="mon">সোম</string>
+    <string name="tue">মঙ্গল</string>
+    <string name="wed">বুধ</string>
+    <string name="thu">বৃহ:</string>
+    <string name="fri">শুক্র</string>
+    <string name="muslim_holiday">ইসলামিক ছুটিরদিন</string>
+    <string name="islamicCalendarTxt">"*স্থান ভেদে চাঁদ দেখার উপর নির্ভর করে আরবি মাসের তারিখ পরিবর্তন হতে পারে "</string>
+    <string name="text_zero">০০</string>
+    <string name="text_thirty_three">৩৩ বার</string>
+    <string name="text_thirty_four">৩৪ বার</string>
+    <string name="text_ninety_nine">৯৯ বার</string>
+    <string name="count_complete">আপনার গণনা সম্পন্ন হয়ছেে</string>
+
+    <string name="txt_bangla_dua_one">সুবহানআল্লাহ</string>
+    <string name="txt_bangla_dua_two">আলহামদুলিল্লাহ্</string>
+    <string name="txt_bangla_dua_three">বিসমিল্লাহ্</string>
+    <string name="txt_bangla_dua_four">আল্লাহু আকবার</string>
+    <string name="txt_bangla_dua_five">আস্তাগফিরুল্লাহ</string>
+    <string name="txt_bangla_dua_six">আল্লাহ্</string>
+    <string name="txt_bangla_dua_seven">লা ইলাহা ইল্লালা</string>
+    <string name="txt_bangla_dua_eight">লা হাওলা ওয়ালা কুওয়াতা ইল্লা বিল্লাহ</string>
+
+    <string name="txt_arabic_dua_one">سُبْحَانَ ٱللَّٰهِ</string>
+    <string name="txt_arabic_dua_two">ٱلْحَمْدُ لِلَّٰه</string>
+    <string name="txt_arabic_dua_three">بسم الله</string>
+    <string name="txt_arabic_dua_four">الله أكبر</string>
+    <string name="txt_arabic_dua_five">أستغفر الله</string>
+    <string name="txt_arabic_dua_six">الله</string>
+    <string name="txt_arabic_dua_seven">لا إله إلا الله</string>
+    <string name="txt_arabic_dua_eight">لا حول ولا قوة إلا بالله</string>
+
+    <string name="txt_times">বার</string>
+    <string name="txt_total_count">আপনার মোট গণনা</string>
+    <string name="txt_your_count">আপনার গণনা সমূহ</string>
+    <string name="txt_round">রাউন্ড</string>
+    <string name="txt_reset_count">গণনা রিসেট</string>
+    <string name="reset_des">রিসেট সম্পন্ন হলে, মোট/বর্তমান গণনা রিকভার করা সম্ভব না</string>
+    <string name="current_count">বর্তমান গণনা</string>
+    <string name="default_item">সুবহানআল্লাহ</string>
+    <string name="pleaseWaitText">অনুগ্রহপূর্বক অপেক্ষা করুন</string>
+    <string name="txt_bangla_sahri_message">সাহরীর শেষ সময়</string>
+    <string name="txt_bangla_iftar_message">ইফতারের সময়</string>
+    <string name="title_activity_dua">DuaActivity</string>
+
+    <string name="next">Next</string>
+    <string name="previous">Previous</string>
+
+    <string name="hello_first_fragment">Hello first fragment</string>
+    <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
+    <string name="current_date">27,April 2022</string>
+    <string name="rojar_niot_title">রোজার নিয়ত</string>
+    <string name="rojar_niot">নাওয়াইতু আন আছুমা গাদাম মিন শাহরি রামাদ্বনাল মুবারাকি ফারদ্বাল্লাকা ইয়া আল্লাহ ফাতাক্বাববাল মিন্নী ইন্নাকা আনতাস সামীয়ু\'ল আ\'লীম।</string>
+    <string name="ifter_niot_title">ইফতারের দোয়া</string>
+    <string name="ifter_niot">আল্লাহুম্মা সুমতু লাকা, ওয়া তাওআক্কালতু আ\'লা রিঝক্বিকা, ওয়া আফতারতু বিরাহমাতিকা ইয়া আরহামার রহিমীন।</string>
+    <string name="note">* রমজান শুরু ও শেষের তারিখ চাঁদ দেখার ওপর নির্ভরশীল।</string>
+    <string name="seheri_last_time">সেহরীর শেষ সময়</string>
+    <string name="ifter_last_time">ইফতারের সময়</string>
+    <string name="duasommoho">দোয়া সমূহ</string>
+    <string name="rojar_niot_arbi">نويت ان اصوم غدا من شهر رمضان المبارك فرضا لك ياالله فتقبل منى انك انت السميع العليم.</string>
+    <string name="ifter_niot_arbi">اللهم لك صمت و على رزقك افطرت.</string>
+    <string name="roja_rule">
+         ১:   সফর অবস্থায় খুব কষ্ট হলে।
+       \n\n২:  অসুস্হ অবস্থায় ঔষুধ সেবন না করলে প্রাণ নাশের আশংকা হলে।
+         \n\n৩: দুগ্ধ দায়িনী স্ত্রীলোকের নিজের বা দুগ্ধ শিশুর জীবনের ব্যাপারে আশংকা হলে।
+         \n\n৪: বৃদ্ধাবস্থায় রোযা রাখার কারনে মারাত্মক দুর্বল হয়ে জীবনের ব্যাপারে আশংকা হলে।
+         \n\n৫: আল্লাহর রাস্তায় জিহাদের জন্য।
+         \n\n৬: বেহুঁশ বা পাগল হয়ে গেলে।
+         \n\n৭: রোগ বেড়ে যাওয়ার বা নতুন কোন রোগ সৃষ্টি হওয়ার আশংকা হলে । ( তবে তা দ্বীনদার, পরযেগার, অভিজ্ঞ চিকিৎসকের পরামর্শ অনুযায়ী হতে হবে )
+         \n\n৮: গর্ভ অবস্থায় নিজের বা সন্তানের প্রাণ নাশের আশংকা হলে।
+        \n \n৯: এমন পিপাসা বা ক্ষুধা যাতে প্রাণের আশংকা হয়।
+         \n\n ( কেহ যদি অন্যকে দিয়ে কাজ করাতে পারে, বা জীবিকা অর্জনের জন্য অন্য কোন কাজি করার সুযোগ থাকা সত্ত্বেও টাকার লোভে এমন কাজ করল, যার কারনে ক্ষধা বা পিপাসায় আক্রান্ত হল, তাহলে তাঁর রোজা ছাড়ার অনুমতি নাই )
+</string>
+    <string name="roja_rule_title">রোজার নিয়মকানুন</string>
+    <string name="roja_rule_title1">যে সমস্ত কারণে রোযা শুরু করার পর ভেঙ্গে ফেলার অনুমতি রয়েছে, তবে পরে ক্বাযা আদায় করতে হয়</string>
+    <string name="roja_rule_title2">যে ৫ দিন রোযা রাখা হারাম</string>
+    <string name="roja_rule2">
+        ১: ঈদুল ফিতরের দিন
+         \n\n২: ঈদুল আযহার দিন
+         \n\n৩: ১১, ১২ ও ১৩ই জিলহজ্ব অর্থাৎ ঈদুল আযহার পরের তিন দিন, এই মোট ৫ দিন রোযা রাখা হারাম।</string>
+    <string name="roja_rule_title3">রোযা ভঙ্গের কারণ</string>
+    <string name="roja_rule3">
+        যে সব কারনে রোযা ভেঙ্গে যায় এবং একটি রোযার পরিবর্তে একটি রোযা কাজা করা ওয়াজিব হয়ঃ\n
+        \n ১: কানে বা নাকে ঔষুধ দিলে।\n
+         \n২: ইচ্ছাকৃতভাবে মুখভরে বমি করলে বা অল্প বমি আসার পর তা গিলে ফেললে।\n
+         \n৩: কুলি করার সময় অনিচ্ছা বশত কন্ঠনালীতে পানি চলে গেলে।\n
+         \n৪: স্ত্রী বা কোন নারীকে শুধু স্পর্শ প্রভৃতি করার কারনেই বীর্যপাত হয়ে গেলে।\n
+         \n৫: এমন কোন জিনিস খেলে যা খাদ্য নয় যেমন : কাঠ, লোহা, মাটি, কয়লা ইত্যাদি।\n
+         \n৬: বিড়ি সিগারেট বা হুক্কা সেবন করলে।\n
+         \n৭: আগরবাতি প্রভৃতির ধোয়া ইচ্ছাকৃত ভাবে নাকে বা কন্ঠনালীতে পৌছালে।\n
+         \n৮: ভুলে পানাহার করার পর রোযা ভেঙ্গে গেছে মনে করে কোন কিছু পানাহার করলে।\n
+         \n৯: রাত আছে মনে করে সুবহে সাদিকের পরে কিছু খেলে।\n
+         \n১০: ইফতারীর সময়ের পূর্বে সময় হয়ে গেছে মনে করে ইফতারী করলে বা কিছু খেলে।\n
+         \n১১: দুপুরের পরে রোযার নিয়ত করলে।\n
+         \n১২: দাঁত দিয়ে রক্ত বের হলে তা থুথুর চেয়ে পরিমানে যদি বেশি হয় এবং কন্ঠনালীতে চলে যায়।\n
+         \n১৩: কেহ জোর পূর্বক রোযাদারের মুখে কিছু দিলে এবং তা কন্ঠনালীতে চলে গেলে।\n
+         \n১৪: দাঁত কোন খাদ্য টুকরো আটকে ছিল, তা সুবহে সাদেকের পর জিহ্বা অথবা আঙ্গুলি দ্বারা বের করে গিলে ফেললে। ( তবে যদি ছুলা বুটের চেয়ে ছোট হয় এবং মুখের ভিতর হতে বের না করে তাহলে রোযা মাকরুহ হবে ভাঙ্গবে না )\n
+         \n১৫: হস্তমৈথুন করে বীর্যপাত ঘটালে। \n
+         \n১৬: পেশাব বা পায়খানার রাস্তায় ঔষুধ, পানি, তৈল বা ভিজা আঙ্গুল প্রবেশ করালে। অথবা শুকনো আঙ্গুল পুরোটা প্রবেশ করিয়ে পুরোটা বা টিছুটা বের করে আবার প্রবেশ করালে। \n
+         \n১৭: মুখে পান রেখে ঘুমিয়ে গেলে এবং এ অবস্থায় সু্বহে সাদিক হয়ে গেলে। \n
+         \n১৮: নস্যি গ্রহন করলে বা কানে তেল ঢাললে। \n
+         \n১৯: রোযার নিয়ত ব্যতীত রোযা রাখলে। \n
+         \n২০: স্ত্রীর বেহুশ, অচেতন বা ঘুমন্ত অবস্থায় তাঁর সাথে সহবাস করলে স্ত্রীর উপর শুধু কাযা ওয়াজিব হবে। \n
+         \n২১: নফল রোযা রেখে ভেঙ্গে ফেললে।\n
+         \n২২: এক দেশে রোযা শুরু করে অন্যদেশে চলে গেলে সেখানে যদি নিজের দেশের তুলনায় আগে ঈদ হয়ে তাহলে নিজের দেশের হিসাবে যে কয়টা রোযা কম হবে তা কাযা করতে হবে। আর যদি বেড়ে যায় তাহলে সে বেড়ে যাওয়া রোযা রাখতে হবে।</string>
+    <string name="non_romadan_title">ইফতার সেহরীর সময়সূচী</string>
+    <string name="ifter_last_time_title">ইফতারের \nসময়</string>
+    <string name="rojar_niot_meaning">অনুবাদঃ হে আল্লাহ আপনার সন্তুষ্টির জন্য আগামীকাল রমজানের ফরজ রোজা রাখার নিয়ত করছি। আমার তরফ থেকে আপনি তা কবুল করুন। নিশ্চয়ই আপনি সর্বশ্রোতা, সর্বজ্ঞাত।</string>
+    <string name="ifter_niot_meaning">অনুবাদঃ  হে আল্লাহ তায়ালা আমি আপনার নির্দেশিত মাহে রমাজানের ফরয রোজা শেষে আপনারই নির্দেশিত আইন মেনেই রোজার পরিসমাপ্তি করছি ও রহমতের আশা নিয়ে ইফতার আরম্ভ করিতেছি। তারপর \"বিসমিল্লাহি ওয়া\'আলা বারাকাতিল্লাহ\" বলে ইফতার করা</string>
+    <string name="todayifer_time_roja">আজকের ইফতারের সময়</string>
+    <string name="today_sehery_time_roja">আজকের সেহরীর শেষ সময়</string>
+    <string name="name_meaning">অর্থ:</string>
+    <string name="ramadan">রমজান</string>
+    <string name="date">তারিখ</string>
+    <string name="sehri_time">Sehri last time</string>
+    <string name="txt_am">am</string>
+    <string name="txt_pm">pm</string>
+    <string name="day">দিন</string>
+    <string name="minute">Minute</string>
+    <string name="today_ifter_last_time">Today\'s ifter time</string>
+    <string name="ifter_time">ইফতার</string>
+    <string name="sehri_alert">Sehri Alert</string>
+    <string name="ifter_alert">Ifter Alert</string>
+    <string name="notification_sound">Notification Sound</string>
+    <string name="notification_vibration">Notification Vibration</string>
+    <string name="sehri_time_up">Sehri time is up</string>
+    <string name="time_for_iftari">It is time for iftari</string>
+    <string name="fajr">Fazr</string>
+
+    <string name="txt_title_compass">সঠিক দিক নির্দেশনার জন্য ফোনটি ক্যালিব্রেট (Calibrate) করুন এবং লোকেশন সার্ভিস অন করুন</string>
+    <string name="km_text">" কিলোমিটার"</string>
+    <string name="makkah_distance">"মক্কা থেকে দূরত্ব "</string>
+    <string name="degree_txt">  ভৌগলিক উত্তর থেকে</string>
+    <string name="turn_on_txt">সঠিক দিক নির্দেশনা পেতে আপনার লোকেশন অন করুন</string>
+    <string name="ibadat_quran">Quran</string>
+    <string name="previous_content">পূর্ববর্তী</string>
+    <string name="next_content">পরবর্তী</string>
+
+    <!--Zakat Page !-->
+    <string name="txt_jakat_calculator">যাকাত ক্যালকুলেটর</string>
+    <string name="txt_save_calculation">হিসাব সংরক্ষণ</string>
+    <string name="txt_new_calculation">নতুন হিসাব</string>
+    <string name="txt_jakat_description">ইসলামে ৭.৫ ভরি স্বর্ণ কিংবা ৫২.৫ ভরি রুপা অথবা সমপরিমাণ অর্থ এক বছর যাবত গচ্ছিত থাকলে তার বাজার মুল্য অনুযায়ী মোট অর্থের শতকরা ২.৫% যাকাত দেওয়ার বিধান রয়েছে</string>
+    <string name="txt_total_asset">মোট সম্পদ</string>
+    <string name="txt_jakat_baki">যাকাত বাকী</string>
+    <string name="txt_title_total_asset">চন্দ্র বছরে আপনার দখলে থাকা সমস্ত সম্পদের পরিমান প্রবেশ করুন:</string>
+    <string name="title_nogod_taka">নগদ টাকা</string>
+    <string name="title_bank_nogod_taka">ব্যাংক অ্যাকাউন্টে নগদ টাকা</string>
+    <string name="title_ornament_header">সোনা রূপার পরিমান</string>
+    <string name="text_gold_amount">সোনার মান (টাকায়)</string>
+    <string name="text_silver_amount">রূপার মান (টাকায়)</string>
+    <string name="title_investment">বিনিয়োগ</string>
+    <string name="text_share_market">শেয়ার বাজার</string>
+    <string name="text_other_investment">অন্যান্য বিনিয়োগ</string>
+    <string name="title_asset">সম্পত্তি</string>
+    <string name="text_house_rent">বাসা ভাড়া</string>
+    <string name="title_business">ব্যবসা</string>
+    <string name="text_nogod_business">নগদ ব্যবসা</string>
+    <string name="text_product">পণ্য</string>
+    <string name="title_other">অন্যান্য</string>
+    <string name="text_pension">পেনশন</string>
+    <string name="text_family_loan">পারিবারিক ঋণ এবং অন্যান্য</string>
+    <string name="text_other_capital">অন্যান্য মূলধন</string>
+    <string name="title_farming">কৃষিকাজ</string>
+    <string name="text_taka_amount">টাকার পরিমান</string>
+    <string name="title_lialibility">দায়</string>
+    <string name="text_credit_card">ক্রেডিট কার্ড পেমেন্ট</string>
+    <string name="text_car_payment">গাড়ির পেমেন্ট</string>
+    <string name="text_business_payment">ব্যবসার পেমেন্ট</string>
+    <string name="text_family_loan_liability">ফ্যামিলি ঋণ</string>
+    <string name="text_other_loan">অন্যান্য ঋণ</string>
+
+    <string name="description_nogod_taka">আপনার যাবতীয় নগদ টাকা যা আপনার কাছে আছে অথবা ব্যাংকে গচ্ছিত আছে, তার উপর ২.৫ হারে যাকাত প্রযোজ্য হবে। নগদ টাকার পরিমাণটি যদি ১ বছর ধরে ব্যাংকে সুরক্ষিত থাকে তবে শুধুমাত্র সেক্ষেত্রেই যাকাত প্রযোজ্য হবে। মৌলিক প্রয়োজন থেকে উদ্ধৃত্ত টাকা-পয়সা নিসাব পরিমাণ হলে এবং এক বছর স্থায়ী হলে বছর শেষে তার যাকাত আদায় করা ফরয হয়। তদ্রূপ  ব্যাংক ব্যালেন্স, ফিক্সড ডিপোজিট, বন্ড, সার্টিফিকেট ইত্যাদিও নগদ টাকা-পয়সার মতোই। এসবের ওপরও যাকাত ফরয হয়।</string>
+    <string name="description_gold_amount">সোনা-রুপার অলংকার সর্বদা বা কালেভদ্রে ব্যবহৃত হোক কিংবা একেবারেই ব্যবহার না করা হোক সর্বাবস্থাতেই তার যাকাত দিতে হবে। যেদিন যাকাত হিসাব করা হবে সেদিনের বাজারদর অনুযায়ী হিসাব করতে হবে এবং তার উপর ২.৫ হারে যাকাত প্রযোজ্য হবে।
+    সাড়ে বায়ান্ন ভরি রুপা তা অলংকার হোক বা অন্য কোন আকৃতিতে হোক তার উপর যাকাত প্রযোজ্য হবে। যেদিন যাকাত হিসাব করা হবে সেদিনের বাজারদর অনুযায়ী হিসাব করতে হবে এবং তার উপর ২.৫ হারেযাকাতপ্রযোজ্যহবে।
+    </string>
+
+    <string name="description_investment">শেয়ার, বৈদেশিক মুদ্রা, প্রাইজবন্ড বা সঞ্চয়পত্রও নগদ টাকার মতই । তাই এগুলোর মূল্য হিসাব সকরে যাকাত দিতে হবে । তবে এগুলো থেকে কেউ সুদপ্রাপ্ত হলে তার পূর্ণটাই সদকা করে দিতে হবে। আপনার ব্যাংকে জমান টাকা, সঞ্চয়পত্র, লাইফ ইনস্যুরেন্স, শেয়ারে বিনয়োগ বা অন্য কোন ব্যাবসায় বিনিয়োগ করলে তার উপর যাকাত হিসাব করতে হবে। যাকাত হিসেবের দিন ওই খাতে ক্যাশ যোগ্য টাকা যাকাত যোগ্য সম্পদ হিসেবে গণ্য হবে। যদি আপনার শেয়ার কেনা থাকে যাকাতের হিসাবের দিন ওই শেয়ারের বিক্রয় মূল্য আপনার যাকাত যোগ্য সম্পদ হিসাবে গণ্য করতে হবে। তেমনি, যদি আপনার ডিপিএস অ্যাকাউন্ট থাকে যাকাতের হিসাবের দিন ওই অ্যাকাউন্ট ভাঙলে যে টাকা পাওয়া যাবে তা আপনার যাকাত যোগ্য সম্পদের সাথে যোগ হবে।</string>
+    <string name="description_asset">কারো একাধিক বাড়ি রয়েছে। তার উদ্দেশ্য হল ভাড়া খাটিয়ে টাকা অর্জন। তবে উক্ত বাড়ীগুলোর মূল্যের উপর যাকাত আসবে না। তবে ভাড়া বাবদ অর্জিত টাকার উপর যাকাত আসবে যদি নেসাব পরিমান হয়। অনুরূপভাবে থাকার জন্য নির্মাণকৃত বাড়ির উপরেও যাকাত আসে না। ফসলী জমি, বাড়ি নির্মাণের জন্য ক্রয়কৃত জমি এবং এমনিতে ফেলে রাখা জমির উপর যাকাত ফরজ নয়। তবে এগুলো ব্যবসার উদ্দেশ্যে ক্রয় করলে যাকাত দিতে হবে যদি নেসাব পরিমান হয়।</string>
+    <string name="description_business">সব ব্যবসায়ীদের জন্যই যাকাত প্রযোজ্য। যে কোন ধরণের ব্যাবসাই হোক না কেন সকল পন্যের বানিজ্যিক লেন দেনের উপর যাকাত দিতে হবে। মিল, কলকারখানা ও বিভিন্ন ব্যবসায়িক প্রতিষ্ঠানে যে সকল আসবাব রাখা রয়েছে সেগুলোর উপর যাকাত ফরজ নয়। কেননা এ সকল জিনিষ বিক্রি করা হয় না। তবে মেশিন থেকে উৎপন্ন পন্যের উপর যাকাত আসবে। অনুরূপভাবে কারখানায় যে সকল কাঁচামাল বিভিন্ন পর্যায়ে রয়েছে তার উপরও যাকাত আসবে। যেমন গার্মেন্টস এ জামা-কাপড়, সুতা, বোতাম, চেইন ইত্যাদি। কাজেই এগুলোর উপর যাকাত আসবে।</string>
+    <string name="description_other">আপনার ঋণ থাকলে তা যাকাত যোগ্য সম্পদ থেকে বাদ যাবে। আপনি অন্যকে ঋণ দিয়ে থাকলে, তা আপনার যাকাত যোগ্য সম্পদের হিসাবে গন্য হবে। তবে যদি কোন ঋণ মন্দ ঋণে (অর্থাৎ টাকা না পাওয়ার সম্ভাবনা থাকে) পরিণত হয় তা যাকাত যোগ্য সম্পদ থেকে বাদ দিতে পারেন। প্রভিদেন্ত ফান্ডের টাকা যাকাত যোগ্য সম্পদের হিসাবে গন্য হবে না। যেহেতু এই টাকা আপনার ইচ্ছামত ইন ক্যাশ করার সুযোগ নেই। তবে এই টাকা গ্রহণ করার পর একবছর পূর্ণ হলে সম্পূর্ণ টাকার উপর যাকাত প্রদান করতে হবে।</string>
+
+    <string name="description_farming">নিসাব পরিমাণ স্বীয় সম্পদ ১ বছর নিজ আয়ত্তাধীন থাকাই যাকাত ওয়াজিব হওয়ার পূর্বশর্ত। তবে কৃষিজাত ফসল, খনিজ সম্পদ ইত্যাদির যাকাত প্রতিবার ফসল তোলার সময়ই দিতে হবে।গৃহপালিত পশুর যাকাত ফরয হওয়ার জন্য ইসলামী শরী‘আত কর্তৃক নির্ধারিত নিছাব সংখ্যক পশুর মালিক হতে হবে। আর তা হল, ছাগল, ভেড়া ও দুম্বা ৪০ টি, গরু ৩০ টি এবং উট ৫ টি। উল্লিখিত সংখ্যা হতে কম হলে তার উপর যাকাত ফরয নয়।</string>
+
+    <string name="description_liability">যদি সরকারের নিকট আপনার কোন কর বকেয়া থাকে তাহলে যেদিন যাকাত হিসাব করা হবে সেদিন মুল সম্পদ থেকে দায় টুকু বাদ দিতে হবে। যদি আপনি কোনও ব্যক্তি বা প্রতিষ্ঠান থেকে কোনও ঋণ গ্রহণ করেন এবং যদি আপনি উপরে বর্ণিত যে কোনও বিভাগ থেকে ইতিমধ্যেই বাদ না করে থাকেন, তাহলে আপনি এখানে আপনার অর্থপ্রদানের হার কমাতে পারেন। গাড়ী, বাড়ি ইত্যাদি যাকাতযোগ্য সম্পদ নয়। সততার সাথে যাকাত প্রদান করুন কারণ যাকাত আপনার সম্পদকে রক্ষা করার একটি উপায়। যদি যাকাত জমাকৃত হয়, তবে তা নিয়মিতভাবে বা সম্পূর্ণরূপে পরিশোধ করতে হবে।</string>
+
+    <string name="save_message">সফলভাবে সংরক্ষিত!</string>
+    <string name="text_symbol">৳</string>
+    <string name="text_symbol_tk">৳</string>
+    <string name="new_calculation">" নতুন হিসাব"</string>
+    <string name="title_activity_youtube_player">YoutubePlayerActivity</string>
+    <string name="OneKmDistance">১ কি.মি</string>
+    <string name="TwoKmDistance">৫ কি.মি</string>
+    <string name="ThreeKmDistance">১০ কি.মি</string>
+    <string name="Maps_api_key">AIzaSyDZp4Om8x8i6UQDfyXMGERlt8pyNgddhFE</string>
+    <string name="downloadDialog">নিশ্চিত করতে ডাউনলোড বাটন ক্লিক করুন­</string>
+    <string name="namaz_time">সকাল ১১:১৫ মিনিট</string>
+    <string name="countryName">লোডিং</string>
+    <string name="text_alarm">Alarm</string>
+    <string name="next_namaz_time">পরবর্তী আজান\t দুপুর ০১:০৭ মিনিট</string>
+    <string name="fojor_ar_okto">ফজরের</string>
+    <string name="dhor_ar_okto">জোহরের</string>
+    <string name="asor_ar_okto">আসরের</string>
+    <string name="magrib_ar_okto">মাগরিবের</string>
+    <string name="maghrib">মাগরিব</string>
+    <string name="magrib_okto_time">৫:৫৯</string>
+    <string name="isha_ar_okto">এশার </string>
+    <string name="time">১.১৫.৩০</string>
+    <string name="asr">আসর</string>
+    <string name="asor_ar_okto_time"> ৩:৩১ </string>
+    <string name="baki_fajor">ফজরের ওয়াক্ত বাকি আছে</string>
+    <string name="baki_ase">বাকি আছে</string>
+    <string name="baki_johor">জোহরের ওয়াক্ত বাকি আছে</string>
+    <string name="baki_asor">আছরের ওয়াক্ত বাকি আছে</string>
+    <string name="baki_magrib">মাগরিবের ওয়াক্ত বাকি আছে</string>
+    <string name="baki_isha">এশার ওয়াক্ত বাকি আছে</string>
+    <string name="today_date">মঙ্গলবার, ২০ ফেব্রুয়ারী ১৮</string>
+    <string name="surjo_doi">সূর্যোদয়</string>
+    <string name="sunrise">Sunrise</string>
+    <string name="surjo_doi_time">আজ সূর্যোদয় সকাল ৫:২৩ মিনিট</string>
+    <string name="fojor_okto">ফজরের</string>
+    <string name="vor">ভোর</string>
+    <string name="dupor">দুপুর</string>
+    <string name="bikal">বিকাল</string>
+    <string name="sondha">সন্ধ্যা</string>
+    <string name="rat">রাত</string>
+    <string name="sokal">সকাল</string>
+    <string name="fojor_okto_time">৫:০৭</string>
+    <string name="dhuhr">জোহর</string>
+    <string name="johor_ar_okto_time">১:০৭ </string>
+    <string name="asa_okto">এশার</string>
+    <string name="txt_bangla_azan">আজান</string>
+    <string name="txt_bangla_end">শেষ</string>
+    <string name="asa_okto_time">৭:১৫</string>
+    <string name="text_not_found">Not Found</string>
+    <string name="download">ডাউনলোড</string>
+    <string name="cancel">বাতিল</string>
+    <string name="text_dismiss">Dismiss</string>
+</resources>

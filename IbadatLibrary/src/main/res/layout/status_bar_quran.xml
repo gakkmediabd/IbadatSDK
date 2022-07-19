@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingStart="5dp"
+        android:paddingTop="12dp"
+        android:paddingEnd="10dp"
+        android:paddingBottom="12dp">
+
+        <TextView
+            android:id="@+id/musicSingerName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_toStartOf="@+id/collapsePlayerPlayPauseBtn"
+            android:paddingStart="15dp"
+            android:singleLine="true"
+            android:text="Song name not found"
+            android:textColor="@color/black"
+            android:textSize="16sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/artistName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/musicSingerName"
+            android:layout_toStartOf="@+id/collapsePlayerPlayPauseBtn"
+            android:paddingStart="15dp"
+            android:singleLine="true"
+            android:text="Artist name not found"
+            android:textSize="14sp" />
+
+
+        <ImageView
+            android:id="@+id/collapsePlayerPlayPauseBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_centerInParent="true"
+            android:layout_toStartOf="@+id/collapsePlayerCrossBtn"
+            android:adjustViewBounds="true"
+            android:paddingEnd="35dp"
+            android:scaleType="fitXY"
+            tools:src="@drawable/ic_mini_player_play" />
+
+        <ImageView
+            android:id="@+id/collapsePlayerCrossBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_centerInParent="true"
+            android:layout_marginEnd="5dp"
+            android:adjustViewBounds="true"
+            android:scaleType="fitXY"
+            android:src="@drawable/ic_cancel_black_24dp" />
+    </RelativeLayout>
+</LinearLayout>
