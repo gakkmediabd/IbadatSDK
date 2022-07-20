@@ -45,7 +45,7 @@ Ibadat SDk
 **Gradle**
 
     dependencies {
-       implementation 'com.github.gakkmediabd:IbadatSDK:1.0.6'
+       implementation 'com.github.gakkmediabd:IbadatSDK:1.0.7'
     }
 
 ## Usage
