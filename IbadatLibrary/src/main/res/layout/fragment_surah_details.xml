@@ -107,7 +107,7 @@
 
                             <SeekBar
                                 android:id="@+id/mediacontroller_progress"
-                                playerAction="@{viewModel.seekTo}"
+                                playerAction="@{viewModel::seekTo}"
                                 playerCurrentPosition="@{viewModel.playerCurrentPosition}"
                                 playerDuration="@{viewModel.playerDuration}"
                                 android:layout_width="match_parent"
