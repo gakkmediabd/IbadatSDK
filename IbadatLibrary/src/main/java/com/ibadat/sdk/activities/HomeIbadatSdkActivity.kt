@@ -46,7 +46,7 @@ internal class HomeIbadatSdkActivity : BaseActivity(), NetworkDataCallBack {
         setContentView(R.layout.activity_home_ibadat_sdk)
         iniUI()
         AppPreference.initSharedPreferences(this)
-        val countryName = LocationFinder.getLocationName(this)
+        LocationFinder.getLocationName(this)
 
         val intent = intent
         dataShowType = intent.getIntExtra(AppConstantUtils.requestType, 0)
