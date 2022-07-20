@@ -33,22 +33,29 @@ import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 
-internal class SurahDetailsFragment : Fragment(
-) {
+internal class SurahDetailsFragment : Fragment() {
     var mSuraIndex: Int = 0
     lateinit var toolbar: Toolbar
     var ayatListRV: RecyclerView? = null
     var txtCount: MyCustomTextView? = null
     var txtTitle: MyCustomTextView? = null
     var txt1: MyCustomTextView? = null
-    var ctvMiniPlayerTitle: MyCustomTextView? = null
     private lateinit var imageView: ImageView
-    var btnPlay: ImageView? = null
     var btnNext: ImageView? = null
-    var btnPrevious: ImageView? = null
     var quranSuraArray: Array<String>? = null
+    var sb_mediacontroller_progress : SeekBar? = null
+
     private lateinit var playerViewModel: PlayerViewModel
-    private lateinit var binding: FragmentSurahDetailsBinding
+    private var ivMiniPlayerPhoto: ImageView? = null
+    private var ctvMiniPlayerTitle: MyCustomTextView? = null
+    private var ivMiniPlayerVolLow: ImageView? = null
+    private var sbAudioVol: SeekBar? = null
+    private var ivMiniPlayerVolHigh: ImageView? = null
+    private var ivMiniPlayerPrev: ImageView? = null
+    private var ivBtnPlay: ImageView? = null
+    private var ivMiniPlayerNext: ImageView? = null
+
+    //    private lateinit var binding: FragmentSurahDetailsBinding
     private var progressBar: ProgressBar? = null
     private lateinit var audioManager: AudioManager
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -61,8 +68,38 @@ internal class SurahDetailsFragment : Fragment(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        binding = FragmentSurahDetailsBinding.inflate(layoutInflater, container, false)
-        return binding.root
+        return inflater.inflate(R.layout.fragment_surah_details, container, false)
+    }
+
+    private fun initView() {
+        val bundle = this.arguments
+        if (bundle != null) {
+            mSuraIndex = bundle.getInt("position")
+        }
+        ayatListRV = requireView().findViewById(R.id.PobitroQuranDetailsList)
+        txtCount = requireView().findViewById(R.id.ctv_surahCount)
+        txtTitle = requireView().findViewById(R.id.ctv_surah_title)
+        txt1 = requireView().findViewById(R.id.count)
+        btnNext = requireView().findViewById(R.id.mini_player_next)
+        progressBar = requireView().findViewById(R.id.bottomProgressDialog)
+        imageView = requireView().findViewById(R.id.iv_image)
+        imageView.setImageURI(Util.getUriFromPath(requireContext(), "drawable-hdpi/art.png"))
+
+//        Glide.with(requireContext())
+//            .load("https://mygp.ibadat.co/content/sdk/art.png")
+//            .diskCacheStrategy(
+//                DiskCacheStrategy.ALL).into(imageView)
+        ivMiniPlayerPhoto = requireView().findViewById(R.id.iv_mini_player_photo)
+        ctvMiniPlayerTitle = requireView().findViewById(R.id.ctv_mini_player_title)
+        ivMiniPlayerVolLow = requireView().findViewById(R.id.iv_mini_player_vol_low)
+        sbAudioVol = requireView().findViewById(R.id.sb_audioVol)
+        ivMiniPlayerVolHigh = requireView().findViewById(R.id.iv_mini_player_vol_high)
+        ivMiniPlayerPrev = requireView().findViewById(R.id.iv_mini_player_prev)
+        ivBtnPlay = requireView().findViewById(R.id.iv_btnPlay)
+        ivMiniPlayerNext = requireView().findViewById(R.id.iv_mini_player_next)
+
+
+        updateViewPerSurah()
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -75,7 +112,7 @@ internal class SurahDetailsFragment : Fragment(
         btnNext?.setOnClickListener {
             playNextSurah()
         }
-        btnPrevious?.setOnClickListener {
+        ivMiniPlayerPrev?.setOnClickListener {
             playPreviousSurah()
         }
     }
@@ -91,15 +128,15 @@ internal class SurahDetailsFragment : Fragment(
         )
 
         audioManager = requireActivity().getSystemService(Context.AUDIO_SERVICE) as AudioManager
-        btnPlay?.setOnClickListener {
+        ivBtnPlay!!.setOnClickListener {
             playerViewModel.togglePlayPause()
         }
-        binding.miniPlayer.audioVolseckBar.progress =
+        sbAudioVol!!.progress =
             audioManager.getStreamVolume(AudioManager.STREAM_MUSIC)
-        binding.miniPlayer.audioVolseckBar.max =
+        sbAudioVol!!.max =
             audioManager.getStreamMaxVolume(AudioManager.STREAM_MUSIC)
 
-        binding.miniPlayer.audioVolseckBar.setOnSeekBarChangeListener(object :
+        sbAudioVol!!.setOnSeekBarChangeListener(object :
             SeekBar.OnSeekBarChangeListener {
             override fun onProgressChanged(seekBar: SeekBar?, progress: Int, fromUser: Boolean) {
                 audioManager.setStreamVolume(AudioManager.STREAM_MUSIC, progress, 0)
@@ -117,8 +154,8 @@ internal class SurahDetailsFragment : Fragment(
 
     private fun setupViewModel() {
         playerViewModel = ViewModelProvider(requireActivity())[PlayerViewModel::class.java]
-        binding.lifecycleOwner = requireActivity()
-        binding.viewModel = playerViewModel
+//        binding.lifecycleOwner = requireActivity()
+//        binding.viewModel = playerViewModel
     }
 
     private fun loadSurah() {
@@ -168,29 +205,6 @@ internal class SurahDetailsFragment : Fragment(
         ctvMiniPlayerTitle!!.text = quranSuraArray?.get(mSuraIndex)
     }
 
-    private fun initView() {
-        val bundle = this.arguments
-        if (bundle != null) {
-            mSuraIndex = bundle.getInt("position")
-        }
-        ayatListRV = requireView().findViewById(R.id.PobitroQuranDetailsList)
-        txtCount = requireView().findViewById(R.id.surahCount)
-        txtTitle = requireView().findViewById(R.id.surah_title)
-        txt1 = requireView().findViewById(R.id.count)
-        ctvMiniPlayerTitle = requireView().findViewById(R.id.mini_player_title)
-        btnNext = requireView().findViewById(R.id.mini_player_next)
-        btnPrevious = requireView().findViewById(R.id.mini_player_prev)
-        ctvMiniPlayerTitle = requireView().findViewById(R.id.mini_player_title)
-        btnPlay = requireView().findViewById(R.id.btnPlay)
-        progressBar = requireView().findViewById(R.id.bottomProgressDialog)
-        imageView = requireView().findViewById(R.id.image)
-        imageView.setImageURI(Util.getUriFromPath(requireContext(), "drawable-hdpi/art.png"))
-//        Glide.with(requireContext())
-//            .load("https://mygp.ibadat.co/content/sdk/art.png")
-//            .diskCacheStrategy(
-//                DiskCacheStrategy.ALL).into(imageView)
-        updateViewPerSurah()
-    }
 
     private fun playNextSurah() {
         var mSuraIndex: Int
@@ -220,15 +234,15 @@ internal class SurahDetailsFragment : Fragment(
         )
 
         audioManager = requireActivity().getSystemService(Context.AUDIO_SERVICE) as AudioManager
-        btnPlay?.setOnClickListener {
+        ivBtnPlay!!.setOnClickListener {
             playerViewModel.togglePlayPause()
         }
-        binding.miniPlayer.audioVolseckBar.progress =
+        sbAudioVol!!.progress =
             audioManager.getStreamVolume(AudioManager.STREAM_MUSIC)
-        binding.miniPlayer.audioVolseckBar.max =
+        sbAudioVol!!.max =
             audioManager.getStreamMaxVolume(AudioManager.STREAM_MUSIC)
 
-        binding.miniPlayer.audioVolseckBar.setOnSeekBarChangeListener(object :
+        sbAudioVol!!.setOnSeekBarChangeListener(object :
             SeekBar.OnSeekBarChangeListener {
             override fun onProgressChanged(seekBar: SeekBar?, progress: Int, fromUser: Boolean) {
                 audioManager.setStreamVolume(AudioManager.STREAM_MUSIC, progress, 0)
