@@ -82,7 +82,7 @@ afterEvaluate {
         publications {
             release(MavenPublication) {
                 from components.release
-                groupId = "com.gakkmedia.ibadatSDK"
+                groupId = "com.ibadat.sdk"
                 artifactId = "ibadatSDK"
                 version = "1.0"
             }
