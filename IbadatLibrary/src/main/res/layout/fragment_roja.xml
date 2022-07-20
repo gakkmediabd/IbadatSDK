@@ -25,7 +25,8 @@
                 android:background="@color/color_azure"
                 android:backgroundTint="@color/color_azure"
                 android:orientation="vertical"
-                app:cardCornerRadius="10dp">
+                app:cardCornerRadius="10dp"
+                tools:ignore="UnusedAttribute">
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -95,7 +96,8 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_margin="5dp"
-                                android:src="@drawable/ic_notification_white" />
+                                android:src="@drawable/ic_notification_white"
+                                tools:ignore="ContentDescription" />
                         </LinearLayout>
 
                         <TextView
