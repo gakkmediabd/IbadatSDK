@@ -25,9 +25,7 @@
             android:layout_centerVertical="true"
             android:layout_toRightOf="@+id/mini_player_photo"
             android:orientation="vertical"
-            android:paddingLeft="5dp"
-
-            >
+            android:paddingLeft="5dp">
 
             <com.ibadat.sdk.views.MyCustomTextView
                 android:id="@+id/mini_player_title"
