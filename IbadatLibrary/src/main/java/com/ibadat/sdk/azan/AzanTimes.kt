@@ -1,4 +1,4 @@
-package com.azan
+package com.ibadat.sdk.azan
 
 /**
  * Encapsulates the list of times time and shuruq time

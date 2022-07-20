@@ -1,4 +1,4 @@
-package com.azan.astrologicalCalc
+package com.ibadat.sdk.azan.astrologicalCalc
 
 object Utils {
     val INVALID_TRIGGER = -.999

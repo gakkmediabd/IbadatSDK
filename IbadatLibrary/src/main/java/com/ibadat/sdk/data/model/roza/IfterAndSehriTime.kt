@@ -6,12 +6,12 @@ import com.ibadat.sdk.roza.CalenderUtil
 import com.ibadat.sdk.util.LanguageConverter
 import com.ibadat.sdk.MyApplication
 import com.ibadat.sdk.util.in12HrFormat
-
+import com.ibadat.sdk.azan.*
 
 data class IfterAndSehriTime(
     val dateMs: Long,
-    val sehriTIme: com.azan.Time,
-    val ifterTime: com.azan.Time
+    val sehriTIme: Time,
+    val ifterTime: Time
 ) {
 
 

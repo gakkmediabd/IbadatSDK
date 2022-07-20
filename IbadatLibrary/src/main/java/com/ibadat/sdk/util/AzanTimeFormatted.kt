@@ -1,7 +1,6 @@
 package com.ibadat.sdk.util
 
-import com.azan.AzanTimes
-import com.azan.Time
+import com.ibadat.sdk.azan.*
 import com.ibadat.sdk.roza.TimeFormtter
 
 class AzanTimeFormatted(private val azanTimes: AzanTimes) {

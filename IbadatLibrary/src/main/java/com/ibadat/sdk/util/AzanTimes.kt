@@ -1,14 +1,11 @@
 package com.ibadat.sdk.util
 
-import com.azan.Azan
-import com.azan.AzanTimes
-import com.azan.Method
-import com.azan.astrologicalCalc.Location
-import com.azan.astrologicalCalc.SimpleDate
+import com.ibadat.sdk.azan.Azan
+import com.ibadat.sdk.azan.*
+import com.ibadat.sdk.azan.astrologicalCalc.*
 import java.text.DateFormat
 import java.text.SimpleDateFormat
 import java.util.*
-
 
 
 fun getTomorrowAzanTimes(lat: Double, lang: Double): AzanTimes {

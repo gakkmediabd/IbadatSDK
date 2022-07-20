@@ -1,10 +1,9 @@
 package com.ibadat.sdk.roza
 
 
-import com.azan.Azan
-import com.azan.Method.Companion.KARACHI_HANAF
-import com.azan.astrologicalCalc.Location
-import com.azan.astrologicalCalc.SimpleDate
+import com.ibadat.sdk.azan.Azan
+import com.ibadat.sdk.azan.Method.Companion.KARACHI_HANAF
+import com.ibadat.sdk.azan.astrologicalCalc.*
 import com.ibadat.sdk.data.manager.prefs.AppPreference
 import com.ibadat.sdk.data.model.app_model.CurrentDayAzansModel
 import com.ibadat.sdk.data.model.roza.IfterAndSehriTime

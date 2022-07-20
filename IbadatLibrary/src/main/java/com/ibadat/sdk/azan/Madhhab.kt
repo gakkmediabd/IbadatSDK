@@ -1,4 +1,4 @@
-package com.azan
+package com.ibadat.sdk.azan
 
 /**
  * Madhhab is used for Assr prayer calculation.

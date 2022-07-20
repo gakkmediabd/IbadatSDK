@@ -1,6 +1,6 @@
-package com.azan
+package com.ibadat.sdk.azan
 
-import com.azan.astrologicalCalc.*
+import com.ibadat.sdk.azan.astrologicalCalc.*
 import java.util.*
 
 
@@ -18,7 +18,7 @@ class Azan
  * predefined methods for example `Method.MUSLIM_LEAGUE` or creates
  * your own personalized method.
  */
-(private var location: Location?, private var method: Method?) {
+    (private var location: Location?, private var method: Method?) {
 
 
     /* This is Used for storing some formulae results between
@@ -95,8 +95,10 @@ class Azan
         getPrayerTimesByDay(method, dc, pt, type)
     }
 
-    internal fun getPrayerTimesByDay(method: Method?, dc: DayCouple, pt: AzanTimes,
-                                     type: PrayerTime) {
+    internal fun getPrayerTimesByDay(
+        method: Method?, dc: DayCouple, pt: AzanTimes,
+        type: PrayerTime
+    ) {
         var i: Int
         var invalid: Int
         val th: Double
@@ -119,7 +121,7 @@ class Azan
 		 * values for this day. We also pass the cache structure to update and check
 		 * if the actual values are already available. */
         AstrologyFormulas
-                .getAstroValuesByDay(dc.julianDay, location!!, astroCache, tAstro)
+            .getAstroValuesByDay(dc.julianDay, location!!, astroCache, tAstro)
         dec = Utils.DEG_TO_RAD(tAstro.dec[1])
 
         /* Get Time Times formulae results for this day of year and this
@@ -168,10 +170,11 @@ class Azan
         pt.setAllExtreme(false)
 
         if (method.extremeLatitude != ExtremeLatitude.NONE_EX && !((method.extremeLatitude == ExtremeLatitude.GOOD_INVALID
-                        || method.extremeLatitude == ExtremeLatitude.LAT_INVALID
-                        || method.extremeLatitude == ExtremeLatitude.SEVEN_NIGHT_INVALID
-                        || method.extremeLatitude == ExtremeLatitude.SEVEN_DAY_INVALID || method
-                        .extremeLatitude == ExtremeLatitude.HALF_INVALID) && invalid == 0)) {
+                    || method.extremeLatitude == ExtremeLatitude.LAT_INVALID
+                    || method.extremeLatitude == ExtremeLatitude.SEVEN_NIGHT_INVALID
+                    || method.extremeLatitude == ExtremeLatitude.SEVEN_DAY_INVALID || method
+                .extremeLatitude == ExtremeLatitude.HALF_INVALID) && invalid == 0)
+        ) {
             var exdecPrev: Double
             var exdecNext: Double
             var exTh = 99.0
@@ -201,11 +204,15 @@ class Azan
                 /* xxxthamer: we cannot compute this when interval is set because
 				 * angle==0 . Only the if-invalid methods would work */
                 exLoc.degreeLat = method.nearestLat
-                exFj = getFajIsh(method.nearestLat, dec, method
-                        .fajrAng)
+                exFj = getFajIsh(
+                    method.nearestLat, dec, method
+                        .fajrAng
+                )
                 //exIm = getFajIsh(method.getNearestLat(), dec, method.getImsaakAng());
-                exIs = getFajIsh(method.nearestLat, dec, method
-                        .ishaaAng)
+                exIs = getFajIsh(
+                    method.nearestLat, dec, method
+                        .ishaaAng
+                )
                 exAr = getAssr(method.nearestLat, dec, method.madhhab)
                 exSh = getShoMag(exLoc, tAstro, PrayerTime.SHUROOQ)
                 exMg = getShoMag(exLoc, tAstro, PrayerTime.MAGHRIB)
@@ -236,7 +243,8 @@ class Azan
                 }
 
             } else if (ext == ExtremeLatitude.GOOD_ALL || ext == ExtremeLatitude.GOOD_INVALID
-                    || ext == ExtremeLatitude.GOOD_DIF) {
+                || ext == ExtremeLatitude.GOOD_DIF
+            ) {
                 /* Nearest Good Day */
                 exAstroPrev = astroCache
                 exAstroNext = astroCache
@@ -247,8 +255,10 @@ class Azan
 
                     /* last closest day */
                     nGoodDay = dc.julianDay - i
-                    AstrologyFormulas.getAstroValuesByDay(nGoodDay, location!!, exAstroPrev,
-                            tAstro)
+                    AstrologyFormulas.getAstroValuesByDay(
+                        nGoodDay, location!!, exAstroPrev,
+                        tAstro
+                    )
                     exdecPrev = Utils.DEG_TO_RAD(tAstro.dec[1])
                     exFj = getFajIsh(lat, exdecPrev, method.fajrAng)
 
@@ -265,8 +275,10 @@ class Azan
 
                     /* Next closest day */
                     nGoodDay = dc.julianDay + i
-                    AstrologyFormulas.getAstroValuesByDay(nGoodDay, location!!, exAstroNext,
-                            tAstro)
+                    AstrologyFormulas.getAstroValuesByDay(
+                        nGoodDay, location!!, exAstroNext,
+                        tAstro
+                    )
                     exdecNext = Utils.DEG_TO_RAD(tAstro.dec[1])
                     exFj = getFajIsh(lat, exdecNext, method.fajrAng)
                     if (exFj != 99.0) {
@@ -305,8 +317,9 @@ class Azan
 					 * implemented) */
                 }
             } else if (ext == ExtremeLatitude.SEVEN_NIGHT_ALWAYS || ext == ExtremeLatitude.SEVEN_NIGHT_INVALID
-                    || ext == ExtremeLatitude.SEVEN_DAY_ALWAYS || ext == ExtremeLatitude.SEVEN_DAY_INVALID
-                    || ext == ExtremeLatitude.HALF_ALWAYS || ext == ExtremeLatitude.HALF_INVALID) {
+                || ext == ExtremeLatitude.SEVEN_DAY_ALWAYS || ext == ExtremeLatitude.SEVEN_DAY_INVALID
+                || ext == ExtremeLatitude.HALF_ALWAYS || ext == ExtremeLatitude.HALF_INVALID
+            ) {
 
 
                 /* xxxthamer: For clarity, we may need to move the HALF_* methods
@@ -321,8 +334,9 @@ class Azan
                 }
 
                 if (method.extremeLatitude == ExtremeLatitude.SEVEN_NIGHT_INVALID
-                        || method.extremeLatitude == ExtremeLatitude.SEVEN_DAY_INVALID
-                        || method.extremeLatitude == ExtremeLatitude.HALF_INVALID) {
+                    || method.extremeLatitude == ExtremeLatitude.SEVEN_DAY_INVALID
+                    || method.extremeLatitude == ExtremeLatitude.HALF_INVALID
+                ) {
                     if (tempPrayer[0] == 99.0) {
                         if (method.extremeLatitude == ExtremeLatitude.HALF_INVALID)
                             tempPrayer[0] = portion - method.fajrInv / 60.0
@@ -372,8 +386,9 @@ class Azan
 
         /* Apply intervals if set */
         if (method.extremeLatitude != ExtremeLatitude.MIN_INVALID
-                && method.extremeLatitude != ExtremeLatitude.HALF_INVALID
-                && method.extremeLatitude != ExtremeLatitude.HALF_ALWAYS) {
+            && method.extremeLatitude != ExtremeLatitude.HALF_INVALID
+            && method.extremeLatitude != ExtremeLatitude.HALF_ALWAYS
+        ) {
             if (method.fajrInv != 0)
                 tempPrayer[0] = tempPrayer[1] - method.fajrInv / 60.0
             if (method.ishaaInv != 0)
@@ -385,7 +400,14 @@ class Azan
         if (type == PrayerTime.IMSAAK || type == PrayerTime.NEXTFAJR) {
             base6hm(tempPrayer[0], method, pt.fajr(), type)
         } else {
-            val timeArray = arrayOf(PrayerTime.FAJR, PrayerTime.SHUROOQ, PrayerTime.THUHR, PrayerTime.ASSR, PrayerTime.MAGHRIB, PrayerTime.ISHAA)
+            val timeArray = arrayOf(
+                PrayerTime.FAJR,
+                PrayerTime.SHUROOQ,
+                PrayerTime.THUHR,
+                PrayerTime.ASSR,
+                PrayerTime.MAGHRIB,
+                PrayerTime.ISHAA
+            )
 
             i = 0
             while (i < 6) {
@@ -435,8 +457,9 @@ class Azan
 
         } else if (method.round == Rounding.SPECIAL || method.round == Rounding.AGRESSIVE) {
             if (type == PrayerTime.FAJR || type == PrayerTime.THUHR
-                    || type == PrayerTime.ASSR || type == PrayerTime.MAGHRIB
-                    || type == PrayerTime.ISHAA || type == PrayerTime.NEXTFAJR) {
+                || type == PrayerTime.ASSR || type == PrayerTime.MAGHRIB
+                || type == PrayerTime.ISHAA || type == PrayerTime.NEXTFAJR
+            ) {
                 if (method.round == Rounding.SPECIAL) {
                     if (sec >= Utils.DEFAULT_ROUND_SEC) {
                         bs += 1 / 60.0
@@ -493,10 +516,10 @@ class Azan
         if (method!!.fajrInv != 0) {
             if (method!!.imsaakInv == 0)
                 tmpConf
-                        .fajrInv = (tmpConf.fajrInv + Utils.DEF_IMSAAK_INTERVAL).toInt()
+                    .fajrInv = (tmpConf.fajrInv + Utils.DEF_IMSAAK_INTERVAL).toInt()
             else
                 tmpConf.fajrInv = tmpConf.fajrInv + method!!
-                        .imsaakInv
+                    .imsaakInv
 
         } else if (method!!.imsaakInv != 0) {
             /* use an inv even if al-Fajr is computed (Indonesia?) */
@@ -598,7 +621,8 @@ class Azan
         internal fun getFajIsh(Lat: Double, dec: Double, Ang: Double): Double {
 
             val part1 = Math.cos(Utils.DEG_TO_RAD(Lat)) * Math.cos(dec)
-            val part2 = -Math.sin(Utils.DEG_TO_RAD(Ang)) - Math.sin(Utils.DEG_TO_RAD(Lat)) * Math.sin(dec)
+            val part2 =
+                -Math.sin(Utils.DEG_TO_RAD(Ang)) - Math.sin(Utils.DEG_TO_RAD(Lat)) * Math.sin(dec)
 
             val part3 = part2 / part1
             return if (part3 <= Utils.INVALID_TRIGGER) {
@@ -620,10 +644,12 @@ class Azan
             val R: Double
             val tH: Double
 
-            val part1 = Math.sin(Utils.DEG_TO_RAD(loc.degreeLat)) * Math.sin(Utils.DEG_TO_RAD(astro.dec[1]))
+            val part1 =
+                Math.sin(Utils.DEG_TO_RAD(loc.degreeLat)) * Math.sin(Utils.DEG_TO_RAD(astro.dec[1]))
             val part2a = Utils.CENTER_OF_SUN_ANGLE
             val part2 = Math.sin(Utils.DEG_TO_RAD(part2a)) - part1
-            val part3 = Math.cos(Utils.DEG_TO_RAD(loc.degreeLat)) * Math.cos(Utils.DEG_TO_RAD(astro.dec[1]))
+            val part3 =
+                Math.cos(Utils.DEG_TO_RAD(loc.degreeLat)) * Math.cos(Utils.DEG_TO_RAD(astro.dec[1]))
 
             val part4 = part2 / part3
 
@@ -651,29 +677,37 @@ class Azan
                 ra0 = 0.0
 
             A = astro.ra[1] + M * (astro.ra[1] - ra0 + (ra2 - astro.ra[1]) + (ra2 - astro
-                    .ra[1] - (astro.ra[1] - ra0)) * M) / 2.0
+                .ra[1] - (astro.ra[1] - ra0)) * M) / 2.0
 
             B = astro.dec[1] + M * (astro.dec[1] - astro.dec[0]
                     + (astro.dec[2] - astro.dec[1]) + (astro
-                    .dec[2] - astro.dec[1] - (astro
-                    .dec[1] - astro.dec[0])) * M) / 2.0
+                .dec[2] - astro.dec[1] - (astro
+                .dec[1] - astro.dec[0])) * M) / 2.0
 
             H = AstrologyFormulas.limitAngle180between(sidG + loc.degreeLong - A)
 
             tH = H - Utils.RAD_TO_DEG(astro.dra[1])
 
-            sunAlt = Utils.RAD_TO_DEG(Math.asin(Math.sin(Utils.DEG_TO_RAD(loc
-                    .degreeLat)) * Math.sin(Utils.DEG_TO_RAD(B)) + (Math.cos(Utils.DEG_TO_RAD(loc.degreeLat))
-                    * Math.cos(Utils.DEG_TO_RAD(B))
-                    * Math.cos(Utils.DEG_TO_RAD(tH)))))
+            sunAlt = Utils.RAD_TO_DEG(
+                Math.asin(
+                    Math.sin(
+                        Utils.DEG_TO_RAD(
+                            loc
+                                .degreeLat
+                        )
+                    ) * Math.sin(Utils.DEG_TO_RAD(B)) + (Math.cos(Utils.DEG_TO_RAD(loc.degreeLat))
+                            * Math.cos(Utils.DEG_TO_RAD(B))
+                            * Math.cos(Utils.DEG_TO_RAD(tH)))
+                )
+            )
 
             sunAlt += AstrologyFormulas.getRefraction(loc, sunAlt)
 
             R = M + (sunAlt - Utils.CENTER_OF_SUN_ANGLE + Utils.ALTITUDE_REFRACTION * Math
-                    .pow(loc.seaLevel, 0.5)) / (360.0
+                .pow(loc.seaLevel, 0.5)) / (360.0
                     * Math.cos(Utils.DEG_TO_RAD(B))
                     * Math.cos(Utils.DEG_TO_RAD(loc.degreeLat)) * Math
-                    .sin(Utils.DEG_TO_RAD(tH)))
+                .sin(Utils.DEG_TO_RAD(tH)))
 
             return R * 24.0
 
@@ -698,7 +732,7 @@ class Azan
                 ra0 = 0.0
 
             A = astro.ra[1] + M * (astro.ra[1] - ra0 + (ra2 - astro.ra[1]) + (ra2 - astro
-                    .ra[1] - (astro.ra[1] - ra0)) * M) / 2.0
+                .ra[1] - (astro.ra[1] - ra0)) * M) / 2.0
 
             H = AstrologyFormulas.limitAngle180between(sidG + lon - A)
 
@@ -734,7 +768,38 @@ class Azan
             else
                 0
 
-            val dayList = arrayOf(charArrayOf(0.toChar(), 31.toChar(), 28.toChar(), 31.toChar(), 30.toChar(), 31.toChar(), 30.toChar(), 31.toChar(), 31.toChar(), 30.toChar(), 31.toChar(), 30.toChar(), 31.toChar()), charArrayOf(0.toChar(), 31.toChar(), 29.toChar(), 31.toChar(), 30.toChar(), 31.toChar(), 30.toChar(), 31.toChar(), 31.toChar(), 30.toChar(), 31.toChar(), 30.toChar(), 31.toChar()))
+            val dayList = arrayOf(
+                charArrayOf(
+                    0.toChar(),
+                    31.toChar(),
+                    28.toChar(),
+                    31.toChar(),
+                    30.toChar(),
+                    31.toChar(),
+                    30.toChar(),
+                    31.toChar(),
+                    31.toChar(),
+                    30.toChar(),
+                    31.toChar(),
+                    30.toChar(),
+                    31.toChar()
+                ),
+                charArrayOf(
+                    0.toChar(),
+                    31.toChar(),
+                    29.toChar(),
+                    31.toChar(),
+                    30.toChar(),
+                    31.toChar(),
+                    30.toChar(),
+                    31.toChar(),
+                    31.toChar(),
+                    30.toChar(),
+                    31.toChar(),
+                    30.toChar(),
+                    31.toChar()
+                )
+            )
 
             i = 1
             while (i < month) {
@@ -767,9 +832,11 @@ class Azan
             val denom: Double
             num = Math.sin(Utils.DEG_TO_RAD(loc.degreeLong) - Utils.DEG_TO_RAD(Utils.KAABA_LONG))
             denom = Math.cos(Utils.DEG_TO_RAD(loc.degreeLat)) * Math
-                    .tan(Utils.DEG_TO_RAD(Utils.KAABA_LAT)) - Math.sin(Utils.DEG_TO_RAD(loc.degreeLat)) * Math
-                    .cos(Utils.DEG_TO_RAD(loc.degreeLong) - Utils
-                            .DEG_TO_RAD(Utils.KAABA_LONG))
+                .tan(Utils.DEG_TO_RAD(Utils.KAABA_LAT)) - Math.sin(Utils.DEG_TO_RAD(loc.degreeLat)) * Math
+                .cos(
+                    Utils.DEG_TO_RAD(loc.degreeLong) - Utils
+                        .DEG_TO_RAD(Utils.KAABA_LONG)
+                )
             return SimpleTime(Utils.RAD_TO_DEG(Math.atan2(num, denom)))
 
         }

@@ -1,6 +1,6 @@
-package com.azan
+package com.ibadat.sdk.azan
 
-import com.azan.astrologicalCalc.Utils
+import com.ibadat.sdk.azan.astrologicalCalc.Utils
 
 class Method {
     var fajrAng: Double = 0.toDouble()

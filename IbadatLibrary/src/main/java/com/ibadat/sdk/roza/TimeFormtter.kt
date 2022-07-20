@@ -4,7 +4,7 @@ import android.annotation.SuppressLint
 import android.content.Context
 import android.location.Geocoder
 import android.util.Log
-import com.azan.Time
+import com.ibadat.sdk.azan.Time
 import com.ibadat.sdk.R
 import com.ibadat.sdk.data.manager.prefs.AppPreference
 import com.ibadat.sdk.data.model.app_model.CalenderModel

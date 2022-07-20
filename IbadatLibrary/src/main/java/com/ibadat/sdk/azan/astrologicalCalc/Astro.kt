@@ -2,7 +2,7 @@
  * Astro value container.
  *
  */
-package com.azan.astrologicalCalc
+package com.ibadat.sdk.azan.astrologicalCalc
 
 class Astro {
     var jd: Double = 0.toDouble()

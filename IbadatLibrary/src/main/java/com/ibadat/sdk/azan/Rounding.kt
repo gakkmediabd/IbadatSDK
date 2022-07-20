@@ -1,4 +1,4 @@
-package com.azan
+package com.ibadat.sdk.azan
 
 /**
  * This class is used to round prayer times (seconds).

@@ -1,4 +1,4 @@
-package com.azan
+package com.ibadat.sdk.azan
 
 /**
  * This class is an enumeration of possible prayer and other

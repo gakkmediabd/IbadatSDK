@@ -1,7 +1,7 @@
 package com.ibadat.sdk.data.model.app_model
 
 import android.content.Context
-import com.azan.Time
+import com.ibadat.sdk.azan.Time
 import com.ibadat.sdk.R
 import com.ibadat.sdk.data.manager.prefs.AppPreference
 import com.ibadat.sdk.roza.TimeFormtter

@@ -11,7 +11,7 @@ import android.widget.*
 import androidx.core.content.ContextCompat.getDrawable
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.azan.Time
+import com.ibadat.sdk.azan.Time
 import com.ibadat.sdk.R
 import com.ibadat.sdk.adapter.RojaRVAdapter
 import com.ibadat.sdk.baseClass.BaseFragment

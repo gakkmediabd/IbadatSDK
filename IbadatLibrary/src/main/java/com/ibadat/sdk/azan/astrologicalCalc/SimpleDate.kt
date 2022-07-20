@@ -1,4 +1,4 @@
-package com.azan.astrologicalCalc
+package com.ibadat.sdk.azan.astrologicalCalc
 
 import java.util.*
 
@@ -10,7 +10,6 @@ class SimpleDate {
     var year: Int = 0
 
     /**
-     * TODO
      * @param day
      * @param month
      * @param year
@@ -22,7 +21,6 @@ class SimpleDate {
     }
 
     /**
-     * TODO
      * @param gCalendar
      */
     constructor(gCalendar: GregorianCalendar) {

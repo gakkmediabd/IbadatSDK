@@ -1,4 +1,4 @@
-package com.azan.astrologicalCalc
+package com.ibadat.sdk.azan.astrologicalCalc
 
 class Direction {
 
