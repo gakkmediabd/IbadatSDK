@@ -18,7 +18,7 @@
             android:layout_height="match_parent"
             android:orientation="vertical">
 
-            <com.google.android.material.card.MaterialCardView
+            <androidx.cardview.widget.CardView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="10dp"
@@ -50,6 +50,7 @@
                         android:layout_margin="10dp"
                         android:background="@drawable/round_corner_white"
                         android:entries="@array/division_name"
+                        android:gravity="center_horizontal"
                         android:padding="3dp"
                         android:textAlignment="center" />
 
@@ -82,6 +83,7 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_margin="5dp"
+                                android:gravity="center_horizontal"
                                 android:padding="10dp"
                                 android:textAlignment="center"
                                 android:textAppearance="@style/TextAppearance.AppCompat.Subhead"
@@ -140,7 +142,7 @@
                     </LinearLayout>
                 </LinearLayout>
 
-            </com.google.android.material.card.MaterialCardView>
+            </androidx.cardview.widget.CardView>
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -251,10 +253,10 @@
                         android:layout_marginTop="10dp">
 
                         <ImageView
+                            android:id="@+id/imageRojaTitle"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_centerInParent="true"
-                            android:id="@+id/imageRojaTitle"/>
+                            android:layout_centerInParent="true" />
 
                         <com.ibadat.sdk.views.MyCustomTextView
                             android:layout_width="match_parent"
@@ -299,11 +301,10 @@
                         android:layout_marginTop="10dp">
 
                         <ImageView
+                            android:id="@+id/imageRojaTitle2"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_centerInParent="true"
-                            android:id="@+id/imageRojaTitle2"
-                           />
+                            android:layout_centerInParent="true" />
 
                         <com.ibadat.sdk.views.MyCustomTextView
                             android:layout_width="match_parent"

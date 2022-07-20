@@ -14,7 +14,10 @@
         tools:ignore="ScopedStorage" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
 
-    <application android:name=".MyApplication">
+    <application
+        android:name=".MyApplication"
+        android:usesCleartextTraffic="true"
+        tools:targetApi="m">
         <meta-data
             android:name="firebase_performance_logcat_enabled"
             android:value="true" />
@@ -32,8 +35,8 @@
         <receiver
             android:name="com.google.android.gms.measurement.AppMeasurementReceiver"
             android:enabled="true"
-            tools:replace="android:exported"
-            android:exported="false">
+            android:exported="false"
+            tools:replace="android:exported">
             <intent-filter>
                 <action android:name="com.google.android.gms.measurement.UPLOAD" />
             </intent-filter>
