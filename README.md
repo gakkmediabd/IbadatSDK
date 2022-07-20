@@ -5,10 +5,6 @@ Ibadat SDk
 ## ScreenShot
 <img src="https://github.com/gakkmediabd/IbadatSDK/blob/master/Screenshot_20220719-161130_IbadatSDK.jpg" width="300" height="500" />
 
-**Maven**
-<dependency>
-<version>1.0</version>
-</dependency>
 
 **Used Dependency
 
