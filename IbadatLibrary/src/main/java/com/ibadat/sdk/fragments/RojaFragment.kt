@@ -16,6 +16,7 @@ import com.ibadat.sdk.R
 import com.ibadat.sdk.adapter.RojaRVAdapter
 import com.ibadat.sdk.baseClass.BaseFragment
 import com.ibadat.sdk.broadcust_recever.AlarmRequestBReceiver
+import com.ibadat.sdk.call_back.BaseCallBack
 import com.ibadat.sdk.data.manager.prefs.AppPreference
 import com.ibadat.sdk.data.model.app_model.DivisionModel
 import com.ibadat.sdk.data.model.roza.IfterAndSehriTime
@@ -25,7 +26,7 @@ import com.ibadat.sdk.util.*
 import com.ibadat.sdk.views.MyCustomTextView
 
 
-internal class RojaFragment : BaseFragment() {
+internal class RojaFragment : BaseFragment(), BaseCallBack {
 
     private lateinit var ctvCurrentDate: MyCustomTextView
     private lateinit var spDivision: Spinner
@@ -76,7 +77,7 @@ internal class RojaFragment : BaseFragment() {
         initializeUi()
     }
 
-    private fun viewInitialize(view: View) {
+    override fun viewInitialize(view: View) {
         ctvCurrentDate = view.findViewById(R.id.ctv_current_date)
         spDivision = view.findViewById(R.id.sp_division)
 
@@ -101,14 +102,13 @@ internal class RojaFragment : BaseFragment() {
         imageViewRoja = view.findViewById(R.id.imageRojaTitle2)
         imageView.setImageURI(
             Util.getUriFromPath(
-                requireContext(),
-                "drawable-hdpi/ramadan_ttl_shape.png"
+                requireContext(), AppConstantUtils.drawable_hdpi + "ramadan_ttl_shape.png"
             )
         )
         imageViewRoja.setImageURI(
             Util.getUriFromPath(
                 requireContext(),
-                "drawable-hdpi/ramadan_ttl_shape.png"
+                AppConstantUtils.drawable_hdpi + "ramadan_ttl_shape.png"
             )
         )
     }
