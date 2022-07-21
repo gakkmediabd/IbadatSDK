@@ -33,14 +33,20 @@ Ibadat SDk
     annotationProcessor 'com.github.bumptech.glide:compiler:4.11.0'
     
 ## Setup
-**Root build.gradle**
+**Root level**
+
+    buildFeatures {
+        dataBinding true
+    }
+    
+    implementation "androidx.lifecycle:lifecycle-extensions:2.2.0"
       
-      allprojects {
-		repositories {
-			...
-			maven { url 'https://jitpack.io' }
+    allprojects {
+	repositories {
+		...
+		maven { url 'https://jitpack.io' }
 		}
-	}
+    }
 
 **Gradle**
 
