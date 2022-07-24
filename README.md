@@ -8,7 +8,6 @@ Ibadat SDk
 
 **Used Dependency
 
-    implementation project(path: ':azan')
     implementation 'com.google.android.gms:play-services-measurement:21.0.0'
     implementation 'androidx.appcompat:appcompat:1.4.1'
     implementation 'androidx.constraintlayout:constraintlayout:2.1.3'
