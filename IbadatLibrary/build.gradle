@@ -17,7 +17,8 @@ android {
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         consumerProguardFiles "consumer-rules.pro"
-        buildConfigField("String", "YOUTUBE_API_KEY", YOUTUBE_API_KEY)
+//        buildConfigField("String", "YOUTUBE_API_KEY", youtube_API_KEY)
+        buildConfigField("String", "MAP_API_KEY", map_API_KEY)
     }
 
     buildTypes {

@@ -23,6 +23,7 @@ import com.google.android.gms.maps.model.BitmapDescriptor
 import com.google.android.gms.maps.model.BitmapDescriptorFactory
 import com.google.android.gms.maps.model.LatLng
 import com.google.android.gms.maps.model.MarkerOptions
+import com.ibadat.sdk.BuildConfig
 import com.ibadat.sdk.R
 import com.ibadat.sdk.adapter.NearestMosqueAdapter
 import com.ibadat.sdk.baseClass.BaseFragment
@@ -356,13 +357,12 @@ internal class NearestMosqueFragment : BaseFragment(), DistanceControl {
 
     private fun getDataList(radius: String) {
         model.loadNearbyPlaceInfo(
-            "AIzaSyDZp4Om8x8i6UQDfyXMGERlt8pyNgddhFE",
+            BuildConfig.MAP_API_KEY,
             radius,
             AppPreference.getUserCurrentLocation(),
             "mosque",
             "bn"
         )
-
     }
 
     override fun getList(): Array<MarkerOptions>? {

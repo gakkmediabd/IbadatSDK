@@ -228,7 +228,7 @@
             app:layout_constraintTop_toBottomOf="@+id/include_asset_content" />
 
         <include
-            android:id="@+id/include_nogod_busines_content"
+            android:id="@+id/include_nogod_business_content"
             layout="@layout/layout_zakat_content_view"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -240,7 +240,7 @@
             layout="@layout/layout_zakat_content_view"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:layout_constraintTop_toBottomOf="@+id/include_nogod_busines_content" />
+            app:layout_constraintTop_toBottomOf="@+id/include_nogod_business_content" />
 
         <include
             android:id="@+id/include_other_header"
