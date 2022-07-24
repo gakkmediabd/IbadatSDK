@@ -3,18 +3,15 @@ package com.ibadat.sdk.adapter
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.LinearLayout
+import android.widget.TextView
 import androidx.core.content.ContextCompat
-import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.ibadat.sdk.R
 import com.ibadat.sdk.data.model.calender.IslamicCalendarModel
-import com.ibadat.sdk.databinding.ItemIslamicCalendarBinding
-import com.ibadat.sdk.roza.TimeFormtter
 import com.ibadat.sdk.util.LanguageConverter
 import com.ibadat.sdk.util.invisible
 import com.ibadat.sdk.util.show
-
-
 
 
 internal class IslamicCalendarAdapter(arrayList: ArrayList<IslamicCalendarModel>) :
@@ -28,26 +25,32 @@ internal class IslamicCalendarAdapter(arrayList: ArrayList<IslamicCalendarModel>
     }
 
     override fun onCreateViewHolder(viewGroup: ViewGroup, i: Int): ViewHolder {
-
-        val binding: ItemIslamicCalendarBinding = DataBindingUtil.inflate(
-            LayoutInflater.from(viewGroup.context),
-            R.layout.item_islamic_calendar, viewGroup, false
-        )
-
         return ViewHolder(
-            binding,
+            LayoutInflater
+                .from(viewGroup.context)
+                .inflate(R.layout.item_islamic_calendar, viewGroup, false),
             listItemClickListener
         )
     }
 
     override fun onBindViewHolder(viewHolder: ViewHolder, i: Int) {
-        viewHolder.binding.txtVw1.text = LanguageConverter.getNumberByLocale(mDataList[i].dayTxt)
+        viewHolder.tvW1.text = LanguageConverter.getNumberByLocale(mDataList[i].dayTxt)
         if (mDataList[i].isToday) {
-            viewHolder.binding.txtVw1.setTextColor(ContextCompat.getColor(viewHolder.binding.root.context, R.color.white))
-            viewHolder.binding.llBg.show()
+            viewHolder.tvW1.setTextColor(
+                ContextCompat.getColor(
+                    viewHolder.viewItem.context,
+                    R.color.white
+                )
+            )
+            viewHolder.llBg.show()
         } else {
-            viewHolder.binding.txtVw1.setTextColor(ContextCompat.getColor(viewHolder.binding.root.context, R.color.txt_color_black))
-            viewHolder.binding.llBg.invisible()
+            viewHolder.tvW1.setTextColor(
+                ContextCompat.getColor(
+                    viewHolder.viewItem.context,
+                    R.color.txt_color_black
+                )
+            )
+            viewHolder.llBg.invisible()
         }
     }
 
@@ -59,21 +62,20 @@ internal class IslamicCalendarAdapter(arrayList: ArrayList<IslamicCalendarModel>
         return mDataList.size
     }
 
-
-    class ViewHolder(
-        val binding: ItemIslamicCalendarBinding,
+    inner class ViewHolder(
+        val viewItem: View,
         private val listItemClickListener: ListItemClickListener?
-    ) :
-        RecyclerView.ViewHolder(binding.root), View.OnClickListener {
+    ) : RecyclerView.ViewHolder(viewItem), View.OnClickListener {
+        val llBg: LinearLayout = itemView.findViewById(R.id.ll_bg)
+        val tvW1: TextView = itemView.findViewById(R.id.tv_w1)
 
         override fun onClick(view: View?) {
             val listItemClickListener2 = listItemClickListener
-            listItemClickListener2?.onItemClick(layoutPosition, binding.root)
+            listItemClickListener2?.onItemClick(layoutPosition, viewItem)
         }
 
         init {
-            binding.root.setOnClickListener(this)
+            viewItem.setOnClickListener(this)
         }
     }
-
 }

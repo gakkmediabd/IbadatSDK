@@ -2,15 +2,17 @@
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     tools:context=".fragments.LiveVideoFragment">
+
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
+
         <WebView
+            android:id="@+id/wv_youtube_player"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:visibility="visible"
+            android:layout_alignParentTop="true"
             android:layout_centerHorizontal="true"
-            android:id="@+id/youtube_player"
-            android:layout_alignParentTop="true" />
+            android:visibility="visible" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

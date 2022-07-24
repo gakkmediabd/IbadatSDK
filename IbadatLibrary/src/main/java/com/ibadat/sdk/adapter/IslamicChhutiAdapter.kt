@@ -3,12 +3,10 @@ package com.ibadat.sdk.adapter
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.ibadat.sdk.R
 import com.ibadat.sdk.data.model.islamicholidays.IslamicHolidayListResponse
-import com.ibadat.sdk.databinding.ItemIslamicChutiBinding
-
+import com.ibadat.sdk.views.MyCustomTextView
 
 
 internal class IslamicChhutiAdapter(arrayList: List<IslamicHolidayListResponse.Data>?) :
@@ -22,17 +20,16 @@ internal class IslamicChhutiAdapter(arrayList: List<IslamicHolidayListResponse.D
     }
 
     override fun onCreateViewHolder(viewGroup: ViewGroup, i: Int): ViewHolder {
-
-        val binding: ItemIslamicChutiBinding = DataBindingUtil.inflate(
-            LayoutInflater.from(viewGroup.context), R.layout.item_islamic_chuti, viewGroup, false
+        return ViewHolder(
+            LayoutInflater
+                .from(viewGroup.context)
+                .inflate(R.layout.item_islamic_chuti, viewGroup, false), listItemClickListener
         )
-
-        return ViewHolder(binding, listItemClickListener)
     }
 
     override fun onBindViewHolder(viewHolder: ViewHolder, i: Int) {
-        viewHolder.binding.txtDate.text = mDataList!![i].text
-        viewHolder.binding.txtVwTitle.text = mDataList[i].title
+        viewHolder.ctvDate.text = mDataList!![i].text
+        viewHolder.ctvTitle.text = mDataList[i].title
     }
 
     fun setOnItemClickListener(listItemClickListener2: ListItemClickListener?) {
@@ -43,21 +40,20 @@ internal class IslamicChhutiAdapter(arrayList: List<IslamicHolidayListResponse.D
         return mDataList!!.size
     }
 
-    class ViewHolder(
-        val binding: ItemIslamicChutiBinding,
+    inner class ViewHolder(
+        private val viewItem: View,
         private val listItemClickListener: ListItemClickListener?
-    ) :
-        RecyclerView.ViewHolder(binding.root), View.OnClickListener {
+    ) : RecyclerView.ViewHolder(viewItem), View.OnClickListener {
+        val ctvTitle: MyCustomTextView = itemView.findViewById(R.id.ctv_title)
+        val ctvDate: MyCustomTextView = itemView.findViewById(R.id.ctv_date)
 
         init {
-            binding.root.setOnClickListener(this)
+            viewItem.setOnClickListener(this)
         }
 
         override fun onClick(v: View?) {
             val listItemClickListener2 = listItemClickListener
-            listItemClickListener2?.onItemClick(layoutPosition, binding.root)
+            listItemClickListener2?.onItemClick(layoutPosition, viewItem)
         }
     }
-
-
 }

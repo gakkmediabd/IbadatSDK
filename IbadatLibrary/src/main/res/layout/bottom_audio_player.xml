@@ -1,100 +1,97 @@
-<?xml version="1.0" encoding="utf-8"?>
-<layout>
+<?xml version="1.0" encoding="utf-8"?><!--<layout>-->
 
-    <data>
+<!--    <data>-->
 
-        <variable
-            name="viewModel"
-            type="com.ibadat.sdk.player.PlayerViewModel" />
-    </data>
+<!--        <variable-->
+<!--            name="viewModel"-->
+<!--            type="com.ibadat.sdk.player.PlayerViewModel" />-->
+<!--    </data>-->
 
-    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-        android:layout_width="match_parent"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="10dp">
+
+    <ImageView
+        android:id="@+id/iv_mini_player_photo"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:padding="10dp">
+        android:visibility="gone" />
 
-        <ImageView
-            android:id="@+id/mini_player_photo"
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_toRightOf="@+id/iv_mini_player_photo"
+        android:orientation="vertical"
+        android:paddingLeft="5dp">
+
+        <com.ibadat.sdk.views.MyCustomTextView
+            android:id="@+id/ctv_mini_player_title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:text="@string/app_name"
+            android:textSize="14dp"
             android:visibility="gone" />
-
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_centerVertical="true"
-            android:layout_toRightOf="@+id/mini_player_photo"
-            android:orientation="vertical"
-            android:paddingLeft="5dp">
-
-            <com.ibadat.sdk.views.MyCustomTextView
-                android:id="@+id/mini_player_title"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/app_name"
-                android:textSize="14dp"
-                android:visibility="gone" />
-
-            <RelativeLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content">
-
-                <ImageView
-                    android:id="@+id/mini_player_vol_low"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_centerVertical="true"
-                    android:src="@drawable/ic_volume_mute" />
-
-                <SeekBar
-                    android:id="@+id/audioVolseckBar"
-                    android:layout_width="100dp"
-                    android:layout_height="wrap_content"
-                    android:layout_centerVertical="true"
-                    android:layout_toRightOf="@+id/mini_player_vol_low"
-                    android:progressTint="@color/apps_color"
-                    android:thumbTint="@color/apps_color" />
-
-                <ImageView
-                    android:id="@+id/mini_player_vol_high"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_centerVertical="true"
-                    android:layout_toRightOf="@+id/audioVolseckBar"
-                    android:src="@drawable/ic_volume_up" />
-            </RelativeLayout>
-        </LinearLayout>
 
         <RelativeLayout
             android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:id="@+id/iv_mini_player_vol_low"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:src="@drawable/ic_volume_mute" />
+
+            <SeekBar
+                android:id="@+id/sb_audio_vol"
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_toRightOf="@+id/iv_mini_player_vol_low"
+                android:progressTint="@color/apps_color"
+                android:thumbTint="@color/apps_color" />
+
+            <ImageView
+                android:id="@+id/iv_mini_player_vol_high"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_toRightOf="@+id/sb_audio_vol"
+                android:src="@drawable/ic_volume_up" />
+        </RelativeLayout>
+    </LinearLayout>
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_toEndOf="@+id/iv_mini_player_photo"
+        android:layout_toRightOf="@+id/iv_mini_player_photo">
+
+        <ImageView
+            android:id="@+id/iv_mini_player_prev"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerVertical="true"
-            android:layout_toEndOf="@+id/mini_player_photo"
-            android:layout_toRightOf="@+id/mini_player_photo">
+            android:layout_toLeftOf="@+id/iv_play"
+            android:src="@drawable/mini_player_prev" />
 
-            <ImageView
-                android:id="@+id/mini_player_prev"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_centerVertical="true"
-                android:layout_toLeftOf="@+id/btnPlay"
-                android:src="@drawable/mini_player_prev" />
+        <ImageView
+            android:id="@+id/iv_play"
+            android:layout_width="50dp"
+            android:layout_height="40dp"
+            android:layout_toLeftOf="@+id/iv_mini_player_next"
+            android:src="@drawable/ic_mini_player_play" />
 
-            <ImageView
-                android:id="@+id/btnPlay"
-                playbackState="@{viewModel.playbackState}"
-                android:layout_width="50dp"
-                android:layout_height="40dp"
-                android:layout_toLeftOf="@+id/mini_player_next"
-                android:src="@drawable/ic_mini_player_play" />
-
-            <ImageView
-                android:id="@+id/mini_player_next"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentRight="true"
-                android:layout_centerVertical="true"
-                android:src="@drawable/mini_player_next" />
-        </RelativeLayout>
+        <ImageView
+            android:id="@+id/iv_mini_player_next"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:src="@drawable/mini_player_next" />
     </RelativeLayout>
-</layout>
+</RelativeLayout><!--</layout>-->

@@ -16,8 +16,10 @@ internal class SurahDetailsAdapter(
 ) :
     RecyclerView.Adapter<SurahDetailsAdapter.ViewHolder>() {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
-        return ViewHolder(LayoutInflater.from(parent.context)
-            .inflate(R.layout.quran_details_item, parent, false))
+        return ViewHolder(
+            LayoutInflater.from(parent.context)
+                .inflate(R.layout.quran_details_item, parent, false)
+        )
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
@@ -30,15 +32,10 @@ internal class SurahDetailsAdapter(
         return ayatList!!.size
     }
 
-    inner class ViewHolder(val mView: View) : RecyclerView.ViewHolder(
+    inner class ViewHolder(mView: View) : RecyclerView.ViewHolder(
         mView
     ) {
-        val txtAyatMal: TextView
-        val txtMeaningMal: TextView
-
-        init {
-            txtAyatMal = mView.findViewById(R.id.txtAyatMal)
-            txtMeaningMal = mView.findViewById(R.id.txtMeaningMal)
-        }
+        val txtAyatMal: TextView = mView.findViewById(R.id.txtAyatMal)
+        val txtMeaningMal: TextView = mView.findViewById(R.id.txtMeaningMal)
     }
 }

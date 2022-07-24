@@ -13,6 +13,7 @@ import com.ibadat.sdk.R
 import com.ibadat.sdk.data.model.SalatLearningModel
 import com.ibadat.sdk.data.model.SalatModelItem
 import com.ibadat.sdk.fragments.CallBackSalatLearning
+import com.ibadat.sdk.util.AppConstantUtils
 import com.ibadat.sdk.util.LanguageConverter
 import com.ibadat.sdk.util.Util
 import com.ibadat.sdk.views.MyCustomTextView
@@ -38,7 +39,7 @@ internal class NamazShikkaNewRecyclerViewAdapter(
         holder.itemView.setOnClickListener {
             callBackSalatLearning.onItemclick(position, salatLearningModel!![position].getId())
         }
-        holder.namazImage.setImageURI(Util.getUriFromPath(holder.itemView.context, "drawable-hdpi/art.png"))
+        holder.namazImage.setImageURI(Util.getUriFromPath(holder.itemView.context, AppConstantUtils.drawable_hdpi + "art.png"))
     }
 
 

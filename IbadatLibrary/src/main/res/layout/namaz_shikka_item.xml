@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:background="@color/white"
@@ -10,34 +11,7 @@
     app:cardCornerRadius="10dp"
     app:cardElevation="4dp"
     app:cardUseCompatPadding="true"
-   >
-
-   <!-- <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-
-
-        <co.ibadat.gakk.custom_method.MyCustomTextView
-            android:id="@+id/txtNamaz_shikhsha_item"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/app_name"
-            android:textSize="@dimen/textsize"
-            android:textColor="@color/black"
-            android:padding="15dp"
-            />
-
-        <ImageView
-            android:id="@+id/ivNamaz_Shikka_next"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:src="@drawable/hadith_icon_right_arrow"
-            android:layout_alignParentRight="true"
-            android:layout_centerVertical="true"
-            android:layout_marginRight="10dp"
-
-            />
-    </RelativeLayout>-->
+    tools:ignore="UnusedAttribute">
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -45,22 +19,19 @@
         android:padding="15dp">
 
         <RelativeLayout
-            android:id="@+id/rlhadith_icon_number_background"
+            android:id="@+id/rl_hadith_icon_number_background"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_centerVertical="true"
-
-            >
+            android:layout_centerVertical="true">
 
             <ImageView
-                android:id="@+id/namazImage"
+                android:id="@+id/iv_namaz_image"
                 android:layout_width="40dp"
                 android:layout_height="40dp"
-                android:layout_centerInParent="true"
-                 />
+                android:layout_centerInParent="true" />
 
             <com.ibadat.sdk.views.MyCustomTextView
-                android:id="@+id/namazShikkaCount"
+                android:id="@+id/ctv_namaz_shikka_count"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_centerInParent="true"
@@ -72,13 +43,14 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_centerVertical="true"
-            android:layout_toRightOf="@+id/rlhadith_icon_number_background"
+            android:layout_toRightOf="@+id/rl_hadith_icon_number_background"
             android:orientation="vertical"
             android:paddingLeft="10dp"
-            android:paddingRight="5dp">
+            android:paddingRight="5dp"
+            tools:ignore="RtlHardcoded">
 
             <com.ibadat.sdk.views.MyCustomTextView
-                android:id="@+id/txtNamaz_shikhsha_item"
+                android:id="@+id/ctv_namaz_shikhsha_item"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:maxLines="2"
@@ -89,28 +61,22 @@
             <com.ibadat.sdk.views.MyCustomTextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_below="@+id/hadith_title"
-                android:layout_toRightOf="@+id/rlhadith_icon_number_background"
+                android:layout_toRightOf="@+id/rl_hadith_icon_number_background"
                 android:background="#99ffff"
                 android:paddingLeft="10dp"
                 android:paddingRight="10dp"
-                android:visibility="gone" />
-
-
+                android:visibility="gone"
+                tools:ignore="ObsoleteLayoutParam,RtlHardcoded" />
         </LinearLayout>
 
         <ImageView
-            android:id="@+id/ivNamaz_Shikka_next"
+            android:id="@+id/iv_namaz_shikka_next"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentRight="true"
             android:layout_centerVertical="true"
             android:layout_margin="5dp"
-            android:src="@drawable/ic_chevron_right" />
-
-
+            android:src="@drawable/ic_chevron_right"
+            tools:ignore="RtlHardcoded" />
     </RelativeLayout>
-
-
-
 </androidx.cardview.widget.CardView>

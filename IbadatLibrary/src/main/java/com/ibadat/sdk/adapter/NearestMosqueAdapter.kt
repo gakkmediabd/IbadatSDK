@@ -1,13 +1,14 @@
 package com.ibadat.sdk.adapter
 
 import android.view.LayoutInflater
+import android.view.View
 import android.view.ViewGroup
-import androidx.databinding.DataBindingUtil
-import androidx.databinding.ViewDataBinding
+import android.widget.TextView
+import androidx.appcompat.widget.AppCompatImageView
 import androidx.recyclerview.widget.RecyclerView
 import com.ibadat.sdk.R
 import com.ibadat.sdk.data.model.nearby.PlaceInfo
-import com.ibadat.sdk.databinding.RowItemNearestMosqueBinding
+import com.ibadat.sdk.util.AppConstantUtils
 import com.ibadat.sdk.util.Util
 import com.ibadat.sdk.util.handleClickEvent
 
@@ -16,7 +17,8 @@ internal class NearestMosqueAdapter(
     placeInfoList: MutableList<PlaceInfo>
 ) :
     RecyclerView.Adapter<NearestMosqueAdapter.MosqueViewHolder>() {
-    var placeInfoList: MutableList<PlaceInfo>?
+    var placeInfoList: MutableList<PlaceInfo>
+
     init {
         this.placeInfoList = placeInfoList
     }
@@ -25,51 +27,32 @@ internal class NearestMosqueAdapter(
         placeInfoList = list
     }
 
-    inner class MosqueViewHolder(itemView: RowItemNearestMosqueBinding) :
-        RecyclerView.ViewHolder(itemView.root) {
-
-        var bindingMosqueHList: RowItemNearestMosqueBinding? = itemView
-
-        fun bind(placeInfo: PlaceInfo, onItemClick: MapItemClickListener) {
-            bindingMosqueHList?.imgMosque?.setImageURI(
-                Util.getUriFromPath(
-                    itemView.context,
-                    "drawable-hdpi/mosque_gray.png"
-                )
-            )
-            bindingMosqueHList?.root?.handleClickEvent {
-                onItemClick.let { click ->
-                    click?.invoke(placeInfo)
-                }
-            }
-        }
-    }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MosqueViewHolder {
-        val binding: ViewDataBinding = DataBindingUtil.inflate(
-            LayoutInflater.from(parent.context),
-            R.layout.row_item_nearest_mosque,
-            parent,
-            false
+        return MosqueViewHolder(
+            LayoutInflater.from(parent.context)
+                .inflate(R.layout.row_item_nearest_mosque, parent, false)
         )
-        return MosqueViewHolder(binding as RowItemNearestMosqueBinding)
     }
 
     override fun onBindViewHolder(holder: MosqueViewHolder, position: Int) {
-
-        holder.bindingMosqueHList?.let { binding ->
-            placeInfoList?.let {
-                val placeInfo = it[position]
-                placeInfo.let { pi ->
-                    binding.placeinfo = pi
-                    holder.bind(pi, onItemClick)
-                }
-            }
+        val placeInfo = placeInfoList[position]
+        holder.itemView.setOnClickListener {
+            holder.bind(placeInfo, onItemClick)
         }
+//        holder.bindingMosqueHList?.let { binding ->
+//            placeInfoList?.let {
+//                val placeInfo = it[position]
+//                placeInfo.let { pi ->
+//                    binding.placeinfo = pi
+//                    holder.bind(pi, onItemClick)
+//                }
+//            }
+//        }
     }
 
     override fun getItemCount(): Int {
-        return placeInfoList!!.size
+        return placeInfoList.size
     }
 
     private var onItemClick: MapItemClickListener = null
@@ -78,5 +61,25 @@ internal class NearestMosqueAdapter(
         onItemClick = listener
     }
 
+    inner class MosqueViewHolder(itemView: View) :
+        RecyclerView.ViewHolder(itemView) {
+        val acivMosque: AppCompatImageView = itemView.findViewById(R.id.aciv_mosque)
+        var tvTitleMosque: TextView = itemView.findViewById(R.id.tv_title_mosque)
+        var tvLocationMosque: TextView = itemView.findViewById(R.id.tv_location_mosque)
+        val acivDirection: AppCompatImageView = itemView.findViewById(R.id.aciv_direction)
+
+        fun bind(placeInfo: PlaceInfo, onItemClick: MapItemClickListener) {
+            acivMosque.setImageURI(
+                Util.getUriFromPath(
+                    itemView.context, AppConstantUtils.drawable_hdpi + "mosque_gray.png"
+                )
+            )
+            itemView.handleClickEvent {
+                onItemClick.let { click ->
+                    click?.invoke(placeInfo)
+                }
+            }
+        }
+    }
 }
 typealias MapItemClickListener = ((PlaceInfo?) -> Unit)?

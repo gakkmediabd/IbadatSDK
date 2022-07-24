@@ -77,8 +77,6 @@ internal class PlayerViewModel : ViewModel() {
                     override fun durationChange(duration: Int) {
                         _playerDuration.postValue(duration)
                     }
-
-
                 })
             }
         }
@@ -86,7 +84,6 @@ internal class PlayerViewModel : ViewModel() {
         override fun onServiceDisconnected(name: ComponentName?) {
             currentPositionUpdateJob?.cancel()
         }
-
     }
 
     private fun currentPositionUpdate() {
@@ -102,7 +99,6 @@ internal class PlayerViewModel : ViewModel() {
                 delay(500)
             }
         }
-
     }
 
     inner class ActivityLifecycleObserver : DefaultLifecycleObserver {

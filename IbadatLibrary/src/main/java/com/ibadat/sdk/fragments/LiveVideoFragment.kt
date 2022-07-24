@@ -6,6 +6,7 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
 import androidx.databinding.DataBindingUtil
 import com.bumptech.glide.Glide
 import com.ibadat.sdk.R
@@ -21,8 +22,7 @@ import retrofit2.Response
 
 
 internal class LiveVideoFragment : BaseFragment() {
-
-    private lateinit var binding: FragmentLiveVideoBinding
+    private lateinit var ivImageMecca: ImageView
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         arguments?.let {
@@ -33,9 +33,10 @@ internal class LiveVideoFragment : BaseFragment() {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
-        binding = DataBindingUtil.inflate(inflater, R.layout.fragment_live_video, container, false)
-        return binding.root
+    ): View {
+        val view = inflater.inflate(R.layout.fragment_live_video, container, false)
+        ivImageMecca = view.findViewById(R.id.iv_image_mecca)
+        return view
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -45,7 +46,7 @@ internal class LiveVideoFragment : BaseFragment() {
     }
 
     private fun liveVideo() {
-        var api: ApiService = RetroClient.getLiveVideoApiService()!!
+        val api: ApiService = RetroClient.getLiveVideoApiService()!!
         val call = api.getLiveVideo("8801000000000", "bn", "duhar")
 
         call.enqueue(object : Callback<LiveVideo> {
@@ -60,19 +61,17 @@ internal class LiveVideoFragment : BaseFragment() {
                         "onResponse: image loaded: " + (response.body()?.LiveVideo!![0].PreviewImage)
                     )
                     Glide.with(requireContext()).load(response.body()?.LiveVideo!![0].PreviewImage)
-                        .into(binding.imageMecca)
-                    binding.imageMecca.setOnClickListener {
+                        .into(ivImageMecca)
+                    ivImageMecca.setOnClickListener {
                         val intent = Intent(context, YoutubePlayerActivity::class.java).apply {
                             putExtra("id", response.body()?.LiveVideo!![0].VideoLink)
                         }
                         startActivity(intent)
                     }
-
-
                     Glide.with(requireContext())
                         .load(response.body()?.LiveVideo!![1].PreviewImage)
-                        .into(binding.imageMedina)
-                    binding.imageMedina.setOnClickListener {
+                        .into(ivImageMecca)
+                    ivImageMecca.setOnClickListener {
                         val intent = Intent(context, YoutubePlayerActivity::class.java).apply {
                             putExtra("id", response.body()?.LiveVideo!![1].VideoLink)
                         }
@@ -86,9 +85,6 @@ internal class LiveVideoFragment : BaseFragment() {
                     "TAG",
                     "onFailure: " + t.message
                 )
-                //progressBar?.visibility = View.GONE
-//                Toast.makeText(this@PobitroQuranDetailsActivity, "" + t.message, Toast.LENGTH_SHORT)
-//                    .show()
             }
         })
     }

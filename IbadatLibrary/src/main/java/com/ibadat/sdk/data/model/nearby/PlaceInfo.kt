@@ -4,7 +4,6 @@ import com.google.gson.annotations.SerializedName
 import com.ibadat.sdk.data.model.UserLocation
 
 
-
 class PlaceInfo {
     @SerializedName("name")
     var name: String? = null

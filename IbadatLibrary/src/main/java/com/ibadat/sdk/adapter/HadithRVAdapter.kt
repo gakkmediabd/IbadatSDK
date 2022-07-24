@@ -14,6 +14,7 @@ import com.ibadat.sdk.R
 import com.ibadat.sdk.adapter.view_holder.BaseViewHolder
 import com.ibadat.sdk.call_back.CallBack
 import com.ibadat.sdk.data.model.CommonDuaAndHadithModel
+import com.ibadat.sdk.util.AppConstantUtils
 import com.ibadat.sdk.util.EmptyCheck
 import com.ibadat.sdk.util.LanguageConverter
 import com.ibadat.sdk.util.Util
@@ -64,7 +65,7 @@ internal class HadithRVAdapter(
             itemView.findViewById(R.id.ctv_data_header)
         private var ctvData: MyCustomTextView =
             itemView.findViewById(R.id.ctv_data)
-        private  var imgArt :ImageView = itemView.findViewById(R.id.iv_image_background)
+        private var imgArt: ImageView = itemView.findViewById(R.id.iv_image_background)
 
         override fun onBind(position: Int) {
             super.onBind(position)
@@ -75,8 +76,12 @@ internal class HadithRVAdapter(
             } else {
                 ctvCount.text = LanguageConverter.getDateInBangla((commonDuaAndHadith.getId()))
             }
-            Log.e("HRVA", "onBind: " + Util.getUriFromPath(context, "drawable-hdpi/art.png"))
-            ivImageBackground.setImageURI(Util.getUriFromPath(context, "drawable-hdpi/art.png"))
+            ivImageBackground.setImageURI(
+                Util.getUriFromPath(
+                    context,
+                    AppConstantUtils.drawable_hdpi + "art.png"
+                )
+            )
             ctvTitle.text = commonDuaAndHadith.getTitle()
             ctvDataHeader.text = context.getString(R.string.hadith_source)
             ctvData.text = commonDuaAndHadith.getSource()

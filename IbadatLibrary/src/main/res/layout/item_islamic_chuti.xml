@@ -18,17 +18,17 @@
             android:layout_height="wrap_content">
 
             <com.ibadat.sdk.views.MyCustomTextView
-                android:id="@+id/txtVwTitle"
+                android:id="@+id/ctv_title"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textAppearance="@style/TextAppearance.AppCompat.Subhead"
                 android:textColor="@color/txt_color_black" />
 
             <com.ibadat.sdk.views.MyCustomTextView
-                android:id="@+id/txtDate"
+                android:id="@+id/ctv_date"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_below="@+id/txtVwTitle"
+                android:layout_below="@+id/ctv_title"
                 android:textAppearance="@style/TextAppearance.AppCompat.Body1"
                 android:textColor="@color/black" />
         </RelativeLayout>
