@@ -1,278 +1,276 @@
-<?xml version="1.0" encoding="utf-8"?>
-<layout xmlns:android="http://schemas.android.com/apk/res/android"
+<?xml version="1.0" encoding="utf-8"?><!--<layout xmlns:android="http://schemas.android.com/apk/res/android"-->
+<!--    xmlns:app="http://schemas.android.com/apk/res-auto"-->
+<!--    xmlns:tools="http://schemas.android.com/tools">-->
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools">
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/apps_gray">
 
-    <RelativeLayout
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cv_w"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="@color/apps_gray">
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/standard_margin"
+        android:layout_marginBottom="12dp"
+        android:gravity="center"
+        app:cardBackgroundColor="@color/apps_gray"
+        app:cardCornerRadius="0dp"
+        app:cardElevation="0dp"
+        app:cardPreventCornerOverlap="false"
+        app:cardUseCompatPadding="false">
 
-        <androidx.cardview.widget.CardView
-            android:id="@+id/crdVw"
+        <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/standard_margin"
-            android:layout_marginBottom="12dp"
             android:gravity="center"
-            app:cardBackgroundColor="@color/apps_gray"
-            app:cardCornerRadius="0dp"
-            app:cardElevation="0dp"
-            app:cardPreventCornerOverlap="false"
-            app:cardUseCompatPadding="false">
+            android:paddingStart="@dimen/small_spacing"
+            android:paddingEnd="@dimen/small_spacing">
 
-            <RelativeLayout
-                android:layout_width="match_parent"
+            <LinearLayout
+                android:id="@+id/ll_left_previous"
+                android:layout_width="50dp"
                 android:layout_height="wrap_content"
+                android:layout_centerVertical="true">
+
+                <ImageView
+                    android:layout_width="25dp"
+                    android:layout_height="25dp"
+                    android:layout_margin="7dp"
+                    android:src="@drawable/ic_chevron_left" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_toStartOf="@+id/llNext"
+                android:layout_toEndOf="@+id/ll_left_previous"
                 android:gravity="center"
-                android:paddingStart="@dimen/small_spacing"
-                android:paddingEnd="@dimen/small_spacing">
+                android:orientation="vertical">
 
-                <LinearLayout
-                    android:id="@+id/llLftPrevious"
-                    android:layout_width="50dp"
-                    android:layout_height="wrap_content"
-                    android:layout_centerVertical="true">
-
-                    <ImageView
-                        android:layout_width="25dp"
-                        android:layout_height="25dp"
-                        android:layout_margin="7dp"
-                        android:src="@drawable/ic_chevron_left" />
-                </LinearLayout>
-
-                <LinearLayout
+                <com.ibadat.sdk.views.MyCustomTextView
+                    android:id="@+id/ctv_Arabic_date"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_centerVertical="true"
-                    android:layout_toStartOf="@+id/llNext"
-                    android:layout_toEndOf="@+id/llLftPrevious"
                     android:gravity="center"
-                    android:orientation="vertical">
+                    android:textAppearance="@style/TextAppearance.AppCompat.Title"
+                    android:textColor="@color/colorPrimary"
+                    tools:text="jamiul awal 1442" />
 
-                    <com.ibadat.sdk.views.MyCustomTextView
-                        android:id="@+id/txtVwArobiDate"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:gravity="center"
-                        android:textAppearance="@style/TextAppearance.AppCompat.Title"
-                        android:textColor="@color/colorPrimary"
-                        tools:text="jamiul awal 1442" />
-
-                    <com.ibadat.sdk.views.MyCustomTextView
-                        android:id="@+id/txtVwEnglishDate"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:gravity="center"
-                        android:textAppearance="@style/TextAppearance.AppCompat.Body1"
-                        android:textColor="@color/black"
-                        tools:text="monday, 04 aprill 2021" />
-                </LinearLayout>
-
-                <LinearLayout
-                    android:id="@+id/llNext"
-                    android:layout_width="50dp"
+                <com.ibadat.sdk.views.MyCustomTextView
+                    android:id="@+id/ctv_english_date"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_alignParentEnd="true"
                     android:gravity="center"
-                    android:orientation="vertical">
+                    android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+                    android:textColor="@color/black"
+                    tools:text="monday, 04 aprill 2021" />
+            </LinearLayout>
 
-                    <ImageView
-                        android:layout_width="25dp"
-                        android:layout_height="25dp"
-                        android:layout_margin="7dp"
-                        android:src="@drawable/ic_chevron_right" />
-                </LinearLayout>
-            </RelativeLayout>
-        </androidx.cardview.widget.CardView>
+            <LinearLayout
+                android:id="@+id/ll_right_next"
+                android:layout_width="50dp"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:gravity="center"
+                android:orientation="vertical">
 
-        <androidx.core.widget.NestedScrollView
+                <ImageView
+                    android:layout_width="25dp"
+                    android:layout_height="25dp"
+                    android:layout_margin="7dp"
+                    android:src="@drawable/ic_chevron_right" />
+            </LinearLayout>
+        </RelativeLayout>
+    </androidx.cardview.widget.CardView>
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/cv_w"
+        android:overScrollMode="never">
+
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_below="@+id/crdVw"
-            android:overScrollMode="never">
+            android:orientation="vertical">
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="vertical">
+                android:layout_height="40dp"
+                android:background="@color/white"
+                android:baselineAligned="false"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:paddingStart="@dimen/standard_margin"
+                android:paddingEnd="@dimen/standard_margin">
 
                 <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="40dp"
-                    android:background="@color/white"
-                    android:baselineAligned="false"
-                    android:gravity="center_vertical"
-                    android:orientation="horizontal"
-                    android:paddingStart="@dimen/standard_margin"
-                    android:paddingEnd="@dimen/standard_margin">
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.5"
+                    android:gravity="center"
+                    android:orientation="vertical">
 
-
-
-                    <LinearLayout
-                        android:layout_width="0dp"
+                    <TextView
+                        android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_weight="0.5"
-                        android:gravity="center"
-                        android:orientation="vertical">
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="@string/sun"
-                            android:textColor="@color/colorPrimaryDark"
-                            android:textSize="@dimen/isCalWeekTitleTxtSiz" />
-                    </LinearLayout>
-
-                    <LinearLayout
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="0.5"
-                        android:gravity="center"
-                        android:orientation="vertical">
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="@string/mon"
-                            android:textColor="@color/colorPrimaryDark"
-                            android:textSize="@dimen/isCalWeekTitleTxtSiz" />
-                    </LinearLayout>
-
-                    <LinearLayout
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="0.5"
-                        android:gravity="center"
-                        android:orientation="vertical">
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="@string/tue"
-                            android:textColor="@color/colorPrimaryDark"
-                            android:textSize="@dimen/isCalWeekTitleTxtSiz" />
-                    </LinearLayout>
-
-                    <LinearLayout
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="0.5"
-                        android:gravity="center"
-                        android:orientation="vertical">
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="@string/wed"
-                            android:textColor="@color/colorPrimaryDark"
-                            android:textSize="@dimen/isCalWeekTitleTxtSiz" />
-                    </LinearLayout>
-
-                    <LinearLayout
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="0.5"
-                        android:gravity="center"
-                        android:orientation="vertical">
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="@string/thu"
-                            android:textColor="@color/colorPrimaryDark"
-                            android:textSize="@dimen/isCalWeekTitleTxtSiz" />
-                    </LinearLayout>
-
-                    <LinearLayout
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="0.5"
-                        android:gravity="center"
-                        android:orientation="vertical">
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="@string/fri"
-                            android:textColor="@color/colorPrimaryDark"
-                            android:textSize="@dimen/isCalWeekTitleTxtSiz" />
-                    </LinearLayout>
-                    <LinearLayout
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="0.5"
-                        android:gravity="center"
-                        android:orientation="vertical">
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="@string/sat"
-                            android:textColor="@color/colorPrimaryDark"
-                            android:textSize="@dimen/isCalWeekTitleTxtSiz" />
-                    </LinearLayout>
+                        android:text="@string/sun"
+                        android:textColor="@color/colorPrimaryDark"
+                        android:textSize="@dimen/isCalWeekTitleTxtSiz" />
                 </LinearLayout>
 
-                <VideoView
-                    android:layout_width="match_parent"
-                    android:layout_height="0.5dp"
-                    android:background="@color/colorPrimaryDark" />
-
-                <androidx.recyclerview.widget.RecyclerView
-                    android:id="@+id/recyclerViewIslamicCal"
-                    android:layout_width="match_parent"
+                <LinearLayout
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:background="@color/white"
-                    android:overScrollMode="never"
-                    android:paddingStart="@dimen/standard_margin"
-                    android:paddingTop="@dimen/small_spacing"
-                    android:paddingEnd="@dimen/standard_margin"
-                    android:paddingBottom="@dimen/small_spacing"
-                    android:visibility="visible"
-                    />
+                    android:layout_weight="0.5"
+                    android:gravity="center"
+                    android:orientation="vertical">
 
-                <com.ibadat.sdk.views.MyCustomTextView
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_marginTop="@dimen/margin_20"
-                    android:layout_marginBottom="5dp"
-                    android:gravity="start"
-                    android:paddingStart="@dimen/standard_margin"
-                    android:paddingEnd="@dimen/standard_margin"
-                    android:text="@string/muslim_holiday"
-                    android:textAppearance="@style/TextAppearance.AppCompat.Title"
-                    android:textColor="@color/colorPrimary" />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/mon"
+                        android:textColor="@color/colorPrimaryDark"
+                        android:textSize="@dimen/isCalWeekTitleTxtSiz" />
+                </LinearLayout>
 
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:gravity="start"
-                    android:paddingStart="@dimen/standard_margin"
-                    android:paddingEnd="@dimen/standard_margin"
-                    android:text="@string/islamicCalendarTxt"
-                    android:textColor="@color/black" />
-
-                <VideoView
-                    android:layout_width="match_parent"
-                    android:layout_height="0.5dp"
-                    android:layout_marginTop="@dimen/small_spacing"
-                    android:background="@color/colorPrimaryDark" />
-
-                <ProgressBar
-                    android:layout_width="wrap_content"
+                <LinearLayout
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:id="@+id/progressBar"/>
+                    android:layout_weight="0.5"
+                    android:gravity="center"
+                    android:orientation="vertical">
 
-                <androidx.recyclerview.widget.RecyclerView
-                    android:id="@+id/recyclerViewIslamicChhuti"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:clipToPadding="false"
-                    android:overScrollMode="never"
-                    android:padding="@dimen/standard_margin" />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/tue"
+                        android:textColor="@color/colorPrimaryDark"
+                        android:textSize="@dimen/isCalWeekTitleTxtSiz" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.5"
+                    android:gravity="center"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/wed"
+                        android:textColor="@color/colorPrimaryDark"
+                        android:textSize="@dimen/isCalWeekTitleTxtSiz" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.5"
+                    android:gravity="center"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/thu"
+                        android:textColor="@color/colorPrimaryDark"
+                        android:textSize="@dimen/isCalWeekTitleTxtSiz" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.5"
+                    android:gravity="center"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/fri"
+                        android:textColor="@color/colorPrimaryDark"
+                        android:textSize="@dimen/isCalWeekTitleTxtSiz" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.5"
+                    android:gravity="center"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/sat"
+                        android:textColor="@color/colorPrimaryDark"
+                        android:textSize="@dimen/isCalWeekTitleTxtSiz" />
+                </LinearLayout>
             </LinearLayout>
-        </androidx.core.widget.NestedScrollView>
-    </RelativeLayout>
-</layout>
+
+            <VideoView
+                android:layout_width="match_parent"
+                android:layout_height="0.5dp"
+                android:background="@color/colorPrimaryDark" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rv_islamic_calender"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/white"
+                android:overScrollMode="never"
+                android:paddingStart="@dimen/standard_margin"
+                android:paddingTop="@dimen/small_spacing"
+                android:paddingEnd="@dimen/standard_margin"
+                android:paddingBottom="@dimen/small_spacing"
+                android:visibility="visible" />
+
+            <com.ibadat.sdk.views.MyCustomTextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="@dimen/margin_20"
+                android:layout_marginBottom="5dp"
+                android:gravity="start"
+                android:paddingStart="@dimen/standard_margin"
+                android:paddingEnd="@dimen/standard_margin"
+                android:text="@string/muslim_holiday"
+                android:textAppearance="@style/TextAppearance.AppCompat.Title"
+                android:textColor="@color/colorPrimary" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="start"
+                android:paddingStart="@dimen/standard_margin"
+                android:paddingEnd="@dimen/standard_margin"
+                android:text="@string/islamicCalendarTxt"
+                android:textColor="@color/black" />
+
+            <VideoView
+                android:layout_width="match_parent"
+                android:layout_height="0.5dp"
+                android:layout_marginTop="@dimen/small_spacing"
+                android:background="@color/colorPrimaryDark" />
+
+            <ProgressBar
+                android:id="@+id/pb_progress"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rv_islamic_chhuti"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:clipToPadding="false"
+                android:overScrollMode="never"
+                android:padding="@dimen/standard_margin" />
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
+</RelativeLayout><!--</layout>-->

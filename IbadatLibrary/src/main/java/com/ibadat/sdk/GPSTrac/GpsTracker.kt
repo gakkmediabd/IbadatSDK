@@ -1,85 +1,81 @@
-package com.ibadat.sdk.GPSTrac;
+package com.ibadat.sdk.GPSTrac
 
-import android.Manifest;
-import android.app.Activity;
-import android.app.Service;
-import android.content.Context;
-import android.content.DialogInterface;
-import android.content.Intent;
-import android.content.pm.PackageManager;
-import android.location.Location;
-import android.location.LocationListener;
-import android.location.LocationManager;
-import android.os.Bundle;
-import android.os.IBinder;
-import android.provider.Settings;
-import android.util.Log;
+import android.Manifest
+import android.app.Activity
+import android.app.Service
+import android.content.Context
+import android.content.DialogInterface
+import android.content.Intent
+import android.content.pm.PackageManager
+import android.location.Location
+import android.location.LocationListener
+import android.location.LocationManager
+import android.os.Bundle
+import android.os.IBinder
+import android.provider.Settings
+import android.util.Log
+import androidx.appcompat.app.AlertDialog
+import androidx.core.app.ActivityCompat
 
-import androidx.appcompat.app.AlertDialog;
-import androidx.core.app.ActivityCompat;
-
-public class GpsTracker extends Service implements LocationListener {
-    private final Context mContext;
-
+open class GpsTracker(private val mContext: Context) : Service(), LocationListener {
     // flag for GPS status
-    boolean isGPSEnabled = false;
-
+    var isGPSEnabled = false
     // flag for network status
-    boolean isNetworkEnabled = false;
-
+    var isNetworkEnabled = false
     // flag for GPS status
-    boolean canGetLocation = false;
-
-    Location location; // location
-    double latitude; // latitude
-    double longitude; // longitude
-
-    // The minimum distance to change Updates in meters
-    private static final long MIN_DISTANCE_CHANGE_FOR_UPDATES = 10; // 10 meters
-
-    // The minimum time between updates in milliseconds
-    private static final long MIN_TIME_BW_UPDATES = 1000 * 60 * 1; // 1 minute
+    var canGetLocation = false
+    var location: Location? = null
+    var latitude = 0.0
+    var longitude = 0.0
 
     // Declaring a Location Manager
-    protected LocationManager locationManager;
+    private var locationManager: LocationManager? = null
 
-    public GpsTracker(Context context) {
-        this.mContext = context;
-        Log.d("LocationUpdate", "adadd");
-        getLocation();
-    }
-
-    public Location getLocation() {
+    @JvmName("getLocation1")
+    fun getLocation(): Location? {
         try {
-            locationManager = (LocationManager) mContext.getSystemService(LOCATION_SERVICE);
+            locationManager = mContext.getSystemService(LOCATION_SERVICE) as LocationManager
             // getting GPS status
-            isGPSEnabled = locationManager.isProviderEnabled(LocationManager.GPS_PROVIDER);
+            isGPSEnabled = locationManager!!.isProviderEnabled(LocationManager.GPS_PROVIDER)
             // getting network status
-            isNetworkEnabled = locationManager
-                    .isProviderEnabled(LocationManager.NETWORK_PROVIDER);
+            isNetworkEnabled = locationManager!!
+                .isProviderEnabled(LocationManager.NETWORK_PROVIDER)
             if (!isGPSEnabled && !isNetworkEnabled) {
                 // no network provider is enabled
             } else {
-                this.canGetLocation = true;
+                canGetLocation = true
                 // First get location from Network Provider
                 if (isNetworkEnabled) {
                     //check the network permission
-                    if (ActivityCompat.checkSelfPermission(mContext, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(mContext, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
-                        ActivityCompat.requestPermissions((Activity) mContext, new String[]{Manifest.permission.ACCESS_FINE_LOCATION, Manifest.permission.ACCESS_COARSE_LOCATION}, 101);
+                    if (ActivityCompat.checkSelfPermission(
+                            mContext,
+                            Manifest.permission.ACCESS_FINE_LOCATION
+                        ) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(
+                            mContext,
+                            Manifest.permission.ACCESS_COARSE_LOCATION
+                        ) != PackageManager.PERMISSION_GRANTED
+                    ) {
+                        ActivityCompat.requestPermissions(
+                            (mContext as Activity),
+                            arrayOf(
+                                Manifest.permission.ACCESS_FINE_LOCATION,
+                                Manifest.permission.ACCESS_COARSE_LOCATION
+                            ),
+                            101
+                        )
                     }
-                    locationManager.requestLocationUpdates(
-                            LocationManager.NETWORK_PROVIDER,
-                            MIN_TIME_BW_UPDATES,
-                            MIN_DISTANCE_CHANGE_FOR_UPDATES, this);
-
-                    Log.d("Network", "Network");
+                    locationManager!!.requestLocationUpdates(
+                        LocationManager.NETWORK_PROVIDER,
+                        MIN_TIME_BW_UPDATES,
+                        MIN_DISTANCE_CHANGE_FOR_UPDATES.toFloat(), this
+                    )
+                    Log.d("Network", "Network")
                     if (locationManager != null) {
-                        location = locationManager
-                                .getLastKnownLocation(LocationManager.NETWORK_PROVIDER);
-
+                        location = locationManager!!
+                            .getLastKnownLocation(LocationManager.NETWORK_PROVIDER)
                         if (location != null) {
-                            latitude = location.getLatitude();
-                            longitude = location.getLongitude();
+                            latitude = location!!.latitude
+                            longitude = location!!.longitude
                             //  Log.d("location: network",location.toString());
                         }
                     }
@@ -88,67 +84,77 @@ public class GpsTracker extends Service implements LocationListener {
                 if (isGPSEnabled) {
                     if (location == null) {
                         //check the network permission
-                        if (ActivityCompat.checkSelfPermission(mContext, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(mContext, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
-                            ActivityCompat.requestPermissions((Activity) mContext, new String[]{Manifest.permission.ACCESS_FINE_LOCATION, Manifest.permission.ACCESS_COARSE_LOCATION}, 101);
+                        if (ActivityCompat.checkSelfPermission(
+                                mContext,
+                                Manifest.permission.ACCESS_FINE_LOCATION
+                            ) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(
+                                mContext,
+                                Manifest.permission.ACCESS_COARSE_LOCATION
+                            ) != PackageManager.PERMISSION_GRANTED
+                        ) {
+                            ActivityCompat.requestPermissions(
+                                (mContext as Activity), arrayOf(
+                                    Manifest.permission.ACCESS_FINE_LOCATION,
+                                    Manifest.permission.ACCESS_COARSE_LOCATION
+                                ), 101
+                            )
                         }
-                        locationManager.requestLocationUpdates(
-                                LocationManager.GPS_PROVIDER,
-                                MIN_TIME_BW_UPDATES,
-                                MIN_DISTANCE_CHANGE_FOR_UPDATES, this);
-
-                        Log.d("GPS Enabled", "GPS Enabled");
+                        locationManager!!.requestLocationUpdates(
+                            LocationManager.GPS_PROVIDER,
+                            MIN_TIME_BW_UPDATES,
+                            MIN_DISTANCE_CHANGE_FOR_UPDATES.toFloat(), this
+                        )
+                        Log.d("GPS Enabled", "GPS Enabled")
                         if (locationManager != null) {
-                            location = locationManager
-                                    .getLastKnownLocation(LocationManager.GPS_PROVIDER);
+                            location = locationManager!!
+                                .getLastKnownLocation(LocationManager.GPS_PROVIDER)
                             if (location != null) {
-                                latitude = location.getLatitude();
-                                longitude = location.getLongitude();
+                                latitude = location!!.latitude
+                                longitude = location!!.longitude
                             }
                         }
                     }
                 }
             }
-
-        } catch (Exception e) {
-            e.printStackTrace();
+        } catch (e: Exception) {
+            e.printStackTrace()
         }
-        return location;
+        return location
     }
 
     /**
      * Stop using GPS listener
      * Calling this function will stop using GPS in your app
      */
-
-    public void stopUsingGPS() {
+    fun stopUsingGPS() {
         if (locationManager != null) {
-            locationManager.removeUpdates(GpsTracker.this);
+            locationManager!!.removeUpdates(this@GpsTracker)
         }
     }
 
     /**
      * Function to get latitude
      */
-
-    public double getLatitude() {
+    @JvmName("getLatitude1")
+    fun getLatitude(): Double {
         if (location != null) {
-            latitude = location.getLatitude();
+            latitude = location!!.latitude
         }
-
         // return latitude
-        return latitude;
+        return latitude
     }
 
     /**
      * Function to get longitude
      */
-    public double getLongitude() {
+    @JvmName("getLongitude1")
+    fun getLongitude(): Double {
         if (location != null) {
-            longitude = location.getLongitude();
+            longitude = location!!.longitude
         }
 
         // return longitude
-        return longitude;
+        return longitude
     }
 
     /**
@@ -156,53 +162,53 @@ public class GpsTracker extends Service implements LocationListener {
      *
      * @return boolean
      */
-    public boolean canGetLocation() {
-        return this.canGetLocation;
+    fun canGetLocation(): Boolean {
+        return canGetLocation
     }
 
     /**
      * Function to show settings alert dialog
      * On pressing Settings button will lauch Settings Options
      */
-
-    public void showSettingsAlert() {
-        AlertDialog.Builder alertDialog = new AlertDialog.Builder(mContext);
+    fun showSettingsAlert() {
+        val alertDialog = AlertDialog.Builder(mContext)
 
         // Setting Dialog Title
-        alertDialog.setTitle("GPS is settings");
+        alertDialog.setTitle("GPS is settings")
 
         // Setting Dialog Message
-        alertDialog.setMessage("GPS is not enabled. Do you want to go to settings menu?");
+        alertDialog.setMessage("GPS is not enabled. Do you want to go to settings menu?")
 
         // On pressing Settings button
-        alertDialog.setPositiveButton("Settings", (dialog, which) -> {
-            Intent intent = new Intent(Settings.ACTION_LOCATION_SOURCE_SETTINGS);
-            mContext.startActivity(intent);
-        });
+        alertDialog.setPositiveButton("Settings") { dialog: DialogInterface?, which: Int ->
+            val intent = Intent(Settings.ACTION_LOCATION_SOURCE_SETTINGS)
+            mContext.startActivity(intent)
+        }
 
         // on pressing cancel button
-        alertDialog.setNegativeButton("Cancel", (dialog, which) -> dialog.cancel());
-        alertDialog.show();
+        alertDialog.setNegativeButton("Cancel") { dialog: DialogInterface, which: Int -> dialog.cancel() }
+        alertDialog.show()
     }
 
-    @Override
-    public void onLocationChanged(Location location) {
+    override fun onLocationChanged(location: Location) {}
+    override fun onProviderDisabled(provider: String) {}
+    override fun onProviderEnabled(provider: String) {}
+    override fun onStatusChanged(provider: String, status: Int, extras: Bundle) {}
+    override fun onBind(arg0: Intent): IBinder? {
+        return null
     }
 
-    @Override
-    public void onProviderDisabled(String provider) {
+    companion object {
+        // The minimum distance to change Updates in meters
+        private const val MIN_DISTANCE_CHANGE_FOR_UPDATES: Long = 10 // 10 meters
+
+        // The minimum time between updates in milliseconds
+        private const val MIN_TIME_BW_UPDATES = (1000 * 60 * 1 // 1 minute
+                ).toLong()
     }
 
-    @Override
-    public void onProviderEnabled(String provider) {
-    }
-
-    @Override
-    public void onStatusChanged(String provider, int status, Bundle extras) {
-    }
-
-    @Override
-    public IBinder onBind(Intent arg0) {
-        return null;
+    init {
+        Log.d("LocationUpdate", "adadd")
+        getLocation()
     }
 }

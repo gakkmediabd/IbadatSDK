@@ -122,7 +122,7 @@ data class IfterAndSehriTime(
         get() {
             val index = CalenderUtil.getDayOfWeek(dateMs) - 1
             val daysOfWeek: List<String> =
-                MyApplication.getContext().resources.getStringArray(R.array.week_name_bangla)
+                MyApplication.context!!.resources.getStringArray(R.array.week_name_bangla)
                     .toList()
             return daysOfWeek[index]
         }

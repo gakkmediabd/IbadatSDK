@@ -1,14 +1,11 @@
 package com.ibadat.sdk.adapter
 
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import androidx.fragment.app.FragmentActivity
 import androidx.recyclerview.widget.RecyclerView
-import com.bumptech.glide.Glide
-import com.bumptech.glide.load.engine.DiskCacheStrategy
 import com.ibadat.sdk.R
 import com.ibadat.sdk.data.model.SalatLearningModel
 import com.ibadat.sdk.data.model.SalatModelItem
@@ -19,9 +16,8 @@ import com.ibadat.sdk.util.Util
 import com.ibadat.sdk.views.MyCustomTextView
 
 internal class NamazShikkaNewRecyclerViewAdapter(
-    var salatLearningModel: List<SalatLearningModel>?,
-    activity: FragmentActivity?,
-   var callBackSalatLearning: CallBackSalatLearning
+    var salatLearningModel: List<SalatLearningModel>?, activity: FragmentActivity?,
+    var callBackSalatLearning: CallBackSalatLearning
 ) :
     RecyclerView.Adapter<NamazShikkaNewRecyclerViewAdapter.ViewHolder>() {
 
@@ -33,27 +29,33 @@ internal class NamazShikkaNewRecyclerViewAdapter(
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val topicName: String? = salatLearningModel!![position].getTopicName()
-        holder.namazSikkhaCount.text = LanguageConverter.getDateInBangla((position + 1).toString())
-        holder.Namaz_shikhsha_item.text = topicName
+        holder.ctvNamazShikkaCount.text =
+            LanguageConverter.getDateInBangla((position + 1).toString())
+        holder.ctvNamazShikhshaItem.text = topicName
         holder.bind(salatLearningModel!![position])
         holder.itemView.setOnClickListener {
             callBackSalatLearning.onItemclick(position, salatLearningModel!![position].getId())
         }
-        holder.namazImage.setImageURI(Util.getUriFromPath(holder.itemView.context, AppConstantUtils.drawable_hdpi + "art.png"))
+        holder.ivNamazImage.setImageURI(
+            Util.getUriFromPath(
+                holder.itemView.context,
+                AppConstantUtils.drawable_hdpi + "art.png"
+            )
+        )
     }
 
 
     override fun getItemCount(): Int {
-      return salatLearningModel!!.size
+        return salatLearningModel!!.size
     }
 
-    class ViewHolder(val mView: View) : RecyclerView.ViewHolder(
+    class ViewHolder(mView: View) : RecyclerView.ViewHolder(
         mView
     ) {
-        val Namaz_shikhsha_item: MyCustomTextView
-        val ivNamaz_Shikka_next: ImageView
-        var namazSikkhaCount: MyCustomTextView
-        var namazImage: ImageView
+        val ctvNamazShikhshaItem: MyCustomTextView
+        val ivNamazShikkaNext: ImageView
+        var ctvNamazShikkaCount: MyCustomTextView
+        var ivNamazImage: ImageView
         fun bind(item: SalatModelItem) {
         }
 
@@ -62,17 +64,16 @@ internal class NamazShikkaNewRecyclerViewAdapter(
         }
 
         init {
-            Namaz_shikhsha_item = mView.findViewById(R.id.txtNamaz_shikhsha_item)
-            ivNamaz_Shikka_next = mView.findViewById(R.id.ivNamaz_Shikka_next)
-            namazSikkhaCount = mView.findViewById(R.id.namazShikkaCount)
-            namazImage = mView.findViewById(R.id.namazImage)
+            ctvNamazShikhshaItem = mView.findViewById(R.id.ctv_namaz_shikhsha_item)
+            ivNamazShikkaNext = mView.findViewById(R.id.iv_namaz_shikka_next)
+            ctvNamazShikkaCount = mView.findViewById(R.id.ctv_namaz_shikka_count)
+            ivNamazImage = mView.findViewById(R.id.iv_namaz_image)
         }
     }
 
     interface OnItemClickListener {
         fun onItemClick(item: SalatLearningModel?)
     }
-
 
 
 }

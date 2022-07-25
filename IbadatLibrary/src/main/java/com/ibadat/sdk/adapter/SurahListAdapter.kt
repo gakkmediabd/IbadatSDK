@@ -11,9 +11,8 @@ import com.bumptech.glide.Glide
 import com.bumptech.glide.load.engine.DiskCacheStrategy
 import com.ibadat.sdk.R
 import com.ibadat.sdk.fragments.CallBackSurah
-import com.ibadat.sdk.util.EmptyCheck
-import com.ibadat.sdk.util.GlobalVar
-import com.ibadat.sdk.util.LanguageConverter
+import com.ibadat.sdk.util.*
+import com.ibadat.sdk.util.AppConstantUtils
 import com.ibadat.sdk.util.Util
 import com.ibadat.sdk.views.MyCustomTextView
 
@@ -69,7 +68,12 @@ internal class SurahListAdapter(
             txt1 = mView.findViewById(R.id.txt1)
             txt2 = mView.findViewById(R.id.txt2)
             imageView = mView.findViewById(R.id.hadithImageView)
-            imageView.setImageURI(Util.getUriFromPath(context!!, "drawable-hdpi/art.png"))
+            imageView.setImageURI(
+                Util.getUriFromPath(
+                    context!!,
+                    AppConstantUtils.drawable_hdpi + "art.png"
+                )
+            )
         }
     }
 }

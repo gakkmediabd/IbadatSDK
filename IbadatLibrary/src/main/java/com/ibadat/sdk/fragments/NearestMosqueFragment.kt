@@ -10,14 +10,14 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.cardview.widget.CardView
 import androidx.core.app.ActivityCompat
 import androidx.core.app.ActivityCompat.requestPermissions
 import androidx.core.content.ContextCompat
-import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.ViewModelProvider
-import androidx.lifecycle.ViewModelProviders
 import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.google.android.gms.maps.MapsInitializer
 import com.google.android.gms.maps.model.BitmapDescriptor
 import com.google.android.gms.maps.model.BitmapDescriptorFactory
@@ -30,15 +30,15 @@ import com.ibadat.sdk.baseClass.BaseFragment
 import com.ibadat.sdk.data.manager.prefs.AppPreference
 import com.ibadat.sdk.data.model.nearby.PlaceInfo
 import com.ibadat.sdk.data.restrepo.*
-import com.ibadat.sdk.databinding.FragmentNearestMosqueBinding
 import com.ibadat.sdk.util.PermissionManager
+import com.ibadat.sdk.views.MyCustomTextView
 import kotlinx.coroutines.launch
 import java.io.Serializable
 
 
 internal class NearestMosqueFragment : BaseFragment(), DistanceControl {
-    @Transient
-    private lateinit var binding: FragmentNearestMosqueBinding
+//    @Transient
+//    private lateinit var binding: FragmentNearestMosqueBinding
 
     @Transient
     var placeInfoList = arrayListOf<PlaceInfo>()
@@ -63,6 +63,13 @@ internal class NearestMosqueFragment : BaseFragment(), DistanceControl {
 
     private val REQUEST_LOCATION = 1
 
+    private lateinit var cvDistanceRange: CardView
+    private lateinit var ctvOneKm: MyCustomTextView
+    private lateinit var ctvTwoKm: MyCustomTextView
+    private lateinit var ctvThreeKm: MyCustomTextView
+    private lateinit var rvMosque: RecyclerView
+    internal lateinit var view: View
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         MapsInitializer.initialize(requireContext())
@@ -74,14 +81,14 @@ internal class NearestMosqueFragment : BaseFragment(), DistanceControl {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
+        view = inflater.inflate(R.layout.fragment_nearest_mosque, container, false)
+        cvDistanceRange = view.findViewById(R.id.cv_distance_range)
+        ctvOneKm = view.findViewById(R.id.ctv_one_km)
+        ctvTwoKm = view.findViewById(R.id.ctv_two_km)
+        ctvThreeKm = view.findViewById(R.id.ctv_three_km)
+        rvMosque = view.findViewById(R.id.rv_mosque)
+
         lifecycleScope.launch {
-            binding =
-                DataBindingUtil.inflate(
-                    inflater,
-                    R.layout.fragment_nearest_mosque,
-                    container,
-                    false
-                )
             val resource = R.drawable.mosq
             bitmapDescriptor = BitmapDescriptorFactory.fromResource(resource)
 
@@ -89,10 +96,11 @@ internal class NearestMosqueFragment : BaseFragment(), DistanceControl {
                 repository = RetroClient2.getRepository()
             }
             job.join()
-            model = ViewModelProviders.of(
-                this@NearestMosqueFragment,
-                NearbyViewModel.FACTORY(repository)
-            ).get(NearbyViewModel::class.java)
+//            model = ViewModelProviders.of(
+//                this@NearestMosqueFragment,
+//                NearbyViewModel.FACTORY(repository)
+//            ).get(NearbyViewModel::class.java)
+            model = ViewModelProvider(requireActivity())[NearbyViewModel::class.java]
 
             sharedViewModel =
                 ViewModelProvider(requireActivity())[NearbySharedViewModel::class.java]
@@ -131,23 +139,23 @@ internal class NearestMosqueFragment : BaseFragment(), DistanceControl {
 
                         if (!this@NearestMosqueFragment::adapter.isInitialized) {
 
-                            binding.rvMosque.visibility = View.VISIBLE
+                            rvMosque.visibility = View.VISIBLE
 
                             adapter = NearestMosqueAdapter(
                                 placeInfoList = placeInfoList
                             ).apply {
                                 setOnItemClickListener { pi ->
                                     if (ActivityCompat.checkSelfPermission(
-                                           requireContext(),
+                                            requireContext(),
                                             Manifest.permission.ACCESS_FINE_LOCATION
                                         ) !== PackageManager.PERMISSION_GRANTED &&
                                         ActivityCompat.checkSelfPermission(
-                                           requireContext(),
+                                            requireContext(),
                                             Manifest.permission.ACCESS_COARSE_LOCATION
                                         ) !== PackageManager.PERMISSION_GRANTED
                                     ) {
                                         requestPermissions(
-                                           requireActivity(), arrayOf(
+                                            requireActivity(), arrayOf(
                                                 Manifest.permission.ACCESS_COARSE_LOCATION,
                                                 Manifest.permission.ACCESS_FINE_LOCATION
                                             ),
@@ -157,25 +165,15 @@ internal class NearestMosqueFragment : BaseFragment(), DistanceControl {
                                         openLocationInMap(pi)
                                         Log.e("DB", "PERMISSION GRANTED")
                                     }
-//                                    if (PermissionManager.isLocationPermissionGiven(requireContext())) {
-//                                        openLocationInMap(pi)
-//                                    } else {
-//                                       PermissionManager.requestPermissionForLocation(
-//                                            requireActivity()
-//                                      ) {
-//                                            openLocationInMap(pi)
-//                                       }
-////
-//                                    }
                                 }
                             }
-                            binding.rvMosque.adapter = adapter
+                            rvMosque.adapter = adapter
                         } else {
                             adapter.updatePlaceInfo(placeInfoList)
                             adapter.notifyDataSetChanged()
-                            binding.rvMosque.visibility = View.VISIBLE
+                            rvMosque.visibility = View.VISIBLE
                         }
-                        binding.rvMosque.layoutManager = LinearLayoutManager(requireContext())
+                        rvMosque.layoutManager = LinearLayoutManager(requireContext())
                         sharedViewModel.shareMarkerOptions(markerOptions)
                     }
                     Status.ERROR -> {
@@ -183,69 +181,68 @@ internal class NearestMosqueFragment : BaseFragment(), DistanceControl {
                 }
             }
         }
-        return binding.root
+        return view
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         checkPermission()
         getDataList("5000")
-        binding.twoKmText.setBackgroundColor(
+        ctvTwoKm.setBackgroundColor(
             ContextCompat.getColor(
                 requireContext(),
                 R.color.apps_color
             )
         )
-        binding.twoKmText.setTextColor(Color.WHITE)
-
-        binding.oneKmText.setBackgroundColor(
+        ctvTwoKm.setTextColor(Color.WHITE)
+        ctvOneKm.setBackgroundColor(
             ContextCompat.getColor(
                 requireContext(),
                 R.color.back_loc
             )
         )
-        binding.oneKmText.setTextColor(ContextCompat.getColor(requireContext(), R.color.apps_color))
-        binding.threeKmText.setBackgroundColor(
+        ctvOneKm.setTextColor(ContextCompat.getColor(requireContext(), R.color.apps_color))
+        ctvThreeKm.setBackgroundColor(
             ContextCompat.getColor(
                 requireContext(),
                 R.color.back_loc
             )
         )
-        binding.threeKmText.setTextColor(
+        ctvThreeKm.setTextColor(
             ContextCompat.getColor(
                 requireContext(),
                 R.color.apps_color
             )
         )
 
-        binding.oneKmText.setOnClickListener {
+        ctvOneKm.setOnClickListener {
             // sharedViewModel.setRange(1)
-            binding.oneKmText.setBackgroundColor(
+            ctvOneKm.setBackgroundColor(
                 ContextCompat.getColor(
                     requireContext(),
                     R.color.apps_color
                 )
             )
-            binding.oneKmText.setTextColor(Color.WHITE)
-            binding.twoKmText.setBackgroundColor(
+            ctvOneKm.setTextColor(Color.WHITE)
+            ctvTwoKm.setBackgroundColor(
                 ContextCompat.getColor(
                     requireContext(),
                     R.color.back_loc
                 )
             )
-            binding.twoKmText.setTextColor(
+            ctvTwoKm.setTextColor(
                 ContextCompat.getColor(
                     requireContext(),
                     R.color.apps_color
                 )
             )
-            binding.threeKmText.setBackgroundColor(
+            ctvThreeKm.setBackgroundColor(
                 ContextCompat.getColor(
                     requireContext(),
                     R.color.back_loc
                 )
             )
-            binding.threeKmText.setTextColor(
+            ctvThreeKm.setTextColor(
                 ContextCompat.getColor(
                     requireContext(),
                     R.color.apps_color
@@ -254,34 +251,34 @@ internal class NearestMosqueFragment : BaseFragment(), DistanceControl {
             updateDistance(1)
         }
 
-        binding.twoKmText.setOnClickListener {
+        ctvTwoKm.setOnClickListener {
             // sharedViewModel.setRange(1)
-            binding.twoKmText.setBackgroundColor(
+            ctvTwoKm.setBackgroundColor(
                 ContextCompat.getColor(
                     requireContext(),
                     R.color.apps_color
                 )
             )
-            binding.twoKmText.setTextColor(Color.WHITE)
-            binding.oneKmText.setBackgroundColor(
+            ctvTwoKm.setTextColor(Color.WHITE)
+            ctvOneKm.setBackgroundColor(
                 ContextCompat.getColor(
                     requireContext(),
                     R.color.back_loc
                 )
             )
-            binding.oneKmText.setTextColor(
+            ctvOneKm.setTextColor(
                 ContextCompat.getColor(
                     requireContext(),
                     R.color.apps_color
                 )
             )
-            binding.threeKmText.setBackgroundColor(
+            ctvThreeKm.setBackgroundColor(
                 ContextCompat.getColor(
                     requireContext(),
                     R.color.back_loc
                 )
             )
-            binding.threeKmText.setTextColor(
+            ctvThreeKm.setTextColor(
                 ContextCompat.getColor(
                     requireContext(),
                     R.color.apps_color
@@ -289,34 +286,34 @@ internal class NearestMosqueFragment : BaseFragment(), DistanceControl {
             )
             updateDistance(7)
         }
-        binding.threeKmText.setOnClickListener {
+        ctvThreeKm.setOnClickListener {
             // sharedViewModel.setRange(1)
-            binding.threeKmText.setBackgroundColor(
+            ctvThreeKm.setBackgroundColor(
                 ContextCompat.getColor(
                     requireContext(),
                     R.color.apps_color
                 )
             )
-            binding.threeKmText.setTextColor(Color.WHITE)
-            binding.oneKmText.setBackgroundColor(
+            ctvThreeKm.setTextColor(Color.WHITE)
+            ctvOneKm.setBackgroundColor(
                 ContextCompat.getColor(
                     requireContext(),
                     R.color.back_loc
                 )
             )
-            binding.oneKmText.setTextColor(
+            ctvOneKm.setTextColor(
                 ContextCompat.getColor(
                     requireContext(),
                     R.color.apps_color
                 )
             )
-            binding.twoKmText.setBackgroundColor(
+            ctvTwoKm.setBackgroundColor(
                 ContextCompat.getColor(
                     requireContext(),
                     R.color.back_loc
                 )
             )
-            binding.twoKmText.setTextColor(
+            ctvTwoKm.setTextColor(
                 ContextCompat.getColor(
                     requireContext(),
                     R.color.apps_color
@@ -342,9 +339,6 @@ internal class NearestMosqueFragment : BaseFragment(), DistanceControl {
 
     private fun checkPermission() {
         if (!PermissionManager.isLocationPermissionGiven(requireContext())) {
-//            PermissionManager.requestPermissionForLocation(
-//                requireActivity()
-//            )
             requestPermissions(
                 requireActivity(), arrayOf(
                     Manifest.permission.ACCESS_COARSE_LOCATION,

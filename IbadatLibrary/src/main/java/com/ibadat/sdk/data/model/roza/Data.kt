@@ -60,7 +60,7 @@ data class Data1(
             val date = TimeFormtter.MillisecondFromDateString(ramadaDate)
             val index = CalenderUtil.getDayOfWeek(date!!) - 1
             val daysOfWeek: List<String> =
-               MyApplication.getContext().resources.getStringArray(R.array.week_name).toList()
+               MyApplication.context!!.resources.getStringArray(R.array.week_name).toList()
             return daysOfWeek[index]
         }
         set(value) {

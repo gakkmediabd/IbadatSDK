@@ -7,17 +7,14 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.core.content.ContextCompat
-import androidx.databinding.DataBindingUtil
 import androidx.viewpager.widget.ViewPager
 import com.google.android.material.tabs.TabLayout
 import com.ibadat.sdk.R
 import com.ibadat.sdk.adapter.ViewPagerAdapter
 import com.ibadat.sdk.baseClass.BaseFragment
-import com.ibadat.sdk.databinding.FragmentMosquelocatorTabBinding
 
 
 internal class MosquelocatorTabFragment : BaseFragment() {
-    //    private lateinit var binding: FragmentMosquelocatorTabBinding
     private lateinit var pager: ViewPager // creating object of ViewPager
     private lateinit var tabLayout: TabLayout
 
@@ -105,7 +102,7 @@ internal class MosquelocatorTabFragment : BaseFragment() {
 
     }
 
-    private fun setTintDrawable(drIcon:Drawable?){
+    private fun setTintDrawable(drIcon: Drawable?) {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
             drIcon?.setTint(
                 ContextCompat.getColor(

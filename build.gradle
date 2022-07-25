@@ -2,7 +2,7 @@
 buildscript {
     ext.kotlin_version = '1.5.0'
 //    ext.youtube_API_KEY = '"this_is_the_key"'
-    ext.map_API_KEY = 'this is key'
+    ext.map_API_KEY = "\"this_is_key\""
     repositories {
         google()
         mavenCentral()

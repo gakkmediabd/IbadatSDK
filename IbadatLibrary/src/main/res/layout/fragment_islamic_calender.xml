@@ -3,11 +3,10 @@
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-       >
+        android:layout_height="match_parent">
 
         <include
-            android:id="@+id/calender_view"
+            android:id="@+id/include_calender_view"
             layout="@layout/content_islamic_calendar" />
     </RelativeLayout>
 </layout>

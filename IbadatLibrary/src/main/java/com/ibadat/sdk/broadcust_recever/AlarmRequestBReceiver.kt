@@ -16,15 +16,10 @@ import kotlin.math.abs
 internal class AlarmRequestBReceiver : BroadcastReceiver() {
     private var alarmMgr: AlarmManager? = null
     private var pAlarmIntent: PendingIntent? = null
-
-    //    private lateinit var mContext: Context
     private var FIVE_MINUTES: Long = 60000 * 5
-//    private var Request_ID = 1010
 
     override fun onReceive(context: Context, intent: Intent) {
-//        this.mContext = context
         val receivedIntentValue = intent.getStringExtra(ACTION_PASS_ALARM_SERVICE_TYPE)
-        Log.e("ARBR", "onReceive: " + intent.extras)
         val prayerTime = intent.getLongExtra(ACTION_PASS_ALARM_TIME, -1)
         val timePassed =
             prayerTime != -1L && abs(System.currentTimeMillis() - prayerTime) > FIVE_MINUTES
@@ -108,10 +103,12 @@ internal class AlarmRequestBReceiver : BroadcastReceiver() {
                 intent,
                 PendingIntent.FLAG_UPDATE_CURRENT
             )
-        alarmMgr!!.setAlarmClock(
-            AlarmManager.AlarmClockInfo(alarmTime, pAlarmIntent),
-            pAlarmIntent
-        )
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+            alarmMgr!!.setAlarmClock(
+                AlarmManager.AlarmClockInfo(alarmTime, pAlarmIntent),
+                pAlarmIntent
+            )
+        }
 //        alarmMgr!!.set(AlarmManager.ELAPSED_REALTIME_WAKEUP, alarmTime, pAlarmIntent);
     }
 

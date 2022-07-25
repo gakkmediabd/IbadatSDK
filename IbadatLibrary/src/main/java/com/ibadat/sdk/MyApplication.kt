@@ -1,64 +1,61 @@
-package com.ibadat.sdk;
+package com.ibadat.sdk
 
-import static com.ibadat.sdk.util.ConstantsKt.*;
+import android.app.Application
+import com.ibadat.sdk.MyApplication
+import android.util.DisplayMetrics
+import android.os.Build
+import android.app.NotificationChannel
+import android.app.NotificationManager
+import android.content.Context
+import android.os.Handler
+import com.ibadat.sdk.util.PLAYER_NOTIFICATION_CHANNEL_ID
+import com.ibadat.sdk.util.PLAYER_NOTIFICATION_CHANNEL_NAME
 
-import android.app.Application;
-import android.app.NotificationChannel;
-import android.app.NotificationManager;
-import android.content.Context;
-import android.os.Build;
-import android.os.Handler;
-import android.util.DisplayMetrics;
-
-public class MyApplication extends Application {
-    public static int width=0;
-    public static int height=0;
-
-    public static final String TAG = MyApplication.class
-            .getSimpleName();
-
-    private static MyApplication mInstance;
-    public static volatile Context applicationContext = null;
-    public static volatile Handler applicationHandler = null;
-
-    private static Context context;
-
-    public static Context getContext() {
-        return context;
-    }
-
-    @Override
-    public void onCreate() {
-        super.onCreate();
-        createNotificationChannels();
+class MyApplication : Application() {
+    override fun onCreate() {
+        super.onCreate()
+        createNotificationChannels()
         //CommonAll.changeLocale(this);
-        mInstance = this;
-        applicationContext  = getApplicationContext();
-        applicationHandler = new Handler(applicationContext.getMainLooper());
-        context = getApplicationContext();
-
-        DisplayMetrics metrics = this.getResources().getDisplayMetrics();
-        width = metrics.widthPixels;
-        height = metrics.heightPixels;
+        instance = this
+        Companion.applicationContext = applicationContext
+        applicationHandler = Handler(applicationContext.mainLooper)
+        context = applicationContext
+        val metrics = this.resources.displayMetrics
+        width = metrics.widthPixels
+        height = metrics.heightPixels
     }
 
-    public static synchronized MyApplication getInstance() {
-        return mInstance;
-    }
-
-
-    private void createNotificationChannels() {
-        if ( Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-            NotificationChannel channel = new NotificationChannel(
-                    PLAYER_NOTIFICATION_CHANNEL_ID,
-                    PLAYER_NOTIFICATION_CHANNEL_NAME,
-                    NotificationManager.IMPORTANCE_LOW
-            );
-            channel.setDescription( "This notification use for show ibadat player");
-            NotificationManager manager = getSystemService(NotificationManager.class);
-            manager.createNotificationChannel(channel);
+    private fun createNotificationChannels() {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+            val channel = NotificationChannel(
+                PLAYER_NOTIFICATION_CHANNEL_ID,
+                PLAYER_NOTIFICATION_CHANNEL_NAME,
+                NotificationManager.IMPORTANCE_LOW
+            )
+            channel.description = "This notification use for show ibadat player"
+            val manager = getSystemService(
+                NotificationManager::class.java
+            )
+            manager.createNotificationChannel(channel)
         }
     }
 
+    companion object {
+        var width = 0
+        var height = 0
+        val TAG = MyApplication::class.java
+            .simpleName
 
+        @get:Synchronized
+        var instance: MyApplication? = null
+            private set
+
+        @Volatile
+        var applicationContext: Context? = null
+
+        @Volatile
+        var applicationHandler: Handler? = null
+        var context: Context? = null
+            private set
+    }
 }

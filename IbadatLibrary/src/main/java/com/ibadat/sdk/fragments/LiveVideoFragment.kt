@@ -7,14 +7,12 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
-import androidx.databinding.DataBindingUtil
 import com.bumptech.glide.Glide
 import com.ibadat.sdk.R
 import com.ibadat.sdk.activities.YoutubePlayerActivity
 import com.ibadat.sdk.baseClass.BaseFragment
 import com.ibadat.sdk.data.model.LiveVideo
 import com.ibadat.sdk.data.restrepo.ApiService
-import com.ibadat.sdk.databinding.FragmentLiveVideoBinding
 import com.ibadat.sdk.data.restrepo.RetroClient
 import retrofit2.Call
 import retrofit2.Callback

@@ -18,12 +18,13 @@ internal class WallpaperAnimRecyclerViewAdapter(
     private val mValues: List<WallpaperAnimModel?>?,
     var context: Context,
     var requestType: String
-) :
-    RecyclerView.Adapter<WallpaperAnimRecyclerViewAdapter.ViewHolder?>() {
+) : RecyclerView.Adapter<WallpaperAnimRecyclerViewAdapter.ViewHolder?>() {
+
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
-        val view: View = LayoutInflater.from(parent.context)
-            .inflate(R.layout.wallpaper_anim_list_item, parent, false)
-        return ViewHolder(view)
+        return ViewHolder(
+            LayoutInflater.from(parent.context)
+                .inflate(R.layout.wallpaper_anim_list_item, parent, false)
+        )
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {

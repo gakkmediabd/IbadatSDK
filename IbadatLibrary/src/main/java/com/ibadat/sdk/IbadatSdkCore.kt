@@ -6,7 +6,6 @@ import com.ibadat.sdk.activities.HomeIbadatSdkActivity
 import com.ibadat.sdk.util.AppConstantUtils
 
 object IbadatSdkCore {
-    //    private lateinit var funfff = FirebaseException
     fun openFeature(context: Context, requestType: Int) {
         context.startActivity(
             Intent(
