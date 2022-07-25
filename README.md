@@ -33,10 +33,6 @@ Ibadat SDk
     
 ## Setup
 **Root level**
-
-    buildFeatures {
-        dataBinding true
-    }
     
     implementation "androidx.lifecycle:lifecycle-extensions:2.2.0"
       
