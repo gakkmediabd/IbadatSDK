@@ -18,6 +18,7 @@ import com.ibadat.sdk.R
 import com.ibadat.sdk.activities.HomeIbadatSdkActivity
 import com.ibadat.sdk.baseClass.BaseFragment
 import com.ibadat.sdk.data.manager.prefs.AppPreference
+import com.ibadat.sdk.util.AppConstantUtils
 import com.ibadat.sdk.util.MAKKAH_LATITUDE
 import com.ibadat.sdk.util.MAKKAH_LONGITUDE
 import com.ibadat.sdk.util.Util
@@ -51,9 +52,24 @@ internal class CompassFragment : BaseFragment(), SensorEventListener {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         val constraintImage = requireView().findViewById<ImageView>(R.id.constraintImage)
-        constraintImage.setImageURI(Util.getUriFromPath(requireContext(), "drawable-hdpi/compass_bg.png"))
-        appCompatImageView.setImageURI(Util.getUriFromPath(requireContext(), "drawable-hdpi/dial.png"))
-        imgkabba.setImageURI(Util.getUriFromPath(requireContext(), "drawable-hdpi/kaaba_icon_with_arrow.png"))
+        constraintImage.setImageURI(
+            Util.getUriFromPath(
+                requireContext(),
+                AppConstantUtils.drawable_hdpi + "compass_bg.png"
+            )
+        )
+        appCompatImageView.setImageURI(
+            Util.getUriFromPath(
+                requireContext(),
+                AppConstantUtils.drawable_hdpi + "dial.png"
+            )
+        )
+        imgkabba.setImageURI(
+            Util.getUriFromPath(
+                requireContext(),
+                AppConstantUtils.drawable_hdpi + "kaaba_icon_with_arrow.png"
+            )
+        )
         initActionBar()
         val distance = getDistance(
             AppPreference.getUserCurrentLocation().lat!!,
@@ -79,8 +95,6 @@ internal class CompassFragment : BaseFragment(), SensorEventListener {
                 360 + d
             }
         }
-
-
     }
 
     private fun initActionBar() {
@@ -91,7 +105,6 @@ internal class CompassFragment : BaseFragment(), SensorEventListener {
                 requireActivity().finish()
             }
         }
-
     }
 
     override fun onPause() {

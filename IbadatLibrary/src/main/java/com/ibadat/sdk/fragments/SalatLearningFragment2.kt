@@ -55,7 +55,6 @@ internal class SalatLearningFragment2 : BaseFragment(), CallBackSalatLearningDet
         txtDescription = view.findViewById(R.id.txtDescription)
     }
 
-
     private fun getNamazShikkhaData2(id: String?) {
         progressBar.visibility = View.VISIBLE
         val api: ApiService = RetroClient.getApiService()!!
@@ -73,7 +72,6 @@ internal class SalatLearningFragment2 : BaseFragment(), CallBackSalatLearningDet
 
             override fun onFailure(call: Call<List<SalatLearningModel>>, t: Throwable) {
                 progressBar.visibility = View.GONE
-
             }
         })
     }
@@ -86,7 +84,6 @@ internal class SalatLearningFragment2 : BaseFragment(), CallBackSalatLearningDet
                 NamazShikkaDetailsNewRecyclerViewAdapter(salatLearningModel, context, this)
             recycleCetagory?.adapter = CustomAnimation.getAnimatedRecyclerView(adapter)
             recycleCetagory?.isNestedScrollingEnabled = false
-
         }
     }
 

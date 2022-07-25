@@ -18,19 +18,11 @@ internal class MosquelocatorTabFragment : BaseFragment() {
     private lateinit var pager: ViewPager // creating object of ViewPager
     private lateinit var tabLayout: TabLayout
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        arguments?.let {
-
-        }
-    }
-
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
         val view = inflater.inflate(R.layout.fragment_mosquelocator_tab, container, false)
-
         return view
     }
 
@@ -49,9 +41,6 @@ internal class MosquelocatorTabFragment : BaseFragment() {
         pager.adapter = adapter
         tabLayout.getTabAt(0)?.setIcon(R.drawable.mosque_on).apply {
             setTintDrawable(this?.icon)
-//            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-//                this?.icon?.setTint(ContextCompat.getColor(requireContext(), R.color.white))
-//            }
         }
         pager.addOnPageChangeListener(TabLayout.TabLayoutOnPageChangeListener(tabLayout))
         tabLayout.addOnTabSelectedListener(object : TabLayout.OnTabSelectedListener {
@@ -62,14 +51,6 @@ internal class MosquelocatorTabFragment : BaseFragment() {
                     0 -> {
                         tabLayout.getTabAt(0)?.setIcon(R.drawable.mosque_on).apply {
                             setTintDrawable(this?.icon)
-//                            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-//                                this?.icon?.setTint(
-//                                    ContextCompat.getColor(
-//                                        requireContext(),
-//                                        R.color.white
-//                                    )
-//                                )
-//                            }
                         }
                         tabLayout.getTabAt(1)?.setIcon(R.drawable.map_on)
                     }
@@ -78,14 +59,6 @@ internal class MosquelocatorTabFragment : BaseFragment() {
                         tabLayout.getTabAt(0)?.setIcon(R.drawable.mosque_on)
                         tabLayout.getTabAt(1)?.setIcon(R.drawable.map_on).apply {
                             setTintDrawable(this?.icon)
-//                            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-//                                this?.icon?.setTint(
-//                                    ContextCompat.getColor(
-//                                        requireContext(),
-//                                        R.color.white
-//                                    )
-//                                )
-//                            }
                         }
                     }
                 }
@@ -98,8 +71,6 @@ internal class MosquelocatorTabFragment : BaseFragment() {
             override fun onTabReselected(tab: TabLayout.Tab) {}
         })
         pager.offscreenPageLimit = 2
-
-
     }
 
     private fun setTintDrawable(drIcon: Drawable?) {

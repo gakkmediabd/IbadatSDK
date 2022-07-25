@@ -9,7 +9,7 @@ import com.ibadat.sdk.util.singleArgViewModelFactory
 
 import kotlinx.coroutines.launch
 
-class NearbyViewModel(private val repository: RestRepo) : ViewModel() {
+internal class NearbyViewModel(private val repository: RestRepo) : ViewModel() {
     var nearbyInfo: MutableLiveData<Resource<NearbyResponse>> = MutableLiveData()
 
     companion object {

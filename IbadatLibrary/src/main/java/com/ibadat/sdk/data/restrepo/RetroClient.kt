@@ -115,7 +115,7 @@ internal class RetroClient {
         fun getLiveVideoApiService(): ApiService?{
             return getRetrofitForSalatLearnigApis().create(ApiService::class.java)
         }
-        fun getNearestMosqueApiService(): ApiService?{
+        fun getNearestMosqueApiService(): ApiService{
             return getRetrofitForNearestMosqueApi().create(ApiService::class.java)
         }
         fun getDuaApiService(): ApiService {

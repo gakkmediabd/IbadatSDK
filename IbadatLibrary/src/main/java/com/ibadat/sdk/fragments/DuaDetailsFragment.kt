@@ -113,12 +113,6 @@ internal class DuaDetailsFragment : BaseFragment() {
                 AppConstantUtils.drawable_hdpi + "art.png"
             )
         )
-
-//        Glide.with(requireContext())
-//            .load("https://mygp.ibadat.co/content/sdk/art.png")
-//            .diskCacheStrategy(
-//                DiskCacheStrategy.ALL).into(imageView)
-
         initToolbar(requireActivity())
             .setNavigationOnClickListener {
                 if (HomeIbadatSdkActivity.backPressCount == 1) {

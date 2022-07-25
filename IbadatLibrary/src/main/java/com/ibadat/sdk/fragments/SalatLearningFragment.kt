@@ -42,7 +42,6 @@ internal class SalatLearningFragment : BaseFragment(), CallBackSalatLearning {
         getNamazShikkhaData()
     }
 
-
     private fun initView(view: View) {
         progressBar = view.findViewById(R.id.pb_loader)
         recycleCetagory = view.findViewById(R.id.fastCetagory)
@@ -99,5 +98,3 @@ internal class SalatLearningFragment : BaseFragment(), CallBackSalatLearning {
 interface CallBackSalatLearning {
     fun onItemclick(item: Int, id: String?)
 }
-
-

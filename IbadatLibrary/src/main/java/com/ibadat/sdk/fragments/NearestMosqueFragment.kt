@@ -15,7 +15,6 @@ import androidx.core.app.ActivityCompat
 import androidx.core.app.ActivityCompat.requestPermissions
 import androidx.core.content.ContextCompat
 import androidx.lifecycle.ViewModelProvider
-import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.google.android.gms.maps.MapsInitializer
@@ -23,23 +22,23 @@ import com.google.android.gms.maps.model.BitmapDescriptor
 import com.google.android.gms.maps.model.BitmapDescriptorFactory
 import com.google.android.gms.maps.model.LatLng
 import com.google.android.gms.maps.model.MarkerOptions
-import com.ibadat.sdk.BuildConfig
 import com.ibadat.sdk.R
 import com.ibadat.sdk.adapter.NearestMosqueAdapter
 import com.ibadat.sdk.baseClass.BaseFragment
+import com.ibadat.sdk.data.manager.FetchNetworkData
 import com.ibadat.sdk.data.manager.prefs.AppPreference
+import com.ibadat.sdk.data.model.nearby.NearPlaceResult
 import com.ibadat.sdk.data.model.nearby.PlaceInfo
-import com.ibadat.sdk.data.restrepo.*
+import com.ibadat.sdk.data.restrepo.NearbySharedViewModel
+import com.ibadat.sdk.data.restrepo.NearbyViewModel
+import com.ibadat.sdk.data.restrepo.NetworkDataCallBack
+import com.ibadat.sdk.data.restrepo.RestRepo
 import com.ibadat.sdk.util.PermissionManager
 import com.ibadat.sdk.views.MyCustomTextView
-import kotlinx.coroutines.launch
 import java.io.Serializable
 
 
-internal class NearestMosqueFragment : BaseFragment(), DistanceControl {
-//    @Transient
-//    private lateinit var binding: FragmentNearestMosqueBinding
-
+internal class NearestMosqueFragment : BaseFragment(), DistanceControl, NetworkDataCallBack {
     @Transient
     var placeInfoList = arrayListOf<PlaceInfo>()
 
@@ -88,100 +87,164 @@ internal class NearestMosqueFragment : BaseFragment(), DistanceControl {
         ctvThreeKm = view.findViewById(R.id.ctv_three_km)
         rvMosque = view.findViewById(R.id.rv_mosque)
 
-        lifecycleScope.launch {
-            val resource = R.drawable.mosq
-            bitmapDescriptor = BitmapDescriptorFactory.fromResource(resource)
-
-            val job = launch {
-                repository = RetroClient2.getRepository()
-            }
-            job.join()
+//        lifecycleScope.launch {
+        val resource = R.drawable.mosq
+        bitmapDescriptor = BitmapDescriptorFactory.fromResource(resource)
+//            val job = launch {
+//                repository = RetroClient2.getRepository()
+//            }
+//            job.join()
 //            model = ViewModelProviders.of(
 //                this@NearestMosqueFragment,
 //                NearbyViewModel.FACTORY(repository)
 //            ).get(NearbyViewModel::class.java)
-            model = ViewModelProvider(requireActivity())[NearbyViewModel::class.java]
+//            model = ViewModelProvider(requireActivity())[NearbyViewModel::class.java]
+        FetchNetworkData.fetchNearbyPlace("5000", this)
 
-            sharedViewModel =
-                ViewModelProvider(requireActivity())[NearbySharedViewModel::class.java]
-            checkPermission()
+        sharedViewModel = ViewModelProvider(requireActivity())[NearbySharedViewModel::class.java]
+        checkPermission()
 
-            model.nearbyInfo.observe(viewLifecycleOwner) {
-                when (it.status) {
-                    Status.LOADING -> {
-                    }
+        /*  model.nearbyInfo.observe(viewLifecycleOwner) {
+              when (it.status) {
+                  Status.LOADING -> {
+                  }
+                  Status.SUCCESS -> {
+                      val nearPlaceResultList: List<NearPlaceResult> =
+                          it.data?.nearPlaceResults!!
+                      markerOptions = Array(nearPlaceResultList.size) { MarkerOptions() }
+                      for (i in 0..nearPlaceResultList.size - 1) {
+                          val nearPlaceResult: NearPlaceResult = nearPlaceResultList[i]
+                          val placeInfo = PlaceInfo()
+                          placeInfo.name = nearPlaceResult.name
+                          placeInfo.address = nearPlaceResult.vicinity
+                          placeInfo.placeLocation = nearPlaceResult.geometry?.location
+                          placeInfoList.add(placeInfo)
 
-                    Status.SUCCESS -> {
-                        val resultList: List<com.ibadat.sdk.data.model.nearby.Result> =
-                            it.data?.results!!
-                        markerOptions = Array(resultList.size) { MarkerOptions() }
-                        for (i in 0..resultList.size - 1) {
-                            val result: com.ibadat.sdk.data.model.nearby.Result = resultList[i]
-                            val placeInfo = PlaceInfo()
-                            placeInfo.name = result.name
-                            placeInfo.address = result.vicinity
-                            placeInfo.placeLocation = result.geometry?.location
-                            placeInfoList.add(placeInfo)
+                          markerOptions!![i] = MarkerOptions()
+                              .position(
+                                  LatLng(
+                                      nearPlaceResult.geometry?.location
+                                          ?.lat!!,
+                                      nearPlaceResult.geometry?.location
+                                          ?.lng!!
+                                  )
+                              )
+                              .title(nearPlaceResult.name)
+                              .snippet(nearPlaceResult.name)
+                              .icon(bitmapDescriptor)
+                      }
 
-                            markerOptions!![i] = MarkerOptions()
-                                .position(
-                                    LatLng(
-                                        result.geometry?.location
-                                            ?.lat!!,
-                                        result.geometry?.location
-                                            ?.lng!!
-                                    )
-                                )
-                                .title(result.name)
-                                .snippet(result.name)
-                                .icon(bitmapDescriptor)
-                        }
+                      if (!this@NearestMosqueFragment::adapter.isInitialized) {
 
-                        if (!this@NearestMosqueFragment::adapter.isInitialized) {
+                          rvMosque.visibility = View.VISIBLE
 
-                            rvMosque.visibility = View.VISIBLE
+                          adapter = NearestMosqueAdapter(
+                              placeInfoList = placeInfoList
+                          ).apply {
+                              setOnItemClickListener { pi ->
+                                  if (ActivityCompat.checkSelfPermission(
+                                          requireContext(),
+                                          Manifest.permission.ACCESS_FINE_LOCATION
+                                      ) !== PackageManager.PERMISSION_GRANTED &&
+                                      ActivityCompat.checkSelfPermission(
+                                          requireContext(),
+                                          Manifest.permission.ACCESS_COARSE_LOCATION
+                                      ) !== PackageManager.PERMISSION_GRANTED
+                                  ) {
+                                      requestPermissions(
+                                          requireActivity(), arrayOf(
+                                              Manifest.permission.ACCESS_COARSE_LOCATION,
+                                              Manifest.permission.ACCESS_FINE_LOCATION
+                                          ),
+                                          REQUEST_LOCATION
+                                      )
+                                  } else {
+                                      openLocationInMap(pi)
+                                      Log.e("DB", "PERMISSION GRANTED")
+                                  }
+                              }
+                          }
+                          rvMosque.adapter = adapter
+                      } else {
+                          adapter.updatePlaceInfo(placeInfoList)
+                          adapter.notifyDataSetChanged()
+                          rvMosque.visibility = View.VISIBLE
+                      }
+                      rvMosque.layoutManager = LinearLayoutManager(requireContext())
+                      sharedViewModel.shareMarkerOptions(markerOptions)
+                  }
+                  Status.ERROR -> {
+                  }
+              }
+          }*/
+//        }
+        return view
+    }
 
-                            adapter = NearestMosqueAdapter(
-                                placeInfoList = placeInfoList
-                            ).apply {
-                                setOnItemClickListener { pi ->
-                                    if (ActivityCompat.checkSelfPermission(
-                                            requireContext(),
-                                            Manifest.permission.ACCESS_FINE_LOCATION
-                                        ) !== PackageManager.PERMISSION_GRANTED &&
-                                        ActivityCompat.checkSelfPermission(
-                                            requireContext(),
-                                            Manifest.permission.ACCESS_COARSE_LOCATION
-                                        ) !== PackageManager.PERMISSION_GRANTED
-                                    ) {
-                                        requestPermissions(
-                                            requireActivity(), arrayOf(
-                                                Manifest.permission.ACCESS_COARSE_LOCATION,
-                                                Manifest.permission.ACCESS_FINE_LOCATION
-                                            ),
-                                            REQUEST_LOCATION
-                                        )
-                                    } else {
-                                        openLocationInMap(pi)
-                                        Log.e("DB", "PERMISSION GRANTED")
-                                    }
-                                }
-                            }
-                            rvMosque.adapter = adapter
-                        } else {
-                            adapter.updatePlaceInfo(placeInfoList)
-                            adapter.notifyDataSetChanged()
-                            rvMosque.visibility = View.VISIBLE
-                        }
-                        rvMosque.layoutManager = LinearLayoutManager(requireContext())
-                        sharedViewModel.shareMarkerOptions(markerOptions)
-                    }
-                    Status.ERROR -> {
+    private fun setNearPlace(nearPlaceResult: MutableList<NearPlaceResult>) {
+        Log.e("NMF", "setNearPlace: " + nearPlaceResult.size)
+        val nearPlaceResultList: List<NearPlaceResult> = nearPlaceResult
+        markerOptions = Array(nearPlaceResultList.size) { MarkerOptions() }
+        for (i in 0..nearPlaceResultList.size - 1) {
+            val nearPlaceResult: NearPlaceResult = nearPlaceResultList[i]
+            val placeInfo = PlaceInfo()
+            placeInfo.name = nearPlaceResult.name
+            placeInfo.address = nearPlaceResult.vicinity
+            placeInfo.placeLocation = nearPlaceResult.geometry?.location
+            placeInfoList.add(placeInfo)
+
+            markerOptions!![i] = MarkerOptions()
+                .position(
+                    LatLng(
+                        nearPlaceResult.geometry?.location
+                            ?.lat!!,
+                        nearPlaceResult.geometry?.location
+                            ?.lng!!
+                    )
+                )
+                .title(nearPlaceResult.name)
+                .snippet(nearPlaceResult.name)
+                .icon(bitmapDescriptor)
+        }
+
+        if (!this@NearestMosqueFragment::adapter.isInitialized) {
+
+            rvMosque.visibility = View.VISIBLE
+
+            adapter = NearestMosqueAdapter(
+                placeInfoList = placeInfoList
+            ).apply {
+                setOnItemClickListener { pi ->
+                    if (ActivityCompat.checkSelfPermission(
+                            requireContext(),
+                            Manifest.permission.ACCESS_FINE_LOCATION
+                        ) !== PackageManager.PERMISSION_GRANTED &&
+                        ActivityCompat.checkSelfPermission(
+                            requireContext(),
+                            Manifest.permission.ACCESS_COARSE_LOCATION
+                        ) !== PackageManager.PERMISSION_GRANTED
+                    ) {
+                        requestPermissions(
+                            requireActivity(), arrayOf(
+                                Manifest.permission.ACCESS_COARSE_LOCATION,
+                                Manifest.permission.ACCESS_FINE_LOCATION
+                            ),
+                            REQUEST_LOCATION
+                        )
+                    } else {
+                        openLocationInMap(pi)
+                        Log.e("DB", "PERMISSION GRANTED")
                     }
                 }
             }
+            rvMosque.adapter = adapter
+        } else {
+            adapter.updatePlaceInfo(placeInfoList)
+            adapter.notifyDataSetChanged()
+            rvMosque.visibility = View.VISIBLE
         }
-        return view
+        rvMosque.layoutManager = LinearLayoutManager(requireContext())
+        sharedViewModel.shareMarkerOptions(markerOptions)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -286,6 +349,7 @@ internal class NearestMosqueFragment : BaseFragment(), DistanceControl {
             )
             updateDistance(7)
         }
+
         ctvThreeKm.setOnClickListener {
             // sharedViewModel.setRange(1)
             ctvThreeKm.setBackgroundColor(
@@ -350,13 +414,14 @@ internal class NearestMosqueFragment : BaseFragment(), DistanceControl {
     }
 
     private fun getDataList(radius: String) {
-        model.loadNearbyPlaceInfo(
-            BuildConfig.MAP_API_KEY,
-            radius,
-            AppPreference.getUserCurrentLocation(),
-            "mosque",
-            "bn"
-        )
+        FetchNetworkData.fetchNearbyPlace(radius, this)
+//        model.loadNearbyPlaceInfo(
+//            BuildConfig.MAP_API_KEY,
+//            radius,
+//            AppPreference.getUserCurrentLocation(),
+//            "mosque",
+//            "bn"
+//        )
     }
 
     override fun getList(): Array<MarkerOptions>? {
@@ -376,6 +441,17 @@ internal class NearestMosqueFragment : BaseFragment(), DistanceControl {
                 getDataList("1000")
             }
         }
+    }
+
+    override fun onLoading(loading: Boolean) {
+    }
+
+    override fun onSuccess(response: Any) {
+        val listNearPlace: MutableList<NearPlaceResult> = response as MutableList<NearPlaceResult>
+        setNearPlace(listNearPlace)
+    }
+
+    override fun onError(errorMessage: String) {
     }
 }
 

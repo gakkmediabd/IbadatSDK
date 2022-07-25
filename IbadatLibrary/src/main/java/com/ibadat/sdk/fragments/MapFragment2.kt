@@ -44,24 +44,18 @@ internal class MapFragment2 : BaseFragment(), OnMapReadyCallback {
         @JvmStatic
         fun newInstance(
             distanceControl: DistanceControl? = null
-
         ) =
             MapFragment2().apply {
                 arguments = Bundle().apply {
-
                     putSerializable(ARG_MOSQUE_CALL_BACK, distanceControl)
-
                 }
             }
-
-
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         arguments?.let {
             mDistanceControl = it.getSerializable(ARG_MOSQUE_CALL_BACK) as? DistanceControl
-
         }
     }
 
@@ -86,24 +80,18 @@ internal class MapFragment2 : BaseFragment(), OnMapReadyCallback {
         if (fragmentManager != null) {
             transaction = fragmentManager?.beginTransaction()?.replace(R.id.fl_map, fragment)
         }
-
         transaction?.commit()
-
         fragment.getMapAsync(this)
-
 //        sharedViewModel.range.observe(viewLifecycleOwner){
 //            Log.i("sharedViewModel", "onViewCreated: $it")
 //        }
         markLocation()
-
     }
 
     private fun markLocation() {
-
         /* mDistanceControl?.let {
              markerList = mDistanceControl?.getList()
          }*/
-
         sharedViewModel.markerOptions.observe(viewLifecycleOwner) { markerOptionList ->
             Log.i("sharedViewModel", "markLocation: ${markerOptionList.toString()}")
             if (markerOptionList?.isNotEmpty() == true) {
@@ -118,8 +106,6 @@ internal class MapFragment2 : BaseFragment(), OnMapReadyCallback {
                 animateCamera()
             }
         }
-
-
     }
 
     private fun animateCamera() {
@@ -133,8 +119,6 @@ internal class MapFragment2 : BaseFragment(), OnMapReadyCallback {
             .zoom(17f)
             .build()
         mMap!!.animateCamera(CameraUpdateFactory.newCameraPosition(cameraPosition), null)
-
-
     }
 
     override fun onDestroyView() {

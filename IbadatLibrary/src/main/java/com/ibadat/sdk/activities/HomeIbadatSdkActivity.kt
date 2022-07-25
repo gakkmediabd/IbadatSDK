@@ -205,8 +205,4 @@ internal class HomeIbadatSdkActivity : BaseActivity(), NetworkDataCallBack {
     override fun onError(errorMessage: String) {
 
     }
-
-    override fun onStatusLoginOrLogout(statusMessage: Int) {
-
-    }
 }

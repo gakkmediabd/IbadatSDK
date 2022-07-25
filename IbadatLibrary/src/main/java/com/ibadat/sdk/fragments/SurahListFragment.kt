@@ -18,7 +18,7 @@ import com.ibadat.sdk.baseClass.BaseFragment
 import com.ibadat.sdk.util.CustomAnimation
 
 
-class SurahListFragment : BaseFragment(), CallBackSurah  {
+internal class SurahListFragment : BaseFragment(), CallBackSurah {
     private lateinit var rvCommonDuaOrHadith: RecyclerView
     private lateinit var mSurahAdapter: SurahListAdapter
     private lateinit var pbDuaLoader: ProgressBar
@@ -26,12 +26,6 @@ class SurahListFragment : BaseFragment(), CallBackSurah  {
 
     private lateinit var toolbar: Toolbar
     private lateinit var navController: NavController
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        arguments?.let {
-
-        }
-    }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -39,7 +33,6 @@ class SurahListFragment : BaseFragment(), CallBackSurah  {
     ): View? {
         val view = inflater.inflate(R.layout.fragment_surah, container, false)
         viewInitialize(view)
-
         return view
     }
 
@@ -52,6 +45,7 @@ class SurahListFragment : BaseFragment(), CallBackSurah  {
     override fun onResume() {
         super.onResume()
     }
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         rvCommonDuaOrHadith.apply {
@@ -60,7 +54,7 @@ class SurahListFragment : BaseFragment(), CallBackSurah  {
                 RecyclerView.VERTICAL,
                 false
             )
-            mSurahAdapter = SurahListAdapter(requireContext(),this@SurahListFragment)
+            mSurahAdapter = SurahListAdapter(requireContext(), this@SurahListFragment)
             adapter = CustomAnimation.getAnimatedRecyclerView(mSurahAdapter)
         }
     }
@@ -68,9 +62,8 @@ class SurahListFragment : BaseFragment(), CallBackSurah  {
     override fun onItemClick(item: Int) {
         val bundle = Bundle()
         bundle.putInt("position", item)
-        findNavController().navigate(R.id.action_surahFragment_to_surahDetailsFragment,bundle)
+        findNavController().navigate(R.id.action_surahFragment_to_surahDetailsFragment, bundle)
     }
-
 }
 
 interface CallBackSurah {

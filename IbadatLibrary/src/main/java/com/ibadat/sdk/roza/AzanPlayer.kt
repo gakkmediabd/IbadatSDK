@@ -12,19 +12,20 @@ import androidx.annotation.RequiresApi
 internal object AzanPlayer {
     private var mMediaPlayer: MediaPlayer? = null
 
-    @RequiresApi(Build.VERSION_CODES.LOLLIPOP)
     fun playAzanFromRawFolder(context: Context, uri: Uri) {
         releaseMediaPlayer()
         mMediaPlayer = MediaPlayer().apply {
             setDataSource(context, uri)
         }
 
-        mMediaPlayer?.setAudioAttributes(
-            AudioAttributes.Builder()
-                .setUsage(AudioAttributes.USAGE_ALARM)
-                .setContentType(AudioAttributes.CONTENT_TYPE_SONIFICATION)
-                .build()
-        )
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+            mMediaPlayer?.setAudioAttributes(
+                AudioAttributes.Builder()
+                    .setUsage(AudioAttributes.USAGE_ALARM)
+                    .setContentType(AudioAttributes.CONTENT_TYPE_SONIFICATION)
+                    .build()
+            )
+        }
         mMediaPlayer?.prepare()
         mMediaPlayer?.setOnPreparedListener {
             it?.start()

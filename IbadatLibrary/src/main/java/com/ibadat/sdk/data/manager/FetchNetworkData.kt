@@ -1,7 +1,10 @@
 package com.ibadat.sdk.data.manager
 
 import android.util.Base64
+import com.ibadat.sdk.BuildConfig
+import com.ibadat.sdk.data.manager.prefs.AppPreference
 import com.ibadat.sdk.data.model.CommonDuaAndHadithModel
+import com.ibadat.sdk.data.model.nearby.NearbyResponse
 import com.ibadat.sdk.data.restrepo.ApiService
 import com.ibadat.sdk.data.restrepo.NetworkDataCallBack
 import com.ibadat.sdk.data.restrepo.RetroClient
@@ -11,6 +14,7 @@ import retrofit2.Response
 
 internal object FetchNetworkData {
     private val apiService: ApiService = RetroClient.getDuaApiService()
+    private val apiServiceNearMosque: ApiService = RetroClient.getNearestMosqueApiService()
 
     private fun getBasicAuth(): String {
         val username = "Gakkmedia"
@@ -27,6 +31,16 @@ internal object FetchNetworkData {
         val queryData = HashMap<String, Any>()
         queryData["msisdn"] = "8801783355888"
         queryData["lang"] = "bn"
+        return queryData
+    }
+
+    private fun getHasMapNearMosque(radius: String): HashMap<String, Any> {
+        val queryData = HashMap<String, Any>()
+        queryData["key"] = BuildConfig.MAP_API_KEY
+        queryData["radius"] = radius
+        queryData["location"] = AppPreference.getUserCurrentLocation()
+        queryData["type"] = "mosque"
+        queryData["language"] = "bn"
         return queryData
     }
 
@@ -76,6 +90,29 @@ internal object FetchNetworkData {
                     call: Call<MutableList<CommonDuaAndHadithModel>>,
                     throwable: Throwable
                 ) {
+                    networkDataCallBack.onLoading(false)
+                    networkDataCallBack.onError(throwable.message!!)
+                }
+            })
+    }
+
+    fun fetchNearbyPlace(radius: String, networkDataCallBack: NetworkDataCallBack) {
+        apiServiceNearMosque.getNearbyPlaceTest(getHasMapNearMosque(radius))
+            .enqueue(object : Callback<NearbyResponse> {
+                override fun onResponse(
+                    call: Call<NearbyResponse>,
+                    response: Response<NearbyResponse>
+                ) {
+                    if (response.isSuccessful) {
+                        networkDataCallBack.onLoading(response.isSuccessful)
+                        networkDataCallBack.onSuccess(response.body()!!.nearPlaceResults!!)
+                    } else {
+                        networkDataCallBack.onLoading(response.isSuccessful)
+                        networkDataCallBack.onSuccess(mutableListOf<NearbyResponse>())
+                    }
+                }
+
+                override fun onFailure(call: Call<NearbyResponse>, throwable: Throwable) {
                     networkDataCallBack.onLoading(false)
                     networkDataCallBack.onError(throwable.message!!)
                 }

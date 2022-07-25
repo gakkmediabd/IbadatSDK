@@ -3,7 +3,7 @@ package com.ibadat.sdk.data.model.nearby
 import com.google.gson.annotations.Expose
 import com.google.gson.annotations.SerializedName
 
-class Result {
+class NearPlaceResult {
     @SerializedName("geometry")
     @Expose
     var geometry: Geometry? = null

@@ -21,8 +21,6 @@ import java.text.DecimalFormat
 
 
 internal class CalculateJakatFragment : BaseFragment() {
-//    private lateinit var binding: FragmentCalculateJakatBinding
-
     private lateinit var clCalculate: ConstraintLayout
     private lateinit var acivBgTotalAsset: AppCompatImageView
     private lateinit var ctvTitle: MyCustomTextView
@@ -134,11 +132,6 @@ internal class CalculateJakatFragment : BaseFragment() {
 
     // include_farming_header
     private lateinit var ctvFarmingHeaderTitleHeader: MyCustomTextView
-//    //include_farming_header
-//    private lateinit var ctvFarmingHeaderContentTitle: MyCustomTextView
-//    private lateinit var tvFarmingHeaderSymbol: TextView
-//    private lateinit var acetFarmingHeaderAmount: AppCompatEditText
-//    private lateinit var glFarmingHeaderGuideline3: Guideline
 
     //include_farming_content
     private lateinit var ctvFarmingContentContentTitle: MyCustomTextView
@@ -180,7 +173,6 @@ internal class CalculateJakatFragment : BaseFragment() {
     private lateinit var acetOtherLoanContentAmount: AppCompatEditText
     private lateinit var glOtherLoanContentGuideline3: Guideline
 
-
     private lateinit var btnSave: Button
 
     override fun onCreateView(
@@ -189,7 +181,6 @@ internal class CalculateJakatFragment : BaseFragment() {
     ): View {
         val view = inflater.inflate(R.layout.fragment_calculate_jakat, container, false)
         viewInitialize(view)
-
         return view
     }
 
@@ -203,7 +194,6 @@ internal class CalculateJakatFragment : BaseFragment() {
         ivColon = view.findViewById(R.id.iv_colon)
         ctvTotalJakat = view.findViewById(R.id.ctv_total_jakat)
         ctvTitleTotalAsset = view.findViewById(R.id.ctv_title_total_asset)
-
 
         val includeNagadTakaHeader: ConstraintLayout =
             view.findViewById(R.id.include_nagad_taka_header)

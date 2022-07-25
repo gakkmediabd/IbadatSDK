@@ -4,5 +4,5 @@ interface NetworkDataCallBack {
     fun onLoading(loading: Boolean)
     fun onSuccess(response: Any)
     fun onError(errorMessage: String)
-    fun onStatusLoginOrLogout(statusMessage: Int)
+//    fun onStatusLoginOrLogout(statusMessage: Int)
 }

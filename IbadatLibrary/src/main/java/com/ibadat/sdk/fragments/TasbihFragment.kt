@@ -1,10 +1,12 @@
 package com.ibadat.sdk.fragments
 
 import android.annotation.SuppressLint
+import android.os.Build
 import android.os.Bundle
 import android.util.Log
 import android.view.*
 import android.widget.*
+import androidx.annotation.RequiresApi
 import androidx.appcompat.widget.AppCompatButton
 import androidx.appcompat.widget.AppCompatImageView
 import androidx.appcompat.widget.Toolbar
@@ -31,7 +33,6 @@ import com.ibadat.sdk.views.TextViewNormal
 
 internal class TasbihFragment : BaseFragment(), CountControl, PressListener {
     lateinit var toolbar: Toolbar
-
     private lateinit var pbCircle: ProgressBar
     private lateinit var acivCirleTasbih: AppCompatImageView
     private lateinit var acivPattern: AppCompatImageView
@@ -113,7 +114,6 @@ internal class TasbihFragment : BaseFragment(), CountControl, PressListener {
                 AppConstantUtils.drawable_hdpi + "ic_btn_press.png"
             )
         )
-
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -146,21 +146,18 @@ internal class TasbihFragment : BaseFragment(), CountControl, PressListener {
     @SuppressLint("SetTextI18n")
     private fun initializeUi() {
         mlistTasbihModel = ArrayList()
-
         /*acivCirleTasbih.setImageURI(
             Util.getUriFromPath(
                 requireContext(),
                 AppConstantUtils.drawable_hdpi + "tasbih_circle_bg.png"
             )
         )*/
-
         acivStartCount.setImageURI(
             Util.getUriFromPath(
                 requireContext(),
                 AppConstantUtils.drawable_hdpi + "ic_btn_press.png"
             )
         )
-
         strBanglaDuaArray =
             requireContext().resources!!.getStringArray(R.array.array_bangla_tasbih_duas)
         strArabicDuaArray =
@@ -168,7 +165,6 @@ internal class TasbihFragment : BaseFragment(), CountControl, PressListener {
 
         banglaDuaArrSize = strBanglaDuaArray.size
         arabicDuaArrSize = strArabicDuaArray.size
-
         for (i in 0..7) {
             mlistTasbihModel.add(
                 TasbihModel(

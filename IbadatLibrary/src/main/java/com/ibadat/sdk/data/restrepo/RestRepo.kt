@@ -13,12 +13,11 @@ class RestRepo(
         placeType: String,
         language: String
     ): NearbyResponse {
-        val resultList = nearbyApiService.getNearbyPlace(
+        return nearbyApiService.getNearbyPlace(
             key,
             radius,
             location.lat.toString() + "," + location.lng.toString(),
             placeType, language
         )
-        return resultList
     }
 }

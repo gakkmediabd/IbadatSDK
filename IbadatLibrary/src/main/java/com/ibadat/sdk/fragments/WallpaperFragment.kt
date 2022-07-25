@@ -10,6 +10,7 @@ import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.ibadat.sdk.R
 import com.ibadat.sdk.adapter.WallpaperAnimRecyclerViewAdapter
+import com.ibadat.sdk.baseClass.BaseFragment
 import com.ibadat.sdk.data.restrepo.ApiService
 import com.ibadat.sdk.data.model.WallpaperAnimModel
 import com.ibadat.sdk.data.restrepo.RetroClient
@@ -21,17 +22,9 @@ import retrofit2.Callback
 import retrofit2.Response
 
 
-internal class WallpaperFragment : Fragment() {
+internal class WallpaperFragment : BaseFragment() {
     var recycleWallAnimList: RecyclerView? = null
     var categoryType: String? = null
-
-
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        arguments?.let {
-
-        }
-    }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -64,10 +57,6 @@ internal class WallpaperFragment : Fragment() {
         val api: ApiService? = RetroClient.getDonwloadInfoInstance()
         val call: Call<List<WallpaperAnimModel?>?>? =
             api?.getAllWallpaperAnimation(portalCode, categoryCode, contentType)
-        Log.d(
-            "Home_Api",
-            "requestType:  " + "  namaz_shikka  " + call?.request()?.url()?.toString()
-        )
         call?.enqueue(object : Callback<List<WallpaperAnimModel?>?> {
             override fun onResponse(
                 call: Call<List<WallpaperAnimModel?>?>,

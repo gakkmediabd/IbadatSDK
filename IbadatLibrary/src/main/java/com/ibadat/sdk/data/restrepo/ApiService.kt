@@ -33,12 +33,14 @@ interface ApiService {
         @Path("subCatId") subCatId: String,
         @Path("pageNo") pageNo: String
     ): Call<IslamicHolidayListResponse>
+
     @GET("textcontent/bycategory/{catId}/{subCatId}/{pageNo}/30")
     fun getJakatList(
         @Path("catId") catId: String,
         @Path("subCatId") subCatId: String,
         @Path("pageNo") pageNo: String
     ): Call<Jakat>
+
     @GET("topic?")
     fun getAllINamazShikka(
         @Query("id") id: String,
@@ -70,6 +72,11 @@ interface ApiService {
         //keyword=Halal
         //@Query("keyword") keyword: String = "halal"
     ): NearbyResponse
+
+    @GET("json?sensor=true")
+    fun getNearbyPlaceTest(
+        @QueryMap queryData: HashMap<String, Any>
+    ): Call<NearbyResponse>
 
     @GET("api/Content?")
     fun getAllWallpaperAnimation(

@@ -24,9 +24,7 @@ import com.ibadat.sdk.data.restrepo.NetworkDataCallBack
 import com.ibadat.sdk.util.AppConstantUtils
 import com.ibadat.sdk.util.CustomAnimation
 
-internal class CommonDuaAndHadithFragment : BaseFragment(),
-    NetworkDataCallBack,
-    CallBack {
+internal class CommonDuaAndHadithFragment : BaseFragment(), NetworkDataCallBack, CallBack {
     private lateinit var rvCommonDuaOrHadith: RecyclerView
     private lateinit var mDuaAdapter: DuaRVAdapter
     private lateinit var mHadithAdapter: HadithRVAdapter
@@ -52,7 +50,6 @@ internal class CommonDuaAndHadithFragment : BaseFragment(),
 
     override fun onResume() {
         super.onResume()
-//        initActionBar()
         initToolbar(requireActivity())
             .setNavigationOnClickListener {
                 if (HomeIbadatSdkActivity.backPressCount == 0) {
@@ -83,7 +80,7 @@ internal class CommonDuaAndHadithFragment : BaseFragment(),
                 RecyclerView.VERTICAL,
                 false
             )
-            adapter =  mDuaAdapter
+            adapter = mDuaAdapter
         }
     }
 
@@ -129,9 +126,6 @@ internal class CommonDuaAndHadithFragment : BaseFragment(),
         hideMessage()
     }
 
-    override fun onStatusLoginOrLogout(statusMessage: Int) {
-
-    }
 
     override fun onItemClick(mDuaList: MutableList<CommonDuaAndHadithModel>, selectedIndex: Int) {
         val duaOrHadithJsonStr = AppConstantUtils.getJsonString(mDuaList)

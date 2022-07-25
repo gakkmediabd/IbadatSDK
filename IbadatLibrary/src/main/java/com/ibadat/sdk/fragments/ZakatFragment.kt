@@ -20,18 +20,18 @@ import retrofit2.Response
 
 
 class ZakatFragment : BaseFragment() {
-    lateinit var llRomadanRuleDetails1: LinearLayout
-    lateinit var llRomadanRuleDetails2: LinearLayout
-    lateinit var llRomadanRuleDetails3: LinearLayout
-    lateinit var llRomadanRuleDetails4: LinearLayout
-    lateinit var llRomadanRule1: LinearLayout
-    lateinit var llRomadanRule2: LinearLayout
-    lateinit var llRomadanRule3: LinearLayout
-    lateinit var llRomadanRule4: LinearLayout
-    lateinit var jakatHeader1: MyCustomTextView
-    lateinit var jakatHeader2: MyCustomTextView
-    lateinit var jakatHeader3: MyCustomTextView
-    lateinit var jakatHeader4: MyCustomTextView
+    private lateinit var llRomadanRuleDetails1: LinearLayout
+    private lateinit var llRomadanRuleDetails2: LinearLayout
+    private lateinit var llRomadanRuleDetails3: LinearLayout
+    private lateinit var llRomadanRuleDetails4: LinearLayout
+    private lateinit var llRomadanRule1: LinearLayout
+    private lateinit var llRomadanRule2: LinearLayout
+    private lateinit var llRomadanRule3: LinearLayout
+    private lateinit var llRomadanRule4: LinearLayout
+    private lateinit var jakatHeader1: MyCustomTextView
+    private lateinit var jakatHeader2: MyCustomTextView
+    private lateinit var jakatHeader3: MyCustomTextView
+    private lateinit var jakatHeader4: MyCustomTextView
     lateinit var jakatDescription1: MyCustomTextView
     lateinit var jakatDescription2: MyCustomTextView
     lateinit var jakatDescription3: MyCustomTextView
@@ -39,17 +39,10 @@ class ZakatFragment : BaseFragment() {
     lateinit var button: Button
 
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        arguments?.let {
-        }
-    }
-
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-
         return inflater.inflate(R.layout.fragment_zakat, container, false)
     }
 
