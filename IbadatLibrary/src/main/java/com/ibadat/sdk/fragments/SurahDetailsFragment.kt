@@ -32,7 +32,7 @@ import retrofit2.Response
 internal class SurahDetailsFragment : BaseFragment() {
     var mSuraIndex: Int = 0
     private lateinit var rvPobitroQuranDetails: RecyclerView
-    private lateinit var sbMediaControllerProgress: RecyclerView
+    private lateinit var sbMediaControllerProgress: SeekBar
     private lateinit var ctvSurahCount: MyCustomTextView
     private lateinit var ctvSurahTitle: MyCustomTextView
     private lateinit var ctvCount: MyCustomTextView
@@ -116,7 +116,7 @@ internal class SurahDetailsFragment : BaseFragment() {
         playerViewModel = ViewModelProvider(requireActivity())[PlayerViewModel::class.java]
 //        binding.lifecycleOwner = requireActivity()
 //        binding.viewModel = playerViewModel
-        ivPlay.playbackState(playerViewModel.playbackState.value)
+//        ivPlay.playbackState(playerViewModel.playbackState.value)
     }
 
     private fun loadSurah() {

@@ -1,34 +1,15 @@
+package com.ibadat.sdk.data.model.nearby
 
-package com.ibadat.sdk.data.model.nearby;
+import com.google.gson.annotations.SerializedName
+import com.google.gson.annotations.Expose
+import com.ibadat.sdk.data.model.nearby.Viewport
 
-
-import com.google.gson.annotations.Expose;
-import com.google.gson.annotations.SerializedName;
-
-
-public class Geometry {
-
+class Geometry {
     @SerializedName("location")
     @Expose
-    private Location location;
+    var location: Location? = null
+
     @SerializedName("viewport")
     @Expose
-    private Viewport viewport;
-
-    public Location getLocation() {
-        return location;
-    }
-
-    public void setLocation(Location location) {
-        this.location = location;
-    }
-
-    public Viewport getViewport() {
-        return viewport;
-    }
-
-    public void setViewport(Viewport viewport) {
-        this.viewport = viewport;
-    }
-
+    var viewport: Viewport? = null
 }

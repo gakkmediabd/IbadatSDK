@@ -21,12 +21,7 @@ import retrofit2.Response
 
 internal class LiveVideoFragment : BaseFragment() {
     private lateinit var ivImageMecca: ImageView
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        arguments?.let {
-
-        }
-    }
+    private lateinit var acivImageMedina: ImageView
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -34,13 +29,13 @@ internal class LiveVideoFragment : BaseFragment() {
     ): View {
         val view = inflater.inflate(R.layout.fragment_live_video, container, false)
         ivImageMecca = view.findViewById(R.id.iv_image_mecca)
+        acivImageMedina = view.findViewById(R.id.aciv_image_medina)
         return view
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         liveVideo()
-
     }
 
     private fun liveVideo() {
@@ -52,12 +47,7 @@ internal class LiveVideoFragment : BaseFragment() {
                 call: Call<LiveVideo>,
                 response: Response<LiveVideo>
             ) {
-                // progressBar?.visibility = View.GONE
                 if (response.isSuccessful && response.code() == 200) {
-                    Log.d(
-                        "TAG",
-                        "onResponse: image loaded: " + (response.body()?.LiveVideo!![0].PreviewImage)
-                    )
                     Glide.with(requireContext()).load(response.body()?.LiveVideo!![0].PreviewImage)
                         .into(ivImageMecca)
                     ivImageMecca.setOnClickListener {
@@ -68,8 +58,8 @@ internal class LiveVideoFragment : BaseFragment() {
                     }
                     Glide.with(requireContext())
                         .load(response.body()?.LiveVideo!![1].PreviewImage)
-                        .into(ivImageMecca)
-                    ivImageMecca.setOnClickListener {
+                        .into(acivImageMedina)
+                    acivImageMedina.setOnClickListener {
                         val intent = Intent(context, YoutubePlayerActivity::class.java).apply {
                             putExtra("id", response.body()?.LiveVideo!![1].VideoLink)
                         }

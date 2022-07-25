@@ -1,12 +1,9 @@
-<?xml version="1.0" encoding="utf-8"?>
-<layout xmlns:android="http://schemas.android.com/apk/res/android">
+<?xml version="1.0" encoding="utf-8"?><!--<layout xmlns:android="http://schemas.android.com/apk/res/android">-->
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
 
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
-
-        <include
-            android:id="@+id/include_calender_view"
-            layout="@layout/content_islamic_calendar" />
-    </RelativeLayout>
-</layout>
+    <include
+        android:id="@+id/include_calender_view"
+        layout="@layout/content_islamic_calendar" />
+</RelativeLayout><!--</layout>-->

@@ -1,84 +1,31 @@
-package com.ibadat.sdk.data.model;
+package com.ibadat.sdk.data.model
 
-import com.google.gson.annotations.SerializedName;
+import com.google.gson.annotations.SerializedName
+import com.google.gson.annotations.Expose
+import com.ibadat.sdk.data.model.nearby.Viewport
 
 /**
  * Created by user on 4/4/2018.
  */
-
-public class HadithModel {
-
-
+class HadithModel {
     @SerializedName("Id")
-    public String Id;
+    var id: String? = null
+
     @SerializedName("Title")
-    public String Title;
+    var title: String? = null
+
     @SerializedName("Narrator")
-    public String Narrator;
+    var narrator: String? = null
+
     @SerializedName("Description")
-    public String Description;
+    var description: String? = null
+
     @SerializedName("Source")
-    public String Source;
+    var source: String? = null
 
     @SerializedName("Serial")
-    public String Serial;
+    var serial: String? = null
 
     @SerializedName("IsFavorite")
-    public String IsFavorite;
-
-    public String getIsFavorite() {
-        return IsFavorite;
-    }
-
-    public void setIsFavorite(String isFavorite) {
-        IsFavorite = isFavorite;
-    }
-
-    public String getSerial() {
-        return Serial;
-    }
-
-    public void setSerial(String serial) {
-        Serial = serial;
-    }
-
-    public String getId() {
-        return Id;
-    }
-
-    public void setId(String id) {
-        Id = id;
-    }
-
-    public String getTitle() {
-        return Title;
-    }
-
-    public void setTitle(String title) {
-        Title = title;
-    }
-
-    public String getNarrator() {
-        return Narrator;
-    }
-
-    public void setNarrator(String narrator) {
-        Narrator = narrator;
-    }
-
-    public String getDescription() {
-        return Description;
-    }
-
-    public void setDescription(String description) {
-        Description = description;
-    }
-
-    public String getSource() {
-        return Source;
-    }
-
-    public void setSource(String source) {
-        Source = source;
-    }
+    var isFavorite: String? = null
 }

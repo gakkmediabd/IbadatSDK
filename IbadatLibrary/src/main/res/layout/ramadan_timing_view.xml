@@ -24,10 +24,10 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:adjustViewBounds="true"
+            android:background="@drawable/rounded_corner_blue"
             android:scaleType="fitXY"
             android:text="Rohomot"
-            android:textColor="@color/white"
-            android:background="@drawable/rounded_corner_blue" />
+            android:textColor="@color/white" />
 
         <Button
             android:id="@+id/ivRomadan_magfirat"
@@ -35,10 +35,10 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:adjustViewBounds="true"
-            android:textColor="@color/colorAccent"
-            android:text="Magfirat"
             android:scaleType="fitXY"
-            android:src="@drawable/rounded_corner_jakat" />
+            android:src="@drawable/rounded_corner_jakat"
+            android:text="Magfirat"
+            android:textColor="@color/colorAccent" />
 
         <ImageView
             android:id="@+id/ivRomadan_nazat"
@@ -46,10 +46,10 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:adjustViewBounds="true"
-            android:textColor="@color/colorAccent"
-            android:text="Magfirat"
             android:scaleType="fitXY"
-            android:src="@drawable/rounded_corner_jakat" />
+            android:src="@drawable/rounded_corner_jakat"
+            android:text="Magfirat"
+            android:textColor="@color/colorAccent" />
     </LinearLayout>
 
     <LinearLayout

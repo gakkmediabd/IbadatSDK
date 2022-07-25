@@ -1,249 +1,233 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".fragments.ZakatFragment">
+
     <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:fillViewport="true"
         app:layout_behavior="@string/appbar_scrolling_view_behavior"
         app:layout_constraintTop_toTopOf="parent">
-<LinearLayout
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:orientation="vertical"
-    android:id="@+id/linear">
-    <androidx.cardview.widget.CardView
-        android:id="@+id/card1"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:background="@color/white"
-        android:elevation="12dp"
-        android:innerRadius="0dp"
-        android:padding="5dp"
-        app:cardCornerRadius="10dp"
-        app:cardElevation="4dp"
-        app:cardUseCompatPadding="true">
 
         <LinearLayout
-            android:id="@+id/llRomadan_rule1"
+            android:id="@+id/linear"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
-            <com.ibadat.sdk.views.MyCustomTextView
+            <androidx.cardview.widget.CardView
+                android:id="@+id/card1"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="@drawable/rounded_corner_jakat"
-                android:drawableRight="@drawable/ic_down"
-                android:gravity="center"
-                android:paddingLeft="50dp"
-                android:id="@+id/JakatHeader1"
-                android:paddingTop="10dp"
-                android:paddingRight="50dp"
-                android:paddingBottom="10dp"
-                android:textColor="@color/colorAccent"
-                android:textSize="@dimen/textsize" />
-
-            <LinearLayout
-                android:id="@+id/llRomadan_ruleDetails1"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical"
+                android:layout_marginTop="10dp"
+                android:background="@color/white"
+                android:elevation="12dp"
+                android:innerRadius="0dp"
                 android:padding="5dp"
-                android:visibility="gone">
+                app:cardCornerRadius="10dp"
+                app:cardElevation="4dp"
+                app:cardUseCompatPadding="true">
 
-                <com.ibadat.sdk.views.MyCustomTextView
-                    android:id="@+id/jakatDescription1"
+                <LinearLayout
+                    android:id="@+id/llRomadan_rule1"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:padding="5dp"
-                    android:textColor="@color/black"
-                    android:textSize="@dimen/textsize" />
+                    android:orientation="vertical">
 
+                    <com.ibadat.sdk.views.MyCustomTextView
+                        android:id="@+id/JakatHeader1"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/rounded_corner_jakat"
+                        android:drawableRight="@drawable/ic_down"
+                        android:gravity="center"
+                        android:paddingLeft="50dp"
+                        android:paddingTop="10dp"
+                        android:paddingRight="50dp"
+                        android:paddingBottom="10dp"
+                        android:textColor="@color/colorAccent"
+                        android:textSize="@dimen/textsize" />
 
-            </LinearLayout>
-        </LinearLayout>
+                    <LinearLayout
+                        android:id="@+id/llRomadan_ruleDetails1"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:padding="5dp"
+                        android:visibility="gone">
 
-    </androidx.cardview.widget.CardView>
-    <androidx.cardview.widget.CardView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@color/white"
-        android:elevation="12dp"
-        android:innerRadius="0dp"
-        android:padding="5dp"
-        android:id="@+id/card2"
-        android:layout_below="@id/card1"
-        app:cardCornerRadius="10dp"
-        app:cardElevation="4dp"
-        app:cardUseCompatPadding="true">
-
-        <LinearLayout
-            android:id="@+id/llRomadan_rule2"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical">
-
-            <com.ibadat.sdk.views.MyCustomTextView
+                        <com.ibadat.sdk.views.MyCustomTextView
+                            android:id="@+id/jakatDescription1"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:padding="5dp"
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/textsize" />
+                    </LinearLayout>
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+            <androidx.cardview.widget.CardView
+                android:id="@+id/card2"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="@drawable/rounded_corner_jakat"
-                android:drawableRight="@drawable/ic_down"
-                android:gravity="center"
-                android:paddingLeft="50dp"
-                android:id="@+id/JakatHeader2"
-                android:paddingTop="10dp"
-                android:paddingRight="50dp"
-                android:paddingBottom="10dp"
-
-                android:textColor="@color/colorAccent"
-                android:textSize="@dimen/textsize" />
-
-            <LinearLayout
-                android:id="@+id/llRomadan_ruleDetails2"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical"
+                android:layout_below="@id/card1"
+                android:background="@color/white"
+                android:elevation="12dp"
+                android:innerRadius="0dp"
                 android:padding="5dp"
-                android:visibility="gone"
-                >
-
-                <com.ibadat.sdk.views.MyCustomTextView
+                app:cardCornerRadius="10dp"
+                app:cardElevation="4dp"
+                app:cardUseCompatPadding="true">
+                <LinearLayout
+                    android:id="@+id/llRomadan_rule2"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:padding="5dp"
-                    android:id="@+id/jakatDescription2"
-                    android:textColor="@color/black"
-                    android:textSize="@dimen/textsize" />
+                    android:orientation="vertical">
 
-            </LinearLayout>
-        </LinearLayout>
+                    <com.ibadat.sdk.views.MyCustomTextView
+                        android:id="@+id/JakatHeader2"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/rounded_corner_jakat"
+                        android:drawableRight="@drawable/ic_down"
+                        android:gravity="center"
+                        android:paddingLeft="50dp"
+                        android:paddingTop="10dp"
+                        android:paddingRight="50dp"
+                        android:paddingBottom="10dp"
+                        android:textColor="@color/colorAccent"
+                        android:textSize="@dimen/textsize" />
 
-    </androidx.cardview.widget.CardView>
-    <androidx.cardview.widget.CardView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@color/white"
-        android:elevation="12dp"
-        android:innerRadius="0dp"
-        android:padding="5dp"
-        android:id="@+id/card3"
-        android:layout_below="@+id/card2"
-        app:cardCornerRadius="10dp"
-        app:cardElevation="4dp"
-        app:cardUseCompatPadding="true">
+                    <LinearLayout
+                        android:id="@+id/llRomadan_ruleDetails2"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:padding="5dp"
+                        android:visibility="gone">
 
-        <LinearLayout
-            android:id="@+id/llRomadan_rule"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical">
-
-            <com.ibadat.sdk.views.MyCustomTextView
+                        <com.ibadat.sdk.views.MyCustomTextView
+                            android:id="@+id/jakatDescription2"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:padding="5dp"
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/textsize" />
+                    </LinearLayout>
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+            <androidx.cardview.widget.CardView
+                android:id="@+id/card3"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="@drawable/rounded_corner_jakat"
-                android:drawableRight="@drawable/ic_down"
-                android:gravity="center"
-                android:id="@+id/JakatHeader3"
-                android:paddingLeft="50dp"
-                android:paddingTop="10dp"
-                android:paddingRight="50dp"
-                android:paddingBottom="10dp"
-                android:textColor="@color/colorAccent"
-                android:textSize="@dimen/textsize" />
-
-            <LinearLayout
-                android:id="@+id/llRomadan_ruleDetails"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical"
+                android:layout_below="@+id/card2"
+                android:background="@color/white"
+                android:elevation="12dp"
+                android:innerRadius="0dp"
                 android:padding="5dp"
-                android:visibility="gone"
-                >
-
-                <com.ibadat.sdk.views.MyCustomTextView
+                app:cardCornerRadius="10dp"
+                app:cardElevation="4dp"
+                app:cardUseCompatPadding="true">
+                <LinearLayout
+                    android:id="@+id/llRomadan_rule"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:padding="5dp"
-                    android:id="@+id/jakatDescription3"
-                    android:textColor="@color/black"
-                    android:textSize="@dimen/textsize" />
+                    android:orientation="vertical">
 
-            </LinearLayout>
-        </LinearLayout>
+                    <com.ibadat.sdk.views.MyCustomTextView
+                        android:id="@+id/JakatHeader3"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/rounded_corner_jakat"
+                        android:drawableRight="@drawable/ic_down"
+                        android:gravity="center"
+                        android:paddingLeft="50dp"
+                        android:paddingTop="10dp"
+                        android:paddingRight="50dp"
+                        android:paddingBottom="10dp"
+                        android:textColor="@color/colorAccent"
+                        android:textSize="@dimen/textsize" />
 
-    </androidx.cardview.widget.CardView>
-    <androidx.cardview.widget.CardView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-
-        android:background="@color/white"
-        android:elevation="12dp"
-        android:innerRadius="0dp"
-        android:padding="5dp"
-        android:id="@+id/card4"
-        android:layout_below="@id/card3"
-        app:cardCornerRadius="10dp"
-        app:cardElevation="4dp"
-        app:cardUseCompatPadding="true">
-
-        <LinearLayout
-            android:id="@+id/llRomadan_rule4"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical">
-
-            <com.ibadat.sdk.views.MyCustomTextView
+                    <LinearLayout
+                        android:id="@+id/llRomadan_ruleDetails"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:padding="5dp"
+                        android:visibility="gone">
+                        <com.ibadat.sdk.views.MyCustomTextView
+                            android:id="@+id/jakatDescription3"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:padding="5dp"
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/textsize" />
+                    </LinearLayout>
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+            <androidx.cardview.widget.CardView
+                android:id="@+id/card4"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="@drawable/rounded_corner_jakat"
-                android:drawableRight="@drawable/ic_down"
-                android:gravity="center"
-                android:id="@+id/JakatHeader4"
-                android:paddingLeft="50dp"
-                android:paddingTop="10dp"
-                android:paddingRight="50dp"
-                android:paddingBottom="10dp"
-                android:textColor="@color/colorAccent"
-                android:textSize="@dimen/textsize" />
-
-            <LinearLayout
-                android:id="@+id/llRomadan_ruleDetails4"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical"
+                android:layout_below="@id/card3"
+                android:background="@color/white"
+                android:elevation="12dp"
+                android:innerRadius="0dp"
                 android:padding="5dp"
-                android:visibility="gone"
-                >
+                app:cardCornerRadius="10dp"
+                app:cardElevation="4dp"
+                app:cardUseCompatPadding="true">
 
-                <com.ibadat.sdk.views.MyCustomTextView
+                <LinearLayout
+                    android:id="@+id/llRomadan_rule4"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:padding="5dp"
-                    android:id="@+id/jakatDescription4"
-                    android:textColor="@color/black"
-                    android:textSize="@dimen/textsize" />
+                    android:orientation="vertical">
 
-            </LinearLayout>
+                    <com.ibadat.sdk.views.MyCustomTextView
+                        android:id="@+id/JakatHeader4"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/rounded_corner_jakat"
+                        android:drawableRight="@drawable/ic_down"
+                        android:gravity="center"
+                        android:paddingLeft="50dp"
+                        android:paddingTop="10dp"
+                        android:paddingRight="50dp"
+                        android:paddingBottom="10dp"
+                        android:textColor="@color/colorAccent"
+                        android:textSize="@dimen/textsize" />
+
+                    <LinearLayout
+                        android:id="@+id/llRomadan_ruleDetails4"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:padding="5dp"
+                        android:visibility="gone">
+
+                        <com.ibadat.sdk.views.MyCustomTextView
+                            android:id="@+id/jakatDescription4"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:padding="5dp"
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/textsize" />
+                    </LinearLayout>
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+            <Button
+                android:id="@+id/btnJakat"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_margin="@dimen/margin_16"
+                android:background="@drawable/rounded_corner_blue"
+                android:text="@string/new_calculation"
+                android:textColor="@color/white" />
         </LinearLayout>
-
-    </androidx.cardview.widget.CardView>
-    <Button
-        android:layout_width="match_parent"
-        android:layout_margin="@dimen/margin_16"
-        android:background="@drawable/rounded_corner_blue"
-        android:text="@string/new_calculation"
-        android:textColor="@color/white"
-        android:layout_height="40dp"
-       android:id="@+id/btnJakat"/>
-</LinearLayout>
-
     </androidx.core.widget.NestedScrollView>
-
 </RelativeLayout>

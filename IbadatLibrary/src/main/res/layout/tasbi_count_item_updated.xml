@@ -1,15 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/cv_card_layout"
     style="@style/CardViewStyle"
     android:layout_width="212dp"
     android:layout_height="wrap_content"
-    android:layout_marginBottom="@dimen/small_spacing"
     android:layout_marginEnd="@dimen/margin_8"
+    android:layout_marginBottom="@dimen/small_spacing"
     app:cardBackgroundColor="@color/white"
     app:cardPreventCornerOverlap="false"
-    app:cardUseCompatPadding="false">
+    app:cardUseCompatPadding="false"
+    tools:ignore="RtlCompat">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/cl_layout_parent"
@@ -38,22 +40,22 @@
                 android:textStyle="bold"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-              />
+                app:layout_constraintTop_toTopOf="parent" />
+
             <com.ibadat.sdk.views.TextViewNormal
                 android:id="@+id/tv_read_item_name"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/standard_margin"
-                android:text="আলহামদুলিল্লাহ"
                 android:layout_marginBottom="@dimen/standard_margin"
+                android:text="আলহামদুলিল্লাহ"
                 android:textAlignment="center"
                 android:textAppearance="@style/TextAppearance.AppCompat.Subhead"
                 android:textColor="@color/txt_color_title"
+                app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/tv_read_item_arabic_name"
-                app:layout_constraintBottom_toBottomOf="parent" />
+                app:layout_constraintTop_toBottomOf="@id/tv_read_item_arabic_name" />
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.cardview.widget.CardView>

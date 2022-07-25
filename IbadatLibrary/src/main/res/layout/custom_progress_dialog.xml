@@ -2,30 +2,27 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:orientation="horizontal"
     android:background="@null"
-    android:weightSum="5"
+    android:orientation="horizontal"
     android:padding="15dp"
-    >
+    android:weightSum="5">
+
     <ProgressBar
         style="?android:attr/buttonStyleSmall"
         android:layout_width="0dp"
-        android:layout_weight="1"
         android:layout_height="wrap_content"
         android:layout_gravity="right"
-        android:indeterminateDrawable="@drawable/progress"
-        android:progressTint="@color/dialogColor"
+        android:layout_weight="1"
         android:background="@android:color/transparent"
-        />
+        android:indeterminateDrawable="@drawable/progress"
+        android:progressTint="@color/dialogColor" />
 
     <com.ibadat.sdk.views.MyCustomTextView
         android:layout_width="0dp"
-        android:layout_weight="4"
-        android:layout_gravity="center"
         android:layout_height="wrap_content"
-        android:text="@string/pleaseWaitText"
+        android:layout_gravity="center"
         android:layout_marginLeft="10dp"
-        android:textSize="18sp"
-        />
-
+        android:layout_weight="4"
+        android:text="@string/pleaseWaitText"
+        android:textSize="18sp" />
 </LinearLayout>

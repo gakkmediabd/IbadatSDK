@@ -10,7 +10,8 @@
         android:paddingStart="5dp"
         android:paddingTop="12dp"
         android:paddingEnd="10dp"
-        android:paddingBottom="12dp">
+        android:paddingBottom="12dp"
+        tools:ignore="RtlCompat">
 
         <TextView
             android:id="@+id/musicSingerName"
@@ -34,7 +35,6 @@
             android:singleLine="true"
             android:text="Artist name not found"
             android:textSize="14sp" />
-
 
         <ImageView
             android:id="@+id/collapsePlayerPlayPauseBtn"

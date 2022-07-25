@@ -25,9 +25,9 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_10sdp"
                 android:adjustViewBounds="true"
                 android:text="Ibadat"
-                android:layout_marginTop="@dimen/_10sdp"
                 android:textSize="22sp"
                 android:textStyle="bold" />
 
@@ -42,7 +42,7 @@
                 android:padding="12dp"
                 android:scaleType="centerCrop"
                 app:tint="@color/black"
-                tools:ignore="ContentDescription" />
+                tools:ignore="ContentDescription,RtlCompat" />
         </RelativeLayout>
     </androidx.appcompat.widget.Toolbar>
 </com.google.android.material.appbar.AppBarLayout>

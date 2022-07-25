@@ -36,7 +36,7 @@ internal class WallpaperAnimRecyclerViewAdapter(
         holder.mView.setOnClickListener {
             ClickEventCounter.setCountClickEvent()
             CustomDialog.showDownloadConfirmationDialog(
-                context, mValues[position]?.title, mValues[position]?.physicalUrl,
+                context, mValues[position]!!.title!!, mValues[position]!!.physicalUrl!!,
                 requestType
             )
         }

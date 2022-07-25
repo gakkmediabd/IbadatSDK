@@ -5,10 +5,14 @@ import android.content.res.AssetFileDescriptor
 import android.media.AudioAttributes
 import android.media.MediaPlayer
 import android.net.Uri
+import android.os.Build
+import androidx.annotation.RequiresApi
 
 
 internal object AzanPlayer {
     private var mMediaPlayer: MediaPlayer? = null
+
+    @RequiresApi(Build.VERSION_CODES.LOLLIPOP)
     fun playAzanFromRawFolder(context: Context, uri: Uri) {
         releaseMediaPlayer()
         mMediaPlayer = MediaPlayer().apply {
