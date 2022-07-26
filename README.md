@@ -8,17 +8,15 @@ Ibadat SDk
 
 **Used Dependency
 
-    implementation 'com.google.android.gms:play-services-measurement:21.0.0'
     implementation 'androidx.appcompat:appcompat:1.4.1'
+    implementation 'com.google.android.gms:play-services-measurement:21.0.0'
     implementation 'androidx.constraintlayout:constraintlayout:2.1.3'
     implementation 'com.google.android.gms:play-services-maps:18.0.2'
     implementation 'androidx.legacy:legacy-support-v4:1.0.0'
     implementation 'androidx.cardview:cardview:1.0.0'
-    implementation 'androidx.core:core-ktx:1.2.0'
+    implementation "androidx.core:core-ktx:1.6.0"
     implementation 'com.google.android.material:material:1.4.0'
     implementation 'jp.wasabeef:recyclerview-animators:4.0.2'
-    implementation "androidx.lifecycle:lifecycle-runtime-ktx:2.2.0-alpha01"
-    implementation "androidx.lifecycle:lifecycle-livedata-ktx:2.4.1"
     implementation "com.squareup.retrofit2:retrofit:2.9.0"
     implementation "com.squareup.retrofit2:converter-gson:2.9.0"
     implementation "com.squareup.retrofit2:converter-scalars:2.9.0"
@@ -27,14 +25,12 @@ Ibadat SDk
     implementation "androidx.navigation:navigation-ui-ktx:2.4.2"
     implementation 'com.github.msarhan:ummalqura-calendar:1.1.9'
     implementation 'com.google.android.gms:play-services-location:15.0.1'
-    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.3.9")
     implementation 'com.github.bumptech.glide:glide:4.11.0'
     annotationProcessor 'com.github.bumptech.glide:compiler:4.11.0'
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:1.6.21"
     
 ## Setup
 **Root level**
-    
-    implementation "androidx.lifecycle:lifecycle-extensions:2.2.0"
       
     allprojects {
 	repositories {
@@ -46,7 +42,7 @@ Ibadat SDk
 **Gradle**
 
     dependencies {
-       implementation 'com.github.gakkmediabd:IbadatSDK:1.0.7'
+       implementation 'com.github.gakkmediabd:IbadatSDK:1.0.8'
     }
 
 ## Usage
