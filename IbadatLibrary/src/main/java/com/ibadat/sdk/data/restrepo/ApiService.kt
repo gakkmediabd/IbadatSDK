@@ -63,18 +63,7 @@ interface ApiService {
     ): Call<LiveVideo>
 
     @GET("json?sensor=true")
-    suspend fun getNearbyPlace(
-        @Query("key") key: String,
-        @Query("radius") radius: String,
-        @Query("location") location: String,
-        @Query("type") type: String,
-        @Query("language") language: String,
-        //keyword=Halal
-        //@Query("keyword") keyword: String = "halal"
-    ): NearbyResponse
-
-    @GET("json?sensor=true")
-    fun getNearbyPlaceTest(
+    fun getNearbyPlace(
         @QueryMap queryData: HashMap<String, Any>
     ): Call<NearbyResponse>
 

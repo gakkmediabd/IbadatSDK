@@ -138,6 +138,7 @@ object AppPreference {
             return mLocation
         }
         val type: Type = genericType<UserLocation>()
+        Log.e("AP", "getUserCurrentLocation: $userCurLocString")
         return mGSonInstance.fromJson(userCurLocString, type)
     }
 

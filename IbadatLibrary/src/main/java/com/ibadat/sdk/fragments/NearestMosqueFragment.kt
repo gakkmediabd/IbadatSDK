@@ -30,9 +30,7 @@ import com.ibadat.sdk.data.manager.prefs.AppPreference
 import com.ibadat.sdk.data.model.nearby.NearPlaceResult
 import com.ibadat.sdk.data.model.nearby.PlaceInfo
 import com.ibadat.sdk.data.restrepo.NearbySharedViewModel
-import com.ibadat.sdk.data.restrepo.NearbyViewModel
 import com.ibadat.sdk.data.restrepo.NetworkDataCallBack
-import com.ibadat.sdk.data.restrepo.RestRepo
 import com.ibadat.sdk.util.PermissionManager
 import com.ibadat.sdk.views.MyCustomTextView
 import java.io.Serializable
@@ -48,11 +46,11 @@ internal class NearestMosqueFragment : BaseFragment(), DistanceControl, NetworkD
     @Transient
     private var bitmapDescriptor: BitmapDescriptor? = null
 
-    @Transient
-    private lateinit var repository: RestRepo
+//    @Transient
+//    private lateinit var repository: RestRepo
 
-    @Transient
-    private lateinit var model: NearbyViewModel
+//    @Transient
+//    private lateinit var model: NearbyViewModel
 
     @Transient
     private lateinit var sharedViewModel: NearbySharedViewModel
@@ -87,97 +85,11 @@ internal class NearestMosqueFragment : BaseFragment(), DistanceControl, NetworkD
         ctvThreeKm = view.findViewById(R.id.ctv_three_km)
         rvMosque = view.findViewById(R.id.rv_mosque)
 
-//        lifecycleScope.launch {
         val resource = R.drawable.mosq
         bitmapDescriptor = BitmapDescriptorFactory.fromResource(resource)
-//            val job = launch {
-//                repository = RetroClient2.getRepository()
-//            }
-//            job.join()
-//            model = ViewModelProviders.of(
-//                this@NearestMosqueFragment,
-//                NearbyViewModel.FACTORY(repository)
-//            ).get(NearbyViewModel::class.java)
-//            model = ViewModelProvider(requireActivity())[NearbyViewModel::class.java]
         FetchNetworkData.fetchNearbyPlace("5000", this)
-
         sharedViewModel = ViewModelProvider(requireActivity())[NearbySharedViewModel::class.java]
         checkPermission()
-
-        /*  model.nearbyInfo.observe(viewLifecycleOwner) {
-              when (it.status) {
-                  Status.LOADING -> {
-                  }
-                  Status.SUCCESS -> {
-                      val nearPlaceResultList: List<NearPlaceResult> =
-                          it.data?.nearPlaceResults!!
-                      markerOptions = Array(nearPlaceResultList.size) { MarkerOptions() }
-                      for (i in 0..nearPlaceResultList.size - 1) {
-                          val nearPlaceResult: NearPlaceResult = nearPlaceResultList[i]
-                          val placeInfo = PlaceInfo()
-                          placeInfo.name = nearPlaceResult.name
-                          placeInfo.address = nearPlaceResult.vicinity
-                          placeInfo.placeLocation = nearPlaceResult.geometry?.location
-                          placeInfoList.add(placeInfo)
-
-                          markerOptions!![i] = MarkerOptions()
-                              .position(
-                                  LatLng(
-                                      nearPlaceResult.geometry?.location
-                                          ?.lat!!,
-                                      nearPlaceResult.geometry?.location
-                                          ?.lng!!
-                                  )
-                              )
-                              .title(nearPlaceResult.name)
-                              .snippet(nearPlaceResult.name)
-                              .icon(bitmapDescriptor)
-                      }
-
-                      if (!this@NearestMosqueFragment::adapter.isInitialized) {
-
-                          rvMosque.visibility = View.VISIBLE
-
-                          adapter = NearestMosqueAdapter(
-                              placeInfoList = placeInfoList
-                          ).apply {
-                              setOnItemClickListener { pi ->
-                                  if (ActivityCompat.checkSelfPermission(
-                                          requireContext(),
-                                          Manifest.permission.ACCESS_FINE_LOCATION
-                                      ) !== PackageManager.PERMISSION_GRANTED &&
-                                      ActivityCompat.checkSelfPermission(
-                                          requireContext(),
-                                          Manifest.permission.ACCESS_COARSE_LOCATION
-                                      ) !== PackageManager.PERMISSION_GRANTED
-                                  ) {
-                                      requestPermissions(
-                                          requireActivity(), arrayOf(
-                                              Manifest.permission.ACCESS_COARSE_LOCATION,
-                                              Manifest.permission.ACCESS_FINE_LOCATION
-                                          ),
-                                          REQUEST_LOCATION
-                                      )
-                                  } else {
-                                      openLocationInMap(pi)
-                                      Log.e("DB", "PERMISSION GRANTED")
-                                  }
-                              }
-                          }
-                          rvMosque.adapter = adapter
-                      } else {
-                          adapter.updatePlaceInfo(placeInfoList)
-                          adapter.notifyDataSetChanged()
-                          rvMosque.visibility = View.VISIBLE
-                      }
-                      rvMosque.layoutManager = LinearLayoutManager(requireContext())
-                      sharedViewModel.shareMarkerOptions(markerOptions)
-                  }
-                  Status.ERROR -> {
-                  }
-              }
-          }*/
-//        }
         return view
     }
 
@@ -186,24 +98,24 @@ internal class NearestMosqueFragment : BaseFragment(), DistanceControl, NetworkD
         val nearPlaceResultList: List<NearPlaceResult> = nearPlaceResult
         markerOptions = Array(nearPlaceResultList.size) { MarkerOptions() }
         for (i in 0..nearPlaceResultList.size - 1) {
-            val nearPlaceResult: NearPlaceResult = nearPlaceResultList[i]
+            val mNearPlace: NearPlaceResult = nearPlaceResultList[i]
             val placeInfo = PlaceInfo()
-            placeInfo.name = nearPlaceResult.name
-            placeInfo.address = nearPlaceResult.vicinity
-            placeInfo.placeLocation = nearPlaceResult.geometry?.location
+            placeInfo.name = mNearPlace.name
+            placeInfo.address = mNearPlace.vicinity
+            placeInfo.placeLocation = mNearPlace.geometry?.location
             placeInfoList.add(placeInfo)
 
             markerOptions!![i] = MarkerOptions()
                 .position(
                     LatLng(
-                        nearPlaceResult.geometry?.location
+                        mNearPlace.geometry?.location
                             ?.lat!!,
-                        nearPlaceResult.geometry?.location
+                        mNearPlace.geometry?.location
                             ?.lng!!
                     )
                 )
-                .title(nearPlaceResult.name)
-                .snippet(nearPlaceResult.name)
+                .title(mNearPlace.name)
+                .snippet(mNearPlace.name)
                 .icon(bitmapDescriptor)
         }
 
@@ -212,6 +124,7 @@ internal class NearestMosqueFragment : BaseFragment(), DistanceControl, NetworkD
             rvMosque.visibility = View.VISIBLE
 
             adapter = NearestMosqueAdapter(
+                requireContext(),
                 placeInfoList = placeInfoList
             ).apply {
                 setOnItemClickListener { pi ->
@@ -277,7 +190,6 @@ internal class NearestMosqueFragment : BaseFragment(), DistanceControl, NetworkD
                 R.color.apps_color
             )
         )
-
         ctvOneKm.setOnClickListener {
             // sharedViewModel.setRange(1)
             ctvOneKm.setBackgroundColor(
@@ -313,7 +225,6 @@ internal class NearestMosqueFragment : BaseFragment(), DistanceControl, NetworkD
             )
             updateDistance(1)
         }
-
         ctvTwoKm.setOnClickListener {
             // sharedViewModel.setRange(1)
             ctvTwoKm.setBackgroundColor(
@@ -349,7 +260,6 @@ internal class NearestMosqueFragment : BaseFragment(), DistanceControl, NetworkD
             )
             updateDistance(7)
         }
-
         ctvThreeKm.setOnClickListener {
             // sharedViewModel.setRange(1)
             ctvThreeKm.setBackgroundColor(
@@ -415,13 +325,6 @@ internal class NearestMosqueFragment : BaseFragment(), DistanceControl, NetworkD
 
     private fun getDataList(radius: String) {
         FetchNetworkData.fetchNearbyPlace(radius, this)
-//        model.loadNearbyPlaceInfo(
-//            BuildConfig.MAP_API_KEY,
-//            radius,
-//            AppPreference.getUserCurrentLocation(),
-//            "mosque",
-//            "bn"
-//        )
     }
 
     override fun getList(): Array<MarkerOptions>? {

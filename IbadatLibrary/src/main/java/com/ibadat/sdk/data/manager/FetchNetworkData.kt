@@ -35,10 +35,11 @@ internal object FetchNetworkData {
     }
 
     private fun getHasMapNearMosque(radius: String): HashMap<String, Any> {
+        val userLocation = AppPreference.getUserCurrentLocation();
         val queryData = HashMap<String, Any>()
         queryData["key"] = BuildConfig.MAP_API_KEY
         queryData["radius"] = radius
-        queryData["location"] = AppPreference.getUserCurrentLocation()
+        queryData["location"] = userLocation.lat.toString() + "," + userLocation.lng.toString()
         queryData["type"] = "mosque"
         queryData["language"] = "bn"
         return queryData
@@ -97,7 +98,7 @@ internal object FetchNetworkData {
     }
 
     fun fetchNearbyPlace(radius: String, networkDataCallBack: NetworkDataCallBack) {
-        apiServiceNearMosque.getNearbyPlaceTest(getHasMapNearMosque(radius))
+        apiServiceNearMosque.getNearbyPlace(getHasMapNearMosque(radius))
             .enqueue(object : Callback<NearbyResponse> {
                 override fun onResponse(
                     call: Call<NearbyResponse>,

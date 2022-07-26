@@ -1,11 +1,9 @@
 package com.ibadat.sdk.fragments
 
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.ibadat.sdk.R
@@ -54,7 +52,7 @@ internal class WallpaperFragment : BaseFragment() {
 
     private fun loadData(portalCode: String, categoryCode: String, contentType: String) {
         //Creating an object of our api interface
-        val api: ApiService? = RetroClient.getDonwloadInfoInstance()
+        val api: ApiService? = RetroClient.getDownloadInfoInstance()
         val call: Call<List<WallpaperAnimModel?>?>? =
             api?.getAllWallpaperAnimation(portalCode, categoryCode, contentType)
         call?.enqueue(object : Callback<List<WallpaperAnimModel?>?> {

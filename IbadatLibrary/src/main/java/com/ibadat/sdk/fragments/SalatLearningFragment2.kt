@@ -49,7 +49,7 @@ internal class SalatLearningFragment2 : BaseFragment(), CallBackSalatLearningDet
     }
 
     private fun initView(view: View) {
-        progressBar = view.findViewById<ProgressBar>(R.id.pb_loader)
+        progressBar = view.findViewById(R.id.pb_loader)
         recycleCetagory = view.findViewById(R.id.fastCetagory)
         namazShikhshaTitle = view.findViewById(R.id.namaz_shikhsha_title)
         txtDescription = view.findViewById(R.id.txtDescription)

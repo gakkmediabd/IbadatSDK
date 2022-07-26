@@ -19,13 +19,15 @@ internal class RetroClient {
                 .build()
         }
 
-        private fun getAuthorizedClient():OkHttpClient{
+        private fun getAuthorizedClient(): OkHttpClient {
             return OkHttpClient.Builder()
                 .addInterceptor(
                     OAuthInterceptor(
-                    "Bearer","eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJuYW1laWQiOiI2MDE5Mzc3NjU3N2E3ZGYxM2VkYTRjNjciLCJVc2VySWQiOiI2MDE5Mzc3NjU3N2E3ZGYxM2VkYTRjNjciLCJVc2VyTmFtZSI6Ijg4MDE1Mzc2NzM5NzciLCJJbWFnZSI6IiIsInJvbGUiOiJ1c2VyIiwibmJmIjoxNjEyMjY1MzM1LCJleHAiOjE5Mjc2MjUzMzUsImlhdCI6MTYxMjI2NTMzNSwiaXNzIjoibG9sbGlwb3AiLCJhdWQiOiJsb2xsaXBvcCJ9.pA0fJa5dSCIJUuwmOY4RxQ0fSAQNhoZCHMaG94-ZkndOn9RxHqsEdq_uByTTQR3MCC2V_ajkcCBl7e4idNp5SA")
+                        "Bearer",
+                        "eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJuYW1laWQiOiI2MDE5Mzc3NjU3N2E3ZGYxM2VkYTRjNjciLCJVc2VySWQiOiI2MDE5Mzc3NjU3N2E3ZGYxM2VkYTRjNjciLCJVc2VyTmFtZSI6Ijg4MDE1Mzc2NzM5NzciLCJJbWFnZSI6IiIsInJvbGUiOiJ1c2VyIiwibmJmIjoxNjEyMjY1MzM1LCJleHAiOjE5Mjc2MjUzMzUsImlhdCI6MTYxMjI2NTMzNSwiaXNzIjoibG9sbGlwb3AiLCJhdWQiOiJsb2xsaXBvcCJ9.pA0fJa5dSCIJUuwmOY4RxQ0fSAQNhoZCHMaG94-ZkndOn9RxHqsEdq_uByTTQR3MCC2V_ajkcCBl7e4idNp5SA"
+                    )
                 )
-                    .build();
+                .build();
         }
 
         private fun getRetrofitInstance(): Retrofit {
@@ -35,6 +37,7 @@ internal class RetroClient {
                 .client(getClient())
                 .build()
         }
+
         private fun getRetrofitInstanceAuthorized(): Retrofit {
             return Retrofit.Builder()
                 .baseUrl(GlobalVar.ISLAMICHOLIDAYs_URL)
@@ -42,9 +45,9 @@ internal class RetroClient {
                 .client(getAuthorizedClient())
                 .build()
         }
+
         /**
          * Get API Service
-         *
          * @return API Service
          */
         fun getApiService(): ApiService? {
@@ -67,7 +70,7 @@ internal class RetroClient {
                 .build()
         }
 
-        fun getDonwloadInfoInstance(): ApiService? {
+        fun getDownloadInfoInstance(): ApiService? {
             return getRetroInstanceOfDownloadInfo().create(ApiService::class.java)
         }
 
@@ -81,43 +84,52 @@ internal class RetroClient {
                 .addConverterFactory(GsonConverterFactory.create())
                 .build()
         }
-        private fun getRetrofitForSalatLearnigApis(): Retrofit {
+
+        private fun getRetrofitForSalatLearningApis(): Retrofit {
             return Retrofit.Builder()
                 .baseUrl(GlobalVar.ROOT_URL)
                 .addConverterFactory(GsonConverterFactory.create())
                 .build()
         }
+
         private fun getRetrofitForNearestMosqueApi(): Retrofit {
             return Retrofit.Builder()
                 .baseUrl(GlobalVar.BASE_URL_NEARBY_PLACE)
                 .addConverterFactory(GsonConverterFactory.create())
                 .build()
         }
+
         private fun getRetrofitForDuaApis(): Retrofit {
             return Retrofit.Builder()
                 .baseUrl(GlobalVar.DUA_BASE_URL)
                 .addConverterFactory(GsonConverterFactory.create())
                 .build()
         }
+
         fun getNamazApiService(): ApiService? {
-            return getRetrofitForSalatLearnigApis().create(ApiService::class.java)
+            return getRetrofitForSalatLearningApis().create(ApiService::class.java)
         }
+
         fun getQuranApiService(): ApiService? {
             return getRetrofitForQuranApis().create(ApiService::class.java)
         }
-        fun getIslamicHolidaysApiService(): ApiService?{
-            return getRetrofitInstanceAuthorized().create(ApiService::class.java)
-        }
-        fun getJakatApiService(): ApiService?{
+
+        fun getIslamicHolidaysApiService(): ApiService? {
             return getRetrofitInstanceAuthorized().create(ApiService::class.java)
         }
 
-        fun getLiveVideoApiService(): ApiService?{
-            return getRetrofitForSalatLearnigApis().create(ApiService::class.java)
+        fun getJakatApiService(): ApiService? {
+            return getRetrofitInstanceAuthorized().create(ApiService::class.java)
         }
-        fun getNearestMosqueApiService(): ApiService{
+
+        fun getLiveVideoApiService(): ApiService? {
+            return getRetrofitForSalatLearningApis().create(ApiService::class.java)
+        }
+
+        fun getNearestMosqueApiService(): ApiService {
             return getRetrofitForNearestMosqueApi().create(ApiService::class.java)
         }
+
         fun getDuaApiService(): ApiService {
             return getRetrofitForDuaApis().create(ApiService::class.java)
         }
@@ -163,7 +175,6 @@ internal class RetroClient {
             return getCurrencyInfo().create(ApiService::class.java)
         }
 
-
         private fun getRetrofitSubsApis(): Retrofit {
             return Retrofit.Builder()
                 .baseUrl(GlobalVar.SUBS_BASE_URL)
@@ -175,7 +186,6 @@ internal class RetroClient {
             return getRetrofitSubsApis().create(ApiService::class.java)
         }
 
-
         fun getGenericApiService(url: String): ApiService? {
             val retrofit = Retrofit.Builder()
                 .baseUrl(url)
@@ -184,12 +194,17 @@ internal class RetroClient {
             return retrofit.create(ApiService::class.java)
         }
     }
-    internal class OAuthInterceptor(private val tokenType: String, private val acceessToken: String?) :
+
+    internal class OAuthInterceptor(
+        private val tokenType: String,
+        private val acceessToken: String?
+    ) :
         Interceptor {
 
         override fun intercept(chain: Interceptor.Chain): okhttp3.Response {
             var request = chain.request()
-            request = request.newBuilder().header("Authorization", "$tokenType $acceessToken").build()
+            request =
+                request.newBuilder().header("Authorization", "$tokenType $acceessToken").build()
             return chain.proceed(request)
         }
     }

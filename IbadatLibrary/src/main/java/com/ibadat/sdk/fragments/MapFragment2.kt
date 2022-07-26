@@ -15,7 +15,6 @@ import com.google.android.gms.maps.model.MarkerOptions
 import com.ibadat.sdk.R
 import com.ibadat.sdk.baseClass.BaseFragment
 import com.ibadat.sdk.data.restrepo.NearbySharedViewModel
-import com.ibadat.sdk.data.restrepo.RestRepo
 import com.ibadat.sdk.data.manager.prefs.AppPreference
 
 private const val ARG_MOSQUE_CALL_BACK = "mosqueCallBack"
@@ -34,8 +33,8 @@ internal class MapFragment2 : BaseFragment(), OnMapReadyCallback {
     @Transient
     var markerList: Array<MarkerOptions>? = null
 
-    @Transient
-    private lateinit var repository: RestRepo
+//    @Transient
+//    private lateinit var repository: RestRepo
 
     @Transient
     private lateinit var sharedViewModel: NearbySharedViewModel
@@ -93,9 +92,7 @@ internal class MapFragment2 : BaseFragment(), OnMapReadyCallback {
              markerList = mDistanceControl?.getList()
          }*/
         sharedViewModel.markerOptions.observe(viewLifecycleOwner) { markerOptionList ->
-            Log.i("sharedViewModel", "markLocation: ${markerOptionList.toString()}")
             if (markerOptionList?.isNotEmpty() == true) {
-
                 for (markerOptions in markerOptionList) {
                     if (mMap != null) {
                         mMap!!.addMarker(markerOptions)

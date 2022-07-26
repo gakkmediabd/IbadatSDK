@@ -1,11 +1,14 @@
 package com.ibadat.sdk.adapter
 
+import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.appcompat.widget.AppCompatImageView
 import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.Glide
+import com.bumptech.glide.request.RequestOptions
 import com.ibadat.sdk.R
 import com.ibadat.sdk.data.model.nearby.PlaceInfo
 import com.ibadat.sdk.util.AppConstantUtils
@@ -14,6 +17,7 @@ import com.ibadat.sdk.util.handleClickEvent
 
 
 internal class NearestMosqueAdapter(
+    private val context: Context,
     placeInfoList: MutableList<PlaceInfo>
 ) :
     RecyclerView.Adapter<NearestMosqueAdapter.MosqueViewHolder>() {
@@ -37,6 +41,13 @@ internal class NearestMosqueAdapter(
 
     override fun onBindViewHolder(holder: MosqueViewHolder, position: Int) {
         val placeInfo = placeInfoList[position]
+        holder.acivMosque.setImageURI(
+            Util.getUriFromPath(
+                holder.itemView.context, AppConstantUtils.drawable_hdpi + "mosque_gray.png"
+            )
+        )
+        holder.tvTitleMosque.text = placeInfo.name
+        holder.tvLocationMosque.text = placeInfo.address
         holder.itemView.setOnClickListener {
             holder.bind(placeInfo, onItemClick)
         }
@@ -61,19 +72,17 @@ internal class NearestMosqueAdapter(
         onItemClick = listener
     }
 
-    inner class MosqueViewHolder(itemView: View) :
-        RecyclerView.ViewHolder(itemView) {
+    inner class MosqueViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         val acivMosque: AppCompatImageView = itemView.findViewById(R.id.aciv_mosque)
         var tvTitleMosque: TextView = itemView.findViewById(R.id.tv_title_mosque)
         var tvLocationMosque: TextView = itemView.findViewById(R.id.tv_location_mosque)
         val acivDirection: AppCompatImageView = itemView.findViewById(R.id.aciv_direction)
 
         fun bind(placeInfo: PlaceInfo, onItemClick: MapItemClickListener) {
-            acivMosque.setImageURI(
-                Util.getUriFromPath(
-                    itemView.context, AppConstantUtils.drawable_hdpi + "mosque_gray.png"
-                )
-            )
+//            Glide.with(context)
+//                .load(placeInfo.placeLocation)
+//                .apply(RequestOptions().placeholder(R.drawable.default_img))
+//                .into(acivMosque)
             itemView.handleClickEvent {
                 onItemClick.let { click ->
                     click?.invoke(placeInfo)

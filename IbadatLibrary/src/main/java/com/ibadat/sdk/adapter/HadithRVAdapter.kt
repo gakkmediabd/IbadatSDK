@@ -44,7 +44,7 @@ internal class HadithRVAdapter(
 
     override fun onBindViewHolder(holder: DuaViewHolder, position: Int) {
         holder.onBind(position)
-        val duaM = mHadithList[position]
+//        val duaM = mHadithList[position]
         holder.itemView.setOnClickListener {
             callBack.onItemClick(mHadithList, position)
         }
