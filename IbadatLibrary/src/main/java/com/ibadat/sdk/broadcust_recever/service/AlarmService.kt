@@ -23,8 +23,6 @@ internal class AlarmService : Service() {
     }
 
     override fun onStartCommand(intent: Intent, flags: Int, startId: Int): Int {
-//        val intentData = intent.getStringExtra(START_FAJR_ALARM_SERVICE)
-//        Log.e("AS", "onStartCommand: $intentData")
         NotificationControl.initNotificationManager(this)
         NotificationControl.createNotificationChannel(
             NOTIFICATION_CHANNEL_NAME,

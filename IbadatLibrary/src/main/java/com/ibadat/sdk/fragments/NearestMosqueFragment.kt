@@ -29,7 +29,7 @@ import com.ibadat.sdk.data.manager.FetchNetworkData
 import com.ibadat.sdk.data.manager.prefs.AppPreference
 import com.ibadat.sdk.data.model.nearby.NearPlaceResult
 import com.ibadat.sdk.data.model.nearby.PlaceInfo
-import com.ibadat.sdk.data.restrepo.NearbySharedViewModel
+import com.ibadat.sdk.data.view_models.NearbySharedViewModel
 import com.ibadat.sdk.data.restrepo.NetworkDataCallBack
 import com.ibadat.sdk.util.PermissionManager
 import com.ibadat.sdk.views.MyCustomTextView

@@ -105,8 +105,10 @@ internal object FetchNetworkData {
                     response: Response<NearbyResponse>
                 ) {
                     if (response.isSuccessful) {
-                        networkDataCallBack.onLoading(response.isSuccessful)
-                        networkDataCallBack.onSuccess(response.body()!!.nearPlaceResults!!)
+                        if (response.body() != null) {
+                            networkDataCallBack.onLoading(response.isSuccessful)
+                            networkDataCallBack.onSuccess(response.body()!!.nearPlaceResults)
+                        }
                     } else {
                         networkDataCallBack.onLoading(response.isSuccessful)
                         networkDataCallBack.onSuccess(mutableListOf<NearbyResponse>())

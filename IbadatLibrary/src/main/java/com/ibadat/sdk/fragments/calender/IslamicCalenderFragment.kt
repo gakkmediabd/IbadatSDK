@@ -123,15 +123,6 @@ internal class IslamicCalenderFragment : BaseFragment() {
         mDataAdapter?.notifyDataSetChanged()
     }
 
-    //    private fun initActionBar() {
-//        toolbar = requireActivity().findViewById(R.id.toolbar)
-//        toolbar.setNavigationIcon(R.drawable.hadith_icon_back)
-//        toolbar.setNavigationOnClickListener {
-//            if (SurahActivity.backPressCount == 0) {
-//                requireActivity().finish()
-//            }
-//        }
-//    }
     private fun loadIslamicChhutiData() {
         pbProgress.visibility = View.VISIBLE
         val api: ApiService = RetroClient.getIslamicHolidaysApiService()!!
@@ -219,6 +210,4 @@ internal class IslamicCalenderFragment : BaseFragment() {
 
         this.currentMonthIndex = uCal[2]
     }
-
-
 }

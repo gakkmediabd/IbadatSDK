@@ -9,8 +9,8 @@ import com.ibadat.sdk.player.data.model.Surah
 import kotlinx.coroutines.*
 
 internal class PlayerViewModel : ViewModel() {
-    public val playerServiceConnection: PlayerServiceConnection = PlayerServiceConnection()
-    public val lifecycleObserver: ActivityLifecycleObserver = ActivityLifecycleObserver()
+    val playerServiceConnection: PlayerServiceConnection = PlayerServiceConnection()
+    val lifecycleObserver: ActivityLifecycleObserver = ActivityLifecycleObserver()
     private var currentPositionUpdateJob: Job? = null
     private var playerController: PlayerServiceController? = null
     private val _isPlayerReady: MutableLiveData<Boolean> = MutableLiveData(false)
@@ -24,7 +24,6 @@ internal class PlayerViewModel : ViewModel() {
 
     private val _playerCurrentPosition: MutableLiveData<Int> = MutableLiveData(0)
     val playerCurrentPosition: LiveData<Int> = _playerCurrentPosition
-
 
     fun togglePlayPause() {
         playerController?.togglePlayPause()

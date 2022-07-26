@@ -9,7 +9,7 @@ import android.webkit.WebViewClient
 import com.ibadat.sdk.R
 import com.ibadat.sdk.baseClass.BaseActivity
 
-class YoutubePlayerActivity : BaseActivity() {
+internal class YoutubePlayerActivity : BaseActivity() {
     private lateinit var wvYoutubePlayer: WebView
 
     @SuppressLint("SetJavaScriptEnabled")
@@ -18,7 +18,6 @@ class YoutubePlayerActivity : BaseActivity() {
         requestWindowFeature(Window.FEATURE_NO_TITLE)
         setContentView(R.layout.activity_youtube_player)
         wvYoutubePlayer = findViewById(R.id.wv_youtube_player)
-//        binding = DataBindingUtil.setContentView(this, R.layout.activity_youtube_player)
         val videoId = intent.getStringExtra("id")
 
         wvYoutubePlayer.webViewClient = WebViewClient()

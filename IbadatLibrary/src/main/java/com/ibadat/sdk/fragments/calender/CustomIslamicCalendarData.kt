@@ -12,7 +12,6 @@ import java.util.*
 import kotlin.collections.ArrayList
 
 
-
 object CustomIslamicCalendarData {
     fun getIslamicMonthData(i: Int): ArrayList<IslamicCalendarModel> {
         if (i < 0) {
@@ -26,13 +25,13 @@ object CustomIslamicCalendarData {
             )*/
         )
         ummalquraCalendar.add(Calendar.DATE, -1)
-        val todayDate =  ummalquraCalendar.time
+        val todayDate = ummalquraCalendar.time
         ummalquraCalendar.set(Calendar.MONTH, i)
         ummalquraCalendar.set(Calendar.DATE, 1)
         val dayOfWeek = ummalquraCalendar.get(Calendar.DAY_OF_WEEK)
 
 
-        Log.e("datechkhijri",""+todayDate)
+        Log.e("datechkhijri", "" + todayDate)
 
         //arrayList.add(IslamicCalendarModel(" "))
         if (dayOfWeek != 7) {

@@ -12,7 +12,6 @@ fun ImageView.playbackState(state: STATE?) {
         STATE.PAUSE -> setImageResource(R.drawable.ic_mini_player_play)
         else -> setImageResource(R.drawable.ic_mini_player_play)
     }
-
 }
 
 //@BindingAdapter("playerDuration")
@@ -30,8 +29,7 @@ public fun SeekBar.playerCurrentPosition(position: Int?) {
 }
 
 //@BindingAdapter("playerAction")
-public fun SeekBar.playerAction(playerAction: ((progress: Int, needSeek: Boolean) -> Unit)?) {
-
+fun SeekBar.playerAction(playerAction: ((progress: Int, needSeek: Boolean) -> Unit)?) {
     this.setOnSeekBarChangeListener(object : SeekBar.OnSeekBarChangeListener {
         override fun onProgressChanged(seekBar: SeekBar?, progress: Int, fromUser: Boolean) {
             if (fromUser) {

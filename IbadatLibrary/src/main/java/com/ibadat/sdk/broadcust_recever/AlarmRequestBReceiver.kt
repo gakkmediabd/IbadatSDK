@@ -36,7 +36,6 @@ internal class AlarmRequestBReceiver : BroadcastReceiver() {
                 }
                 START_FAJR_ALARM_SERVICE -> {
                     val intentSer = Intent(context, AlarmService::class.java)
-//                    intentSer.putExtra(START_FAJR_ALARM_SERVICE, "dsjdhsjdjk")
                     startService(context, intentSer)
                 }
                 START_DHUHR_ALARM_SERVICE -> {
@@ -109,7 +108,6 @@ internal class AlarmRequestBReceiver : BroadcastReceiver() {
                 pAlarmIntent
             )
         }
-//        alarmMgr!!.set(AlarmManager.ELAPSED_REALTIME_WAKEUP, alarmTime, pAlarmIntent);
     }
 
     fun cancelAlarm(context: Context?, requestType: String, mRequestCode: Long) {

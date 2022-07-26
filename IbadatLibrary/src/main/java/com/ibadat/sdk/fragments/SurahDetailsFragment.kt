@@ -5,6 +5,7 @@ import android.annotation.SuppressLint
 import android.content.Context
 import android.media.AudioManager
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -22,12 +23,15 @@ import com.ibadat.sdk.data.model.QuranDetailsModel
 import com.ibadat.sdk.data.restrepo.ApiService
 import com.ibadat.sdk.data.restrepo.RetroClient
 import com.ibadat.sdk.player.PlayerViewModel
+import com.ibadat.sdk.player.STATE
 import com.ibadat.sdk.player.data.model.Surah
 import com.ibadat.sdk.util.*
 import com.ibadat.sdk.views.MyCustomTextView
+import kotlinx.android.synthetic.main.wallpaper_anim_list_item.*
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
+import kotlin.math.log
 
 internal class SurahDetailsFragment : BaseFragment() {
     var mSuraIndex: Int = 0
@@ -37,7 +41,6 @@ internal class SurahDetailsFragment : BaseFragment() {
     private lateinit var ctvSurahTitle: MyCustomTextView
     private lateinit var ctvCount: MyCustomTextView
     private lateinit var ivImage: ImageView
-    private lateinit var ivPlay: ImageView
     private lateinit var quranSuraArray: Array<String>
 
     private lateinit var ivMiniPlayerPhoto: ImageView
@@ -46,9 +49,9 @@ internal class SurahDetailsFragment : BaseFragment() {
     private lateinit var sbAudioVol: SeekBar
     private lateinit var ivMiniPlayerVolHigh: ImageView
     private lateinit var ivMiniPlayerPrev: ImageView
-    private lateinit var iv_play: ImageView
+    private lateinit var ivPlay: ImageView
     private lateinit var ivMiniPlayerNext: ImageView
-    private var pbBottomDialog: ProgressBar? = null
+    private lateinit var pbBottomDialog: ProgressBar
     private lateinit var audioManager: AudioManager
 
     private lateinit var playerViewModel: PlayerViewModel
@@ -68,11 +71,26 @@ internal class SurahDetailsFragment : BaseFragment() {
         initView()
         loadSurah()
         playerControl(mSuraIndex)
+        Log.e("SDF", "onViewCreated: $mSuraIndex")
         ivMiniPlayerNext.setOnClickListener {
             playNextSurah()
         }
         ivMiniPlayerPrev.setOnClickListener {
             playPreviousSurah()
+        }
+
+        //This Player code will be remove future.
+        playerViewModel.playerCurrentPosition.observe(requireActivity()) {
+            sbMediaControllerProgress.playerAction(playerViewModel::seekTo)
+        }
+        playerViewModel.playerCurrentPosition.observe(requireActivity()) {
+            sbMediaControllerProgress.playerCurrentPosition(it)
+        }
+        playerViewModel.playerDuration.observe(requireActivity()) {
+            sbMediaControllerProgress.playerDuration(it)
+        }
+        playerViewModel.playbackState.observe(requireActivity()) {
+            ivPlay.playbackState(it)
         }
     }
 
@@ -116,11 +134,10 @@ internal class SurahDetailsFragment : BaseFragment() {
         playerViewModel = ViewModelProvider(requireActivity())[PlayerViewModel::class.java]
 //        binding.lifecycleOwner = requireActivity()
 //        binding.viewModel = playerViewModel
-//        ivPlay.playbackState(playerViewModel.playbackState.value)
     }
 
     private fun loadSurah() {
-        pbBottomDialog!!.visibility = View.VISIBLE
+        pbBottomDialog.visibility = View.VISIBLE
         val api: ApiService = RetroClient.getQuranApiService()!!
         val call = api.getSurahDetails(mSuraIndex + 1, "bn")
         call.enqueue(object : Callback<QuranDetailsModel> {
@@ -128,7 +145,7 @@ internal class SurahDetailsFragment : BaseFragment() {
                 call: Call<QuranDetailsModel>,
                 response: Response<QuranDetailsModel>
             ) {
-                pbBottomDialog?.visibility = View.GONE
+                pbBottomDialog.visibility = View.GONE
                 if (response.isSuccessful && response.code() == 200) {
                     val quranDetailsModel: QuranDetailsModel? = response.body()
                     if (quranDetailsModel != null) {
@@ -138,7 +155,7 @@ internal class SurahDetailsFragment : BaseFragment() {
             }
 
             override fun onFailure(call: Call<QuranDetailsModel>, t: Throwable) {
-                pbBottomDialog?.visibility = View.GONE
+                pbBottomDialog.visibility = View.GONE
             }
         })
     }
@@ -184,7 +201,6 @@ internal class SurahDetailsFragment : BaseFragment() {
                 AppConstantUtils.drawable_hdpi + "art.png"
             )
         )
-
         val includeMiniPlayer: RelativeLayout = requireView().findViewById(R.id.include_mini_player)
         ivMiniPlayerPhoto = includeMiniPlayer.findViewById(R.id.iv_mini_player_photo)
         ctvMiniPlayerTitle = requireView().findViewById(R.id.ctv_mini_player_title)
@@ -203,16 +219,20 @@ internal class SurahDetailsFragment : BaseFragment() {
         this.mSuraIndex = if (this.mSuraIndex.also { mSuraIndex = it } >= 113) 0 else mSuraIndex + 1
         updateViewPerSurah()
         loadSurah()
+        Log.e("SDF", "playNextSurah: $mSuraIndex")
         playerControl2(mSuraIndex + 1)
         return
     }
 
     private fun playPreviousSurah() {
-        mSuraIndex -= 1
-        updateViewPerSurah()
-        loadSurah()
-        playerControl2(mSuraIndex)
-        return
+        Log.e("SDF", "playPreviousSurah: $mSuraIndex")
+        if (mSuraIndex != 0) {
+            mSuraIndex -= 1
+            updateViewPerSurah()
+            loadSurah()
+            playerControl2(mSuraIndex)
+            return
+        }
     }
 
     private fun playerControl2(mSuraIndex: Int) {

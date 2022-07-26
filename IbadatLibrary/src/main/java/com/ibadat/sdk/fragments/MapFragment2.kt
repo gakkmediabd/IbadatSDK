@@ -14,7 +14,7 @@ import com.google.android.gms.maps.model.LatLng
 import com.google.android.gms.maps.model.MarkerOptions
 import com.ibadat.sdk.R
 import com.ibadat.sdk.baseClass.BaseFragment
-import com.ibadat.sdk.data.restrepo.NearbySharedViewModel
+import com.ibadat.sdk.data.view_models.NearbySharedViewModel
 import com.ibadat.sdk.data.manager.prefs.AppPreference
 
 private const val ARG_MOSQUE_CALL_BACK = "mosqueCallBack"
