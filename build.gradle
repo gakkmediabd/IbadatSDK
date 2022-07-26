@@ -1,7 +1,7 @@
 // Top-level build file where you can add configuration options common to all sub-projects/modules.
 buildscript {
     ext.kotlin_version = '1.6.10'
-    ext.map_API_KEY = "\"AIzaSyDZp4Om8x8i6UQDfyXMGERlt8pyNgddhFE\""
+    ext.map_API_KEY = "\"\""
     repositories {
         google()
         mavenCentral()

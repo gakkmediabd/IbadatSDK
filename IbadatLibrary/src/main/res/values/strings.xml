@@ -128,7 +128,7 @@
     <string name="name_meaning">অর্থ:</string>
     <string name="ramadan">রমজান</string>
     <string name="date">তারিখ</string>
-    <string name="sehri_time">Sehri last time</string>
+    <string name="sehri_last_time">সেহরীর শেষ সময়</string>
     <string name="txt_am">am</string>
     <string name="txt_pm">pm</string>
     <string name="day">দিন</string>
