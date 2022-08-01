@@ -140,6 +140,7 @@ internal class SurahDetailsFragment : BaseFragment() {
         pbBottomDialog.visibility = View.VISIBLE
         val api: ApiService = RetroClient.getQuranApiService()!!
         val call = api.getSurahDetails(mSuraIndex + 1, "bn")
+        Log.e("SDF", "loadSurah: " + mSuraIndex)
         call.enqueue(object : Callback<QuranDetailsModel> {
             override fun onResponse(
                 call: Call<QuranDetailsModel>,
