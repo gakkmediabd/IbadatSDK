@@ -15,7 +15,6 @@ import androidx.core.content.ContextCompat
 import com.ibadat.sdk.R
 import com.ibadat.sdk.baseClass.BaseFragment
 import com.ibadat.sdk.util.handleClickEvent
-//import com.ibadat.sdk.databinding.FragmentCalculateJakatBinding
 import com.ibadat.sdk.views.MyCustomTextView
 import java.text.DecimalFormat
 
