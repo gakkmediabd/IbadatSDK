@@ -69,4 +69,8 @@ Open Hadith
 
     IbadatSdkCore.openFeature(this, IbadatSdkCore.SALATLEARNING)
 
+
+## Author
+Rezaul Khan, rezaulkhan.gakk@gmail.com
+
 [More about developer complany: Gakk Media BD Ltd <img src="https://gakkmedia.com/wp-content/uploads/2019/03/Gakk-Media_Logo-final-black.png" width="200" height="40" />](https://gakkmedia.com/)
